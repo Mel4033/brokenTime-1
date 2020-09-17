@@ -9,7 +9,7 @@
 
 ## /!\ Ressources importantes /!\
 - Trello
-- 
+- ... Autres docs
 
 
 ### 17/09/2020
