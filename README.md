@@ -8,6 +8,7 @@
 - ... Autre chose ?
 
 ## /!\ Ressources importantes /!\
+- Repo d'origine : https://github.com/O-clock-Isengard/Projects/issues/14
 - Trello
 - ... Autres docs
 
