@@ -9,8 +9,8 @@
 
 ## /!\ Ressources importantes /!\
 - Repo d'origine : https://github.com/O-clock-Isengard/Projects/issues/14
-- Trello
-- ... Autres docs
+- Trello (à faire)
+- ... Autres docs ?
 
 
 ### 17/09/2020
