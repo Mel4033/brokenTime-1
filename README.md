@@ -1,5 +1,11 @@
 # Suivi du projet
 
+## Todo-List
+- Cahier des charges
+- MCD
+- Wireframes
+- User-stories
+
 ## Rôles à attribuer :
 - Product Owner / Lead Developer
 - Scrum Master
