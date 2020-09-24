@@ -3,15 +3,13 @@ import React from 'react';
 
 // == Import
 import Counter from '../../containers/Counter';
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import Header from '../Header';
+import './style.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-    <Counter />
+    <Header />
   </div>
 );
 
