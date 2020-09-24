@@ -8,11 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="main")
+     * Méthode permettant l'affichage de la page d'accueil
+     * 
+     * @Route("/", name="main_home")
      */
-    public function index()
+    public function home()
     {
-        return $this->render('main/index.html.twig', [
+        return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }

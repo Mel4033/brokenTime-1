@@ -8,11 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class FictionController extends AbstractController
 {
     /**
+     * Méthode permettant l'affichage d'une fiction
+     * 
      * @Route("/fiction/{slug}", name="fiction_view")
      */
     public function view()
     {
-        return $this->render('fiction/index.html.twig', [
+        return $this->render('fiction/view.html.twig', [
             'controller_name' => 'FictionController',
         ]);
     }

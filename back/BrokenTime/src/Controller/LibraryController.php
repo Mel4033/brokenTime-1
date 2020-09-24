@@ -8,11 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class LibraryController extends AbstractController
 {
     /**
+     * Méthode permettant l'affichage de la page "librairie"
+     * 
      * @Route("/library", name="library_list")
      */
     public function list()
     {
-        return $this->render('library/index.html.twig', [
+        return $this->render('library/list.html.twig', [
             'controller_name' => 'LibraryController',
         ]);
     }
