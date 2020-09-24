@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Import
-import Counter from 'src/containers/Counter';
+import Counter from '../../containers/Counter';
 import reactLogo from './react-logo.svg';
 import './styles.css';
 
