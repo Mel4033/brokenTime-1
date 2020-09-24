@@ -11,8 +11,10 @@ import './style.scss';
 const App = () => (
   <div className="app">
     <Header />
-    <Home />
-    <Footer />
+    <div className="scrollzone">
+      <Home />
+      <Footer />
+    </div>
   </div>
 );
 

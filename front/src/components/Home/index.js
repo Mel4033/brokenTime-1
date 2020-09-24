@@ -2,7 +2,90 @@ import React from 'react';
 import './style.scss';
 
 const Home = () => (
-  <div>Home</div>
-);
+  <div className="home"> Home
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  <div className="fakeElement"> Element </div>
+  </div>
+  );
 
 export default Home;
