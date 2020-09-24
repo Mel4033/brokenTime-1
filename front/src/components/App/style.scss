@@ -1,3 +1,18 @@
+html
+{
+  font-size: 16px;
+}
+
 .app {
-  min-width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  // background-image: linear-gradient(to right top, #323232, #393945, #3d4158, #3b4a6d, #335483, #285187, #1a4e8c, #004b90, #003a82, #002872, #051662, #0b0051);
+}
+
+.container
+{
+  flex: 1;
 }
