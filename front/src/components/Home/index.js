@@ -1,0 +1,91 @@
+import React from 'react';
+import './style.scss';
+
+const Home = () => (
+  <div className="home"> Home
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+    <div className="fakeElement"> Element </div>
+  </div>
+);
+
+export default Home;

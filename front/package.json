@@ -46,7 +46,7 @@
     "postcss-preset-env": "*",
     "resolve-url-loader": "*",
     "sass": "*",
-    "sass-loader": "*",
+    "sass-loader": "^10.0.2",
     "style-loader": "*",
     "terser-webpack-plugin": "*",
     "webpack": "*",
