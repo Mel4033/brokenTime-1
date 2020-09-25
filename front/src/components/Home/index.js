@@ -3,7 +3,6 @@ import './style.scss';
 
 const Home = () => (
   <div className="home">
-    <i class="far fa-clock"></i>
   </div>
 );
 
