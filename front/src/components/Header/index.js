@@ -1,11 +1,10 @@
 import React from 'react';
 import './style.scss';
+import Menu from './Menu';
 
 const Header = () => (
   <div className="header">
-    <button type="button" className="header__button">
-      <icon className="header__icon fas fa-bars fa-2x" />
-    </button>
+    <Menu />
   </div>
 );
 
