@@ -6,7 +6,7 @@ const Home = () => (
     {/* Encapsulation des éléments de première vue avec la div suivante */}
     <div className="home__firstlook">
       <div className="home__group">
-        <icon className="home__item home__logo far fa-clock fa-8x" />
+        <icon className="home__item home__logo far fa-clock fa-7x" />
         <h1 className="home__item home__title">Broken Time</h1>
         <h2 className="home__item home__subtitle">Le site de fictions interactives.</h2>
       </div>

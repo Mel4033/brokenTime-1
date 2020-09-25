@@ -1,21 +1,10 @@
-.menu
-{
-  display: flex;
-  flex: 1;
-  max-height: 100px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1rem 2rem 1rem 0;
-}
-
-.menu__button
+.header__button
 {
   background-color: transparent;
   border: none;
 }
 
-.menu__icon
+.header__icon
 {
   color: white;
 }
