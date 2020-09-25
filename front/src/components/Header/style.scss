@@ -1,6 +1,18 @@
 .header
 {
-  flex: 1;
-  max-height: 50px;
-  flex-wrap: wrap;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-height: 100px;
+}
+
+.header__button
+{
+  background-color: transparent;
+  border: none;
+}
+
+.header__icon
+{
+  color: white;
 }
