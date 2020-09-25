@@ -5,6 +5,7 @@
 
   &__firstlook
   {
+    margin-top: 2rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -18,17 +19,21 @@
     text-align: center;
   }
 
+  &__logo
+  {
+    margin-bottom: 1rem;
+  }
+
   &__title
   {
     font-family: 'Yatra One', cursive;
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
   
   &__subtitle
   {
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-family: 'Yatra One', cursive;
+    font-size: 1.8rem;
     font-style: italic;
   }
 }

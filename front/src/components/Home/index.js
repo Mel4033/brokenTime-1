@@ -10,7 +10,7 @@ const Home = () => (
         <h1 className="home__item home__title">Broken Time</h1>
         <h2 className="home__item home__subtitle">Le site de fictions interactives.</h2>
       </div>
-      <a className="home__item home__nav-arrow" href="#" alt="Autoscroll"><icon className="fas fa-angle-double-down fa-5x" /></a>
+      <a className="home__item home__nav-arrow" href="#" alt="Autoscroll"><icon className="fas fa-angle-double-down fa-4x" /></a>
     </div>
   </div>
 );
