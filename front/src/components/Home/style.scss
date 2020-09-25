@@ -7,21 +7,21 @@
   {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
+    margin-bottom: 500px;
   }
 
-  &__item
+  &__group
   {
-    margin-bottom: 4rem;
+    text-align: center;
   }
 
   &__title
   {
     font-family: 'Yatra One', cursive;
     font-size: 3rem;
-    margin-bottom: 0;
   }
   
   &__subtitle
