@@ -6,14 +6,21 @@
     max-height: 100px;
   }
 
-  .menu__burger
-  {
+  .menu__desktop {
+    display: none;
+  }
+
+  .menu__burger {
     display: block;
     color: white;
   }
 
-  .menu__desktop
-  {
-    display: none;
+  .burger__button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .burger__icon {
+    color: white;
   }
 }

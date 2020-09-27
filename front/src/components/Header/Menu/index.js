@@ -1,11 +1,10 @@
 import React from 'react';
-import './style.scss';
 
 const Menu = () => (
   <div className="menu">
     <div className="menu__burger">
-      <button type="button" className="header__button">
-        <icon className="header__icon fas fa-bars fa-2x" />
+      <button type="button" className="burger__button">
+        <icon className="burger__icon fas fa-bars fa-2x" />
       </button>
     </div>
     <div className="menu__desktop">
