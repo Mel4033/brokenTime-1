@@ -1,5 +1,4 @@
-html
-{
+html {
   font-size: 16px;
 }
 
@@ -8,11 +7,58 @@ html
   flex-direction: column;
   background-attachment: fixed;
   height: 100vh;
-  background-image: linear-gradient(to right top, #323232, #393945, #3d4158, #3b4a6d, #335483, #285187, #1a4e8c, #004b90, #003a82, #002872, #051662, #0b0051);
+  background-image: linear-gradient(
+    to right top,
+    #323232,
+    #393945,
+    #3d4158,
+    #3b4a6d,
+    #335483,
+    #285187,
+    #1a4e8c,
+    #004b90,
+    #003a82,
+    #002872,
+    #051662,
+    #0b0051
+  );
 }
 
-.scrollzone
-{
+.scrollzone {
   flex: 1;
   overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-button {
+  width: 100px;
+  height: 100px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e89a4;
+  border: 0px none #ffffff;
+  border-radius: 33px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e89a4;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #1e89a4;
+}
+::-webkit-scrollbar-track {
+  background: #1c515e;
+  border: 0px none #ffffff;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #1c515e;
+}
+::-webkit-scrollbar-track:active {
+  background: #1c515e;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

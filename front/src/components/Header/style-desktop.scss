@@ -1,0 +1,30 @@
+@media (min-width: 600px) {
+  .menu__burger
+  {
+    display: none;
+  }
+
+  .menu__desktop
+  {
+    display: flex;
+    color: white;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu__disconnect
+  {
+    font-size: 1.5rem;
+    border: none;
+    padding: 0;
+    background-color: red;
+  }
+
+  .link
+  {
+    font-size: 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    margin: 0 0.5rem;
+  }
+}
