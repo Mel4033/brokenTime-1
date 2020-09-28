@@ -8,6 +8,7 @@ const fakeImg = 'https://cdn.discordapp.com/avatars/179551273840934912/c5dc29e71
 const Message = ({ author, content }) => {
   // Ternaire déterminant quelle classe doit être appliquée aux messages postés.
   const classToApply = author === 'Vous' ? 'player' : 'protagonist';
+
   return (
     <div className={`message ${classToApply}`}>
       <div className="message__profile-picture">

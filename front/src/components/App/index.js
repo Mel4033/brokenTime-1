@@ -13,8 +13,7 @@ const App = () => (
   <div className="app">
     <Header />
     <div className="scrollzone">
-      <Home />
-      <Footer />
+      <Fiction />
     </div>
   </div>
 );
