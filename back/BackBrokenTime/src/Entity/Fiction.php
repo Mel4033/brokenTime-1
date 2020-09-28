@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FictionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,22 @@ class Fiction
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="fictions")
+     */
+    private $category;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Path::class, mappedBy="fiction", orphanRemoval=true)
+     */
+    private $path;
+
+    public function __construct()
+    {
+        $this->category = new ArrayCollection();
+        $this->path = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +172,63 @@ class Fiction
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->category->contains($category)) {
+            $this->category[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        if ($this->category->contains($category)) {
+            $this->category->removeElement($category);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Path[]
+     */
+    public function getPath(): Collection
+    {
+        return $this->path;
+    }
+
+    public function addPath(Path $path): self
+    {
+        if (!$this->path->contains($path)) {
+            $this->path[] = $path;
+            $path->setFiction($this);
+        }
+
+        return $this;
+    }
+
+    public function removePath(Path $path): self
+    {
+        if ($this->path->contains($path)) {
+            $this->path->removeElement($path);
+            // set the owning side to null (unless already changed)
+            if ($path->getFiction() === $this) {
+                $path->setFiction(null);
+            }
+        }
 
         return $this;
     }

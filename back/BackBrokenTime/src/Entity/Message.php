@@ -32,6 +32,18 @@ class Message
      */
     private $lastMessage;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Character::class, inversedBy="message")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $byCharacter;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Path::class, inversedBy="message")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $path;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +81,30 @@ class Message
     public function setLastMessage(bool $lastMessage): self
     {
         $this->lastMessage = $lastMessage;
+
+        return $this;
+    }
+
+    public function getByCharacter(): ?Character
+    {
+        return $this->byCharacter;
+    }
+
+    public function setByCharacter(?Character $byCharacter): self
+    {
+        $this->byCharacter = $byCharacter;
+
+        return $this;
+    }
+
+    public function getPath(): ?Path
+    {
+        return $this->path;
+    }
+
+    public function setPath(?Path $path): self
+    {
+        $this->path = $path;
 
         return $this;
     }
