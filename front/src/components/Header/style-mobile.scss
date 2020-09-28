@@ -1,0 +1,26 @@
+@media (max-width: 600px) {
+  .header {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    max-height: 100px;
+  }
+
+  .menu__desktop {
+    display: none;
+  }
+
+  .menu__burger {
+    display: block;
+    color: white;
+  }
+
+  .burger__button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .burger__icon {
+    color: white;
+  }
+}
