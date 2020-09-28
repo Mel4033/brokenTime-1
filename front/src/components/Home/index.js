@@ -16,6 +16,9 @@ const Home = () => (
         <icon className="fas fa-angle-double-down fa-4x" />
       </a>
     </div>
+    <div className="home__container">
+      <div>Some content.</div>
+    </div>
   </div>
 );
 
