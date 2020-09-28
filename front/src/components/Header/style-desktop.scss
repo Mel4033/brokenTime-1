@@ -22,14 +22,17 @@
 
   .menu__disconnect
   {
-    color: #138496;
-    font-size: 1.2rem;
-    border: 1px solid #138496;
-    padding: 0.3rem;
-    border-radius: 0.3rem;
+    font-size: 1.5rem;
+    color: white;
+    border: none;
     background-color: transparent;
-    font-style: italic;
-    box-shadow: 0px 0px 10px 1px #138496
+    transition: 1s;
+
+    &:hover
+    {
+      color: green;
+      transition: 0.25s;
+    }
   }
 
   .link

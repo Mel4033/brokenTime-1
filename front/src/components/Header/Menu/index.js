@@ -13,7 +13,7 @@ const Menu = () => (
         <a className="link" href="#" alt="none">Bibliothèque</a>
         <a className="link" href="#" alt="none">Mon profil</a>
       </div>
-      <button type="button" className="menu__item menu__disconnect">Déconnexion</button>
+      <button type="button" className="menu__item menu__disconnect"><i class="fas fa-power-off" /></button>
     </div>
   </div>
 );

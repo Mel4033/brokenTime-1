@@ -7,6 +7,8 @@ import Footer from '../Footer';
 import Home from '../Home';
 import './style.scss';
 
+// TODO : Faire les routes et les redirections
+
 // == Composant
 const App = () => (
   <div className="app">
