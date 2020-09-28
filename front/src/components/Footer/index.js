@@ -9,9 +9,9 @@ import './style.scss';
 const Footer = () => (
   <div className="footer">
     <div className="footerfollow">Suivez nous !
-      <icon className="fab fa-facebook-square" />
-      <icon className="fab fa-instagram" />
-      <icon className="fab fa-twitter-square" />
+      <i className="fab fa-facebook-square" />
+      <i className="fab fa-instagram" />
+      <i className="fab fa-twitter-square" />
     </div>
     <div className="copyright">&copy; Copyright 2020</div>
     <div> Tous droits reservés.</div>

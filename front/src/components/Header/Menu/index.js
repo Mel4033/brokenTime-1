@@ -4,7 +4,7 @@ const Menu = () => (
   <div className="menu">
     <div className="menu__burger">
       <button type="button" className="burger__button">
-        <icon className="burger__icon fas fa-bars fa-2x" />
+        <i className="burger__icon fas fa-bars fa-2x" />
       </button>
     </div>
     <div className="menu__desktop">

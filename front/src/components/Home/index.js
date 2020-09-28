@@ -13,7 +13,7 @@ const Home = () => (
       </div>
       <a className="home__item home__nav-arrow" href="#" alt="Autoscroll">
         {/* Le logo se situera ici à la place de l'icone */}
-        <icon className="fas fa-angle-double-down fa-4x" />
+        <i className="fas fa-angle-double-down fa-4x" />
       </a>
     </div>
   </div>
