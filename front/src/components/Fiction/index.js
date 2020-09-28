@@ -21,8 +21,8 @@ const Fiction = () => (
       <Message author="Meadow" content="Bon. Moi c'est Meadow et euh... Je viens de trouver cette espèce de montre par terre, au milieu de toute cette explosion de paperasse." />
     </div>
     <div className="fiction__choices">
-      <Choice content="Quoi ? Quelle montre ?" />
-      <Choice content="Comment ça 'cette explosion' ?" />
+      <Choice targetPath="5487" content="Quoi ? Quelle montre ?" />
+      <Choice targetPath="235451" content="Comment ça 'cette explosion' ?" />
     </div>
   </div>
 );
