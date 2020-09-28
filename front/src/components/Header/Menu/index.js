@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Menu = () => (
+const Menu = ({isLoginOpened}) => (
   <div className="menu">
     <div className="menu__burger">
       <button type="button" className="burger__button">
@@ -13,7 +13,7 @@ const Menu = () => (
         <a className="link" href="#" alt="none">Bibliothèque</a>
         <a className="link" href="#" alt="none">Mon profil</a>
       </div>
-      <button type="button" className="menu__item menu__disconnect"><i class="fas fa-power-off" /></button>
+      <button alt="none" type="button" className="menu__item menu__disconnect"><i className="fas fa-power-off" /></button>
     </div>
   </div>
 );
