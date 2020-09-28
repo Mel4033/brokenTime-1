@@ -11,10 +11,9 @@
 
   &__choices {
     flex: 1;
-    max-height: 2rem;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
   }
 }

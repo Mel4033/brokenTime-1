@@ -14,6 +14,12 @@ const Fiction = () => (
     <div className="fiction__messages">
       <Message />
       <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
     </div>
     <div className="fiction__choices">
       <Choice />
