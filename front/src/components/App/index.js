@@ -5,8 +5,11 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
+import bibliotheque from '../Bibliotheque';
 import './style.scss';
+import Bibliotheque from '../Bibliotheque';
 
+/*
 // == Composant
 const App = () => (
   <div className="app">
@@ -17,6 +20,25 @@ const App = () => (
     </div>
   </div>
 );
+*/
+
+// == Composant test pour la bibliotheque 
+
+const App = () => (
+  <div className="app">
+    <Header />
+    <div className="scrollzone">
+      <Bibliotheque />
+      <Footer />
+    </div>
+  </div>
+);
+
+
+
+
+
+
 
 // == Export
 export default App;

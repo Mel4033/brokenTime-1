@@ -1,0 +1,66 @@
+.menuTitle
+{
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 40px;
+  color: #acab;
+
+};
+
+.searchForm
+{
+  text-align: center;
+};
+
+.searchInput
+{
+  width: 50%;
+  border-radius: 5px;
+  height: 25px;
+  
+}
+
+.card
+{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.cardUnit
+{
+  width: 20%;
+  border: 1px solid #d3d3d3;
+  margin-left: 4%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 200px;
+  
+}
+
+.fictionTitle
+{
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  font-size: 1.5rem;
+}
+
+.resume
+{
+  padding-top: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-image: url("../../assets/images/picture.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.locked
+{
+  
+  background-image: url("../../assets/images/padlock.png");
+  background-position-x: 10px;
+  background-position-y: 10px;
+  background-repeat: no-repeat;
+}
