@@ -9,6 +9,8 @@ import './style.scss';
   // TODO : Refaire la barre de recherche 
   // TODO : Finir les cases 
   TODO : Voir le probléme avec le footer ( probléme de position )
+  TODO : regler ecart entre search bar et cards
+  
 
 */
 

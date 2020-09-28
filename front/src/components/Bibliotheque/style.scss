@@ -2,13 +2,13 @@
 {
   height: 100vh;
 }
+
 .menuTitle
 {
   text-align: center;
   font-size: 2.5rem;
   margin: 40px;
   color: #acab;
-
 };
 
 .searchForm
@@ -25,8 +25,7 @@
   background-image: url("../../assets/images/loupe.png");
   background-position: 7px 6px;
   background-repeat: no-repeat;
-  padding-left: 30px;
-  
+  padding-left: 30px;  
 }
 
 .searchInput:focus
@@ -40,8 +39,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
-  
+  justify-content: space-around; 
 }
 
 .cardUnit
@@ -53,8 +51,7 @@
   height: 200px;
   background-image: url("../../assets/images/picture.png");
   background-position: 50%;
-  background-repeat: no-repeat;
-  
+  background-repeat: no-repeat; 
 }
 
 .fictionTitle
@@ -96,12 +93,10 @@
   background-image: url("../../assets/images/picture.png");
   background-position: 50%;
   background-repeat: no-repeat;
-
 }
 
 .locked
 {
-  
   background-image: url("../../assets/images/padlock.png");
   background-position-x: 10px;
   background-position-y: 10px;
