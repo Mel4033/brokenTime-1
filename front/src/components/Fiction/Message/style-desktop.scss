@@ -1,53 +1,53 @@
-.message
-{
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  width: 70%;
-
-  &__content
-  {
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0px 3px 3px rgb(0, 0, 0);
-  }
-
-  &__content.protagonist
-  {
-    background-color: rgb(187, 139, 67);
-  }
-
-  &__content.player
-  {
-    background-color: rgb(156, 156, 156);
-  }
-
-  &__author
-  {
+@media (min-width: 601px) {
+  .message {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 60%;
     margin-bottom: 1rem;
-    font-size: 1.1rem;
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-    font-style: italic;
+
+    &__content {
+      width: 100%;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0px 3px 3px rgb(0, 0, 0);
+    }
+
+    &__content.protagonist {
+      background-color: rgb(187, 139, 67);
+    }
+
+    &__content.player {
+      background-color: rgb(156, 156, 156);
+    }
+
+    &__author {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      font-family: "Oswald", sans-serif;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    &__author.protagonist {
+      color: rgb(160, 59, 0);
+    }
+
+    &__author.player {
+      color: rgb(0, 54, 104);
+      text-align: right;
+    }
   }
 
-  &__author.protagonist
-  {
-    color: rgb(160, 59, 0);
+  .message.player {
+    align-self: flex-end;
+    flex-flow: row-reverse nowrap;
   }
 
-  &__author.player
-  {
-    color: rgb(0, 54, 104);
+  .profile-picture {
+    width: 70px;
+    border-radius: 100%;
   }
-}
-
-.profile-picture
-{
-  position: relative;
-  top: 1.5rem;
-  width: 70px;
-  border-radius: 100%;
 }
