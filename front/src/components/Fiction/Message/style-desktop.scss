@@ -1,0 +1,31 @@
+@media (min-width: 600px) {
+.message
+{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 70%;
+
+  &__content
+  {
+    background-color: rebeccapurple;
+    border-radius: 2rem;
+    padding: 1.5rem;
+  }
+
+  &__profile-picture
+  {
+  }
+}
+
+.profile-picture
+{
+  position: relative;
+  top: 1.5rem;
+  width: 70px;
+  border-radius: 100%;
+}
+
+}
