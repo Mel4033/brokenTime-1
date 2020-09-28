@@ -1,12 +1,20 @@
-@media (min-width: 600px) {
-.fiction
-{
-  &__messages
-  {
+.fiction {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  &__messages {
+    flex: 1;
     display: flex;
     flex-flow: column nowrap;
-    border: 1px solid black;
     padding: 0 5rem;
   }
-}
+
+  &__choices {
+    flex: 1;
+    max-height: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
