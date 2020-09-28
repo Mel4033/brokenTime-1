@@ -5,9 +5,9 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
-import bibliotheque from '../Bibliotheque';
+import Library from '../Library';
 import './style.scss';
-import Bibliotheque from '../Bibliotheque';
+
 
 /*
 // == Composant
@@ -22,13 +22,13 @@ const App = () => (
 );
 */
 
-// == Composant test pour la bibliotheque 
+// == Composant test pour la Library 
 
 const App = () => (
   <div className="app">
     <Header />
     <div className="scrollzone">
-      <Bibliotheque />
+      <Library />
       <Footer />
     </div>
   </div>

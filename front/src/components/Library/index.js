@@ -8,13 +8,15 @@ import './style.scss';
   TODO : Réussir a mettre l'image en fond et non sur le texte
   // TODO : Refaire la barre de recherche 
   // TODO : Finir les cases 
-  TODO : Voir le probléme avec le footer ( probléme de position )
-  TODO : regler ecart entre search bar et cards
-  
+  // TODO : Voir le probléme avec le footer ( probléme de position )
+  // TODO : Regler ecart entre search bar et cards
+  TODO : Rename bibliotheque en library
+  TODO : Revoir l'indentation
+  // TODO : Alligner le button play et l'icone
 
 */
 
-const Bibliotheque = () => (
+const Library = () => (
 
   <div className="bibliotheque">
     <h1 className="menuTitle"> BROKEN TIME - La Bibliotheque </h1>
@@ -97,4 +99,4 @@ const Bibliotheque = () => (
   </div>
 );
 
-export default Bibliotheque;
+export default Library;
