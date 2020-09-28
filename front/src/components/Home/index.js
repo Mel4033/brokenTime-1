@@ -12,6 +12,9 @@ const Home = () => (
       </div>
       <a className="home__item home__nav-arrow" href="#" alt="Autoscroll"><icon className="fas fa-angle-double-down fa-4x" /></a>
     </div>
+    <div className="home__container">
+      <div>Some content.</div>
+    </div>
   </div>
 );
 
