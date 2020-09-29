@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ChoiceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ChoiceRepository::class)
@@ -14,11 +15,15 @@ class Choice
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_view"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $text;
 

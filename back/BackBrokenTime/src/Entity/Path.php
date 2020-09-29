@@ -6,6 +6,7 @@ use App\Repository\PathRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PathRepository::class)
@@ -16,37 +17,53 @@ class Path
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_view"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $name;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $winPath;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $LosePath;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"unsigned":true})
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
+     * 
+     * 
      */
     private $number;
 
     /**
      * @ORM\ManyToOne(targetEntity=Fiction::class, inversedBy="path")
      * @ORM\JoinColumn(nullable=false)
+     * 
+     * 
      */
     private $fiction;
 
     /**
      * @ORM\OneToMany(targetEntity=Choice::class, mappedBy="path", orphanRemoval=true)
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $choice;
 
@@ -57,6 +74,8 @@ class Path
 
     /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="path", orphanRemoval=true)
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $message;
 
