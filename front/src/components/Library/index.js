@@ -11,9 +11,10 @@ import './style.scss';
   // TODO : Regler ecart entre search bar et cards
   // TODO : Rename bibliotheque en library
   // TODO : Alligner le button play et l'icone
-  TODO : Revoir l'indentation
-  TODO : Réussir a mettre l'image en fond et non sur le texte
-  TODO : Regler les classes locked et unlocked
+  // TODO : Réussir a mettre l'image en fond et non sur le texte
+  // TODO : Revoir l'indentation
+  // TODO : Regler les classes locked et unlocked
+     TODO : Dynamiser une classe.
 */
 
 const Library = () => (
@@ -29,74 +30,55 @@ const Library = () => (
     </form>
 
     <div className="card">
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="unlocked">
-      <button className="play">Jouer</button>
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+        {/* <button className="play">Jouer</button> */}
+          <p className="resume resume-unlocked">Je vais ici vous faire un court   résumé de la fiction que nous allons essayer de vous vendre très chère  pour ne plus avoir a travailler par la suite et se la couler douce en  vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="unlocked">
-      <button className="play">Jouer</button>
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+        {/* <button className="play">Jouer</button> */}
+          <p className="resume resume-unlocked">Je vais ici vous faire un court   résumé de la fiction que nous allons essayer de vous vendre très chère  pour ne plus avoir a travailler par la suite et se la couler douce en  vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
 
-    <div className="cardUnit">
-      <h4 className="fictionTitle">titre de fiction</h4>
-      <div className="locked">
-        <p className="resume">Je vais ici vous faire un court résumé de la fiction que nous allons essayer de vous vendre très chère pour ne plus avoir a travailler par la suite et se la couler douce en vacances.</p>
+      <div className="cardUnit">
+        <h4 className="fictionTitle">titre de fiction</h4>
+          <p className="resume resume-locked">Je vais ici vous faire un court résumé  de la fiction que nous allons essayer de vous vendre très chère pour ne  plus avoir a travailler par la suite et se la couler douce en vacances.</p>
       </div>
-    </div>
-
-
     </div>
   </div>
+
 );
 
 export default Library;

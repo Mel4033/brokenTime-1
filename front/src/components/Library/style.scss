@@ -22,13 +22,12 @@
   background-position: 7px 6px;
   background-repeat: no-repeat;
   padding-left: 30px;  
-}
+};
 
 .searchInput:focus
 {
-  // border-color: lightsalmon;
   border: 2px #acab solid;
-}
+};
 
 .card
 {
@@ -36,7 +35,7 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-around; 
-}
+};
 
 .cardUnit
 {
@@ -48,7 +47,7 @@
   background-image: url("../../assets/images/picture.png");
   background-position: 50%;
   background-repeat: no-repeat; 
-}
+};
 
 .fictionTitle
 {
@@ -56,7 +55,36 @@
   text-align: center;
   border-bottom: 1px solid lightgray;
   font-size: 1.5rem;
-}
+};
+
+.wallpaper
+{
+  background-image: url("../../assets/images/picture.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+};
+
+.resume
+{
+  padding-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+
+  &-unlocked {
+  background-image: url("../../assets/images/play-button.png");
+  background-position-x: 10px;
+  background-position-y: 10px;
+  background-repeat: no-repeat;
+  }
+
+  &-locked {
+    background-image: url("../../assets/images/padlock.png");
+    background-position-x: 10px;
+    background-position-y: 10px;
+    background-repeat: no-repeat;
+  }
+};
 
 .play
 {
@@ -68,33 +96,4 @@
   border: none;
   background-color: #acab;
   margin-bottom: 25px;
-}
-.unlocked
-{
-  background-image: url("../../assets/images/play-button.png");
-  background-position-x: 10px;
-  background-position-y: 10px;
-  background-repeat: no-repeat;
-}
-.resume
-{
-  // padding-top: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: white;
-}
-
-.wallpaper
-{
-  background-image: url("../../assets/images/picture.png");
-  background-position: 50%;
-  background-repeat: no-repeat;
-}
-
-.locked
-{
-  background-image: url("../../assets/images/padlock.png");
-  background-position-x: 10px;
-  background-position-y: 10px;
-  background-repeat: no-repeat;
-}
+};
