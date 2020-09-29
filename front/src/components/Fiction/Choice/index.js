@@ -8,7 +8,6 @@ const Choice = ({ targetPath, content, shouldBeDisplayed, submitChoice }) => (
       type="button"
       className="choice__button"
       onClick={() => {
-        console.log(`Je veux accéder au chemin N°${targetPath}`);
         submitChoice(targetPath);
       }}
     >

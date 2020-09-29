@@ -1,5 +1,5 @@
 import { uuid as uuidv4 } from 'uuidv4';
-import { SUBMIT_CHOICE } from '../actions/choice';
+import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/choice';
 
 const initialState = {
   // Les messages à afficher dans le chat en direct
@@ -65,6 +65,9 @@ const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE:
       console.log('Action à appeler :', action.pathToCall);
+      return state;
+    case RECEIVED_PATH:
+      // TODO - Réception et injection des données reçues.
       return state;
     default:
       return state;
