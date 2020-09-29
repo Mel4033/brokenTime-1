@@ -18,14 +18,14 @@ class Category
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "category_list", "fiction_by_category"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "category_list", "fiction_by_category"})
      */
     private $name;
 
@@ -41,6 +41,8 @@ class Category
 
     /**
      * @ORM\ManyToMany(targetEntity=Fiction::class, mappedBy="category")
+     * 
+     * @Groups({"fiction_by_category"})
      */
     private $fictions;
 

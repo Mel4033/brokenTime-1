@@ -56,7 +56,7 @@ class Path
      * @ORM\ManyToOne(targetEntity=Fiction::class, inversedBy="path")
      * @ORM\JoinColumn(nullable=false)
      * 
-     * 
+     * @Groups({"fiction_path"})
      */
     private $fiction;
 
@@ -79,11 +79,17 @@ class Path
      */
     private $message;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Choice::class, mappedBy="toPath", orphanRemoval=true)
+     */
+    private $choices;
+
     public function __construct()
     {
         $this->choice = new ArrayCollection();
         $this->noChoice = new ArrayCollection();
         $this->message = new ArrayCollection();
+        $this->choices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -183,37 +189,6 @@ class Path
     }
 
     /**
-     * @return Collection|Choice[]
-     */
-    public function getNoChoice(): Collection
-    {
-        return $this->noChoice;
-    }
-
-    public function addNoChoice(Choice $noChoice): self
-    {
-        if (!$this->noChoice->contains($noChoice)) {
-            $this->noChoice[] = $noChoice;
-            $noChoice->setNoChoice($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNoChoice(Choice $noChoice): self
-    {
-        if ($this->noChoice->contains($noChoice)) {
-            $this->noChoice->removeElement($noChoice);
-            // set the owning side to null (unless already changed)
-            if ($noChoice->getNoChoice() === $this) {
-                $noChoice->setNoChoice(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Message[]
      */
     public function getMessage(): Collection
@@ -242,5 +217,13 @@ class Path
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Choice[]
+     */
+    public function getChoices(): Collection
+    {
+        return $this->choices;
     }
 }

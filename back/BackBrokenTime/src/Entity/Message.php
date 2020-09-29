@@ -43,9 +43,9 @@ class Message
 
     /**
      * @ORM\ManyToOne(targetEntity=Character::class, inversedBy="message")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      * 
-     * @Groups({"fiction_view"})
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $byCharacter;
 

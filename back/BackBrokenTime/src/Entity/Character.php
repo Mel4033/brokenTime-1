@@ -19,7 +19,7 @@ class Character
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"fiction_view"})
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $id;
 
@@ -50,7 +50,7 @@ class Character
     /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="byCharacter", orphanRemoval=true)
      * 
-     * @Groups({"fiction_path"})
+     *
      */
     private $message;
 
