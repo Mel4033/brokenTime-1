@@ -1,7 +1,9 @@
+/*
 import React from 'react';
 import './style.scss';
+import Proptypes from 'prop-types';
 
-/*
+
 
   // TODO : Mettre en place le logo loupe dans la barre de recherche
   // TODO : Refaire la barre de recherche 
@@ -15,11 +17,13 @@ import './style.scss';
   // TODO : Regler les classes locked et unlocked
   // TODO : Dynamiser une classe.
   // TODO : Revoir l'allignement des cards ( Desktop )
-     TODO : Revoir l'allignement des cards ( Mobile )
-     TODO : Au survol faire apparaitre un button en cachant un peu le fond.
-     TODO : Faire une fausse base de données pour faire les middleware ect. 
+  // TODO : Revoir l'allignement des cards ( Mobile )
+  TODO : Au survol faire apparaitre un button en cachant un peu le fond.
+  // TODO : Faire une fausse base de données pour faire les middleware ect.
+  TODO : Dynamiser avec la fausse BDD
+  // TODO : Faire deux style css
 
-*/
+
 
 const Library = () => (
 
@@ -42,7 +46,7 @@ const Library = () => (
 
       <div className="cardUnit">
         <h4 className="fictionTitle">titre de fiction</h4>
-          {/* <button className="play">Jouer</button> */}
+          
             <p className="resume resume-unlocked">Je vais ici vous faire un court     résumé de la fiction que nous allons essayer de vous vendre très chère    pour ne plus avoir a travailler par la suite et se la couler douce en   vacances.</p>
       </div>
 
@@ -86,32 +90,32 @@ const Library = () => (
 );
 
 export default Library;
-
-/* 
-    const Library = ( props ) => {
-
-      const { title, resume } = props;
-
-      const classToApply = locked ? 'resume resume-locked' : 'unlocked';
-
-      return (
-
-        <div className="card">
-          <div className="cardUnit">
-            <h4 className="fictionTitle">{title}</h4>
-            // <button className="play">Jouer</button>
-            <p className="{classToApply}">{resume}</p>
-          </div>
-        </div>
-      );
-    };
-
-    Library.propTypes = {
-      title: PropTypes.string.isrequired,
-      resume: PropTypes.string.isrequired,
-      locked: PropTypes.bool.isrequired,
-    };
-
-    TODO : penser a importer les props au début du fichier. 
-
 */
+
+import React from 'react';
+import Card from './Card';
+import PropTypes from 'prop-types';
+import '../Library/style-desktop.scss';
+import '../Library/style-desktop.scss';
+
+const Library = ({cards}) => {
+
+  <div className="card">
+    {
+      cards.map((cardObject) => (
+        <Card 
+          title={cardObject.title}
+          resume={cardObject.resume}
+          value={cardObject.locked}
+        />
+      ))
+    }
+  </div>
+};
+
+Library.propTypes = {
+  title: PropTypes.string.isrequired,
+  resume: PropTypes.string.isrequired,
+};
+
+export default Library;  
