@@ -8,6 +8,16 @@
     width: 60%;
     margin-bottom: 1rem;
 
+    &.player {
+      align-self: flex-end;
+      flex-flow: row-reverse nowrap;
+      animation: newMessagePlayer 1s;
+    }
+
+    &.protagonist {
+      animation: newMessageProtagonist 1s;
+    }
+
     &__content {
       width: 100%;
       border-radius: 1rem;
@@ -41,13 +51,28 @@
     }
   }
 
-  .message.player {
-    align-self: flex-end;
-    flex-flow: row-reverse nowrap;
-  }
-
   .profile-picture {
     width: 70px;
     border-radius: 100%;
+  }
+}
+
+@keyframes newMessageProtagonist {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 0%;
+  }
+}
+
+@keyframes newMessagePlayer {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0%;
   }
 }

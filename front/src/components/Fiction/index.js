@@ -47,4 +47,5 @@ const Fiction = ({ messages, choices, submitChoice }) => (
   </div>
 );
 
+
 export default Fiction;

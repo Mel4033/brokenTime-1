@@ -9,6 +9,14 @@
       margin-bottom: -1rem;
     }
 
+    &.player {
+      animation: newMessagePlayer 1s;
+    }
+
+    &.protagonist {
+      animation: newMessageProtagonist 1s;
+    }
+
     &__content {
       width: 100%;
       border-radius: 1rem;
@@ -47,5 +55,25 @@
     top: 2rem;
     width: 70px;
     border-radius: 100%;
+  }
+}
+
+@keyframes newMessageProtagonist {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 0%;
+  }
+}
+
+@keyframes newMessagePlayer {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0%;
   }
 }
