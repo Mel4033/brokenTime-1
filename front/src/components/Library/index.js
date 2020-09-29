@@ -5,15 +5,15 @@ import './style.scss';
 /*
 
   // TODO : Mettre en place le logo loupe dans la barre de recherche
-  TODO : Réussir a mettre l'image en fond et non sur le texte
   // TODO : Refaire la barre de recherche 
   // TODO : Finir les cases 
   // TODO : Voir le probléme avec le footer ( probléme de position )
   // TODO : Regler ecart entre search bar et cards
-  TODO : Rename bibliotheque en library
-  TODO : Revoir l'indentation
+  // TODO : Rename bibliotheque en library
   // TODO : Alligner le button play et l'icone
-
+  TODO : Revoir l'indentation
+  TODO : Réussir a mettre l'image en fond et non sur le texte
+  TODO : Regler les classes locked et unlocked
 */
 
 const Library = () => (
