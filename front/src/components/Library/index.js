@@ -18,10 +18,10 @@ import Proptypes from 'prop-types';
   // TODO : Dynamiser une classe.
   // TODO : Revoir l'allignement des cards ( Desktop )
   // TODO : Revoir l'allignement des cards ( Mobile )
-  TODO : Au survol faire apparaitre un button en cachant un peu le fond.
   // TODO : Faire une fausse base de données pour faire les middleware ect.
-  TODO : Dynamiser avec la fausse BDD
+  // TODO : Dynamiser avec la fausse BDD
   // TODO : Faire deux style css
+  TODO : Au survol faire apparaitre un button en cachant un peu le fond.
 
 
 
@@ -93,8 +93,8 @@ export default Library;
 */
 
 import React from 'react';
-import Card from './Card';
 import PropTypes from 'prop-types';
+import Card from './Card';
 import './style-desktop.scss';
 import './style-mobile.scss';
 
@@ -102,16 +102,26 @@ const Library = ({ cards }) => {
   console.log(cards);
 
   return (
+    <div className="bibliotheque">
+    <h1 className="menuTitle"> BROKEN TIME - La Bibliotheque </h1>
+      <form className="searchForm">
+        <input 
+          type="text" 
+          placeholder="Rechercher une fiction"
+          className="searchInput">
+        </input>
+      </form>
     <div className="card">
       {
         cards.map((cardObject) => (
           <Card
             title={cardObject.title}
             resume={cardObject.resume}
-            value={cardObject.locked}
+            locked={cardObject.locked}
           />
         ))
       }
+    </div>
     </div>
   );
 };

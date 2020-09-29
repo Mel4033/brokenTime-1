@@ -54,9 +54,16 @@
   
   .cardUnit:hover
   {
-    background-color: rgba(0, 0, 0, 0.192);
-    &play {
-      visibility: visible;
+    background-color: rgba(0, 0, 0, 0.500);
+  
+    &cardUnit-play
+    {
+    opacity: 1;
+    width: 60px;
+    height: 25px;
+    border-radius: 4px;
+    border: none;
+    background-color: #acab;
     }
   };
   
@@ -97,17 +104,14 @@
     }
   };
   
-  .play
+  .cardUnit-play
   {
-    // visibility: hidden;
-    margin-left: 130px;
-    margin-top: 10px;
+    opacity: 0;
     width: 60px;
     height: 25px;
     border-radius: 4px;
     border: none;
     background-color: #acab;
-    margin-bottom: 25px;
   };
   
 }

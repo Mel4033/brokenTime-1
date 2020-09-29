@@ -37,7 +37,6 @@
       flex-wrap: wrap;
       width: 100%;
       justify-content: space-around; 
-      margin-left: 4rem;
     };
     
     .cardUnit
@@ -54,7 +53,7 @@
     
     .cardUnit:hover
     {
-      background-color: rgba(0, 0, 0, 0.192);
+      background-color: rgba(0, 0, 0, 0.250);
       &play {
         visibility: visible;
       }
