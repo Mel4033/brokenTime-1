@@ -1,5 +1,5 @@
 import { call } from 'file-loader';
-import { uuid as uuidv4 } from 'uuidv4';
+import { uuid, uuid as uuidv4 } from 'uuidv4';
 import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/choice';
 
 // TEST
@@ -11,16 +11,6 @@ const initialState = {
       id: uuidv4(),
       author: 'Vous',
       content: 'Attendez, 2612 ? Je ne suis pas sûr de comprendre...',
-    },
-    {
-      id: uuidv4(),
-      author: 'Meadow',
-      content: 'Bon. Moi c\'est Meadow et euh... Je viens de trouver cette espèce de montre par terre, au milieu de toute cette explosion de paperasse.',
-    },
-    {
-      id: uuidv4(),
-      author: 'Meadow',
-      content: 'On peut vraiment dire que là c\'est pas la joie.',
     },
   ],
 
@@ -54,6 +44,17 @@ const transformPathToMessages = (receivedPath) => {
   return purifiedMessages.sort((a, b) => (a.number - b.number));
 };
 
+const transformPathToChoices = (receivedPath) => {
+  console.log(receivedPath.choice);
+
+  const extractedChoices = receivedPath.choice.map((choiceObject) => ({
+    id: uuidv4(),
+    content: choiceObject.text,
+    pathToCall: choiceObject.toPath,
+  }));
+
+  return extractedChoices;
+};
 
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -63,11 +64,14 @@ const fiction = (state = initialState, action = {}) => {
 
       // Transformation du chemin en une liste de messages triés et exploitables.
       const allMessages = transformPathToMessages(calledPath);
+      const allChoices = transformPathToChoices(calledPath);
+      console.log(allChoices);
 
       // Et insertion des messages dans le chat en direct.
       return {
         ...state,
         messages: [...state.messages, ...allMessages],
+        choices: [...allChoices],
       };
     }
     case RECEIVED_PATH:

@@ -8,17 +8,17 @@ const paths = [
     number: 1,
     choice: [
       {
-        text: 'choix1',
+        text: 'Va vers la salle de bain',
         toPath: 2,
       },
       {
-        text: 'choix2',
+        text: 'Fonce dans la cuisine !',
         toPath: 1,
       },
     ],
     message: [
       {
-        text: 'Message 1 - Meadow',
+        text: 'Quel désastre, me voilà tâchée de sang de la tête aux pieds...',
         number: 1,
         lastMessage: false,
         byCharacter: {
@@ -28,17 +28,7 @@ const paths = [
         },
       },
       {
-        text: 'Message 3 - Vous',
-        number: 3,
-        lastMessage: false,
-        byCharacter: {
-          id: 1,
-          name: 'Vous',
-          picture: null,
-        },
-      },
-      {
-        text: 'Message 2 - Meadow',
+        text: 'Tu penses que je devrais nettoyer tout ça ?',
         number: 2,
         lastMessage: false,
         byCharacter: {
