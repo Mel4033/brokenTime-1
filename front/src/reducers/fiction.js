@@ -58,10 +58,7 @@ const transformPathToMessages = (receivedPath) => {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
-      // Annonce du chemin à appeler.
-      console.log('Chemin à appeler :', action.pathToCall);
-
-      // Récupération du chemin souhaité. 
+      // Récupération du chemin souhaité.
       const calledPath = paths.find((pathObject) => pathObject.number === action.pathToCall);
 
       // Transformation du chemin en une liste de messages triés et exploitables.
