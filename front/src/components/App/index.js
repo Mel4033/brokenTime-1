@@ -13,7 +13,7 @@ const App = () => (
   <div className="app">
     <Switch>
 
-    {/* Route vers l'accueil */}
+      {/* Route vers l'accueil */}
       <Route exact path="/">
         <Header />
         <div className="scrollzone">
