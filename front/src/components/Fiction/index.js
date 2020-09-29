@@ -23,7 +23,7 @@ const Fiction = ({ messages, choices, submitChoice }) => (
       }
       <div className="fiction__loadingmessage">
         <div className="fiction__iswriting">
-          Quelqu'un est en train d'écrire <span className="loadingstate">...</span>
+          Message entrant... |<span className="loadingstate">←</span>
         </div>
       </div>
     </div>

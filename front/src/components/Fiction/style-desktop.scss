@@ -42,26 +42,23 @@
   color: white;
   margin-left: 0.2rem;
   position: absolute;
-  animation: 2s infinite slidein ease-in-out;
+  animation: 2s infinite loadingmessage ease-in-out;
 }
 
 // Animation de chargement d'un message
-@keyframes slidein {
+@keyframes loadingmessage {
   0% {
     position: absolute;
-    top: 0;
-    right: -20px;
+    right: -40px;
   }
 
   50% {
     position: absolute;
-    top: 0rem;
-    right: -35px;
+    right: -15px;
   }
 
   100% {
     position: absolute;
-    top: 0;
-    right: -20px;
+    right: -40px;
   }
 }
