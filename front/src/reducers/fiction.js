@@ -39,16 +39,38 @@ const initialState = {
   ],
 };
 
+// Fonction de transformation des messages associés à un chemin en des messages
+// exploitables par notre interface
+const transformPathToMessages = (receivedPath) => {
+  // Purification des messages reçus dans le chemin
+  const purifiedMessages = receivedPath.message.map((messageObject) => ({
+    id: uuidv4(),
+    author: messageObject.byCharacter.name,
+    content: messageObject.text,
+    number: messageObject.number,
+  }));
+
+  // Réorganisation des messages selon leur propriété "number";
+  return purifiedMessages.sort((a, b) => (a.number - b.number));
+};
+
+
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SUBMIT_CHOICE:
-    {
+    case SUBMIT_CHOICE: {
+      // Annonce du chemin à appeler.
       console.log('Chemin à appeler :', action.pathToCall);
+
+      // Récupération du chemin souhaité. 
       const calledPath = paths.find((pathObject) => pathObject.number === action.pathToCall);
-      console.log(calledPath);
+
+      // Transformation du chemin en une liste de messages triés et exploitables.
+      const allMessages = transformPathToMessages(calledPath);
+
+      // Et insertion des messages dans le chat en direct.
       return {
         ...state,
-        messages: [...state.messages],
+        messages: [...state.messages, ...allMessages],
       };
     }
     case RECEIVED_PATH:
