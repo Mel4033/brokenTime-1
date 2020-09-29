@@ -14,6 +14,10 @@ import './style.scss';
   // TODO : Revoir l'indentation
   // TODO : Regler les classes locked et unlocked
   // TODO : Dynamiser une classe.
+  // TODO : Revoir l'allignement des cards ( Desktop )
+     TODO : Revoir l'allignement des cards ( Mobile )
+     TODO : Au survol faire apparaitre un button en cachant un peu le fond.
+     TODO : Faire une fausse base de données pour faire les middleware ect. 
 
 */
 
@@ -30,16 +34,16 @@ const Library = () => (
     </form>
 
     <div className="card">
+
       <div className="cardUnit">
         <h4 className="fictionTitle">titre de fiction</h4>
-        {/* <button className="play">Jouer</button> */}
-          <p className="resume resume-unlocked">Je vais ici vous faire un court   résumé de la fiction que nous allons essayer de vous vendre très chère  pour ne plus avoir a travailler par la suite et se la couler douce en  vacances.</p>
+            <p className="resume resume-unlocked">Je vais ici vous faire un court     résumé de la fiction que nous allons essayer de vous vendre très chère    pour ne plus avoir a travailler par la suite et se la couler douce en   vacances.</p>
       </div>
 
       <div className="cardUnit">
         <h4 className="fictionTitle">titre de fiction</h4>
-        {/* <button className="play">Jouer</button> */}
-          <p className="resume resume-unlocked">Je vais ici vous faire un court   résumé de la fiction que nous allons essayer de vous vendre très chère  pour ne plus avoir a travailler par la suite et se la couler douce en  vacances.</p>
+          {/* <button className="play">Jouer</button> */}
+            <p className="resume resume-unlocked">Je vais ici vous faire un court     résumé de la fiction que nous allons essayer de vous vendre très chère    pour ne plus avoir a travailler par la suite et se la couler douce en   vacances.</p>
       </div>
 
       <div className="cardUnit">
