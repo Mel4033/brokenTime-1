@@ -6,9 +6,11 @@ use App\Repository\FictionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=FictionRepository::class)
+ *
  */
 class Fiction
 {
@@ -16,36 +18,50 @@ class Fiction
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_list", "fiction_view", "fiction_path"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Groups({"fiction_list", "fiction_view", "fiction_path"})
      */
     private $title;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $status;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $completed;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $summary;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", nullable=true, options={"unsigned":true, "default":"0.00"})
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $picture;
 
@@ -56,16 +72,22 @@ class Fiction
 
     /**
      * @ORM\Column(type="datetime")
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $created_at;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="fictions")
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=Path::class, mappedBy="fiction", orphanRemoval=true)
+     * 
+     * @Groups({"fiction_view"})
      */
     private $path;
 
@@ -73,6 +95,8 @@ class Fiction
     {
         $this->category = new ArrayCollection();
         $this->path = new ArrayCollection();
+
+        $this->created_at = new \DateTime('NOW');
     }
 
     public function getId(): ?int
