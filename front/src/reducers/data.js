@@ -37,4 +37,65 @@ const paths = [
   },
 ];
 
+const path = {
+  name: 'chemin test 2',
+  winPath: false,
+  LosePath: false,
+  number: 2,
+
+  choice: [
+    {
+      text: 'choix 1',
+      path: 3,
+    },
+    {
+      text: 'choix 2',
+      path: 4,
+    },
+  ],
+
+  message: [
+    {
+      text: 'Je suis Meadow et voici le message 1',
+      number: 1,
+      lastMessage: false,
+      byCharacter: {
+        id: 1,
+        name: 'Meadow',
+        picture: null,
+      },
+    },
+    {
+      text: 'Je suis le joueur, message 2',
+      number: 2,
+      lastMessage: false,
+      byCharacter: {
+        id: 1,
+        name: 'Vous',
+        picture: null,
+      },
+    },
+    {
+      text: 'Meadow, message 3',
+      number: 3,
+      lastMessage: false,
+      byCharacter: {
+        id: 2,
+        name: 'Vous',
+        picture: null,
+      },
+    },
+    {
+      text: 'Joueur, message 4',
+      number: 4,
+      lastMessage: false,
+      byCharacter: {
+        id: 2,
+        name: 'Vous',
+        picture: null,
+      },
+    },
+  ],
+};
+
 export default paths;
