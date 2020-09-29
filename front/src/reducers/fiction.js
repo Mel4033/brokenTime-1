@@ -1,8 +1,11 @@
+import { array } from 'prop-types';
 import { uuid as uuidv4 } from 'uuidv4';
 import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/choice';
 
+// TEST
+import paths from './data';
+
 const initialState = {
-  // Les messages à afficher dans le chat en direct
   messages: [
     {
       id: uuidv4(),
@@ -50,8 +53,8 @@ const initialState = {
   choices: [
     {
       id: uuidv4(),
-      content: 'Choix 1',
-      pathToCall: '5482',
+      content: 'Le bon choix ici',
+      pathToCall: '5',
     },
     {
       id: uuidv4(),
@@ -64,8 +67,15 @@ const initialState = {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE:
-      console.log('Action à appeler :', action.pathToCall);
-      return state;
+      {
+        console.log('Chemin à appeler :', action.pathToCall);
+        const calledPathDatas = paths.find((pathObject) => pathObject.order === parseInt(action.pathToCall, 10));
+
+        return {
+          ...state,
+          messages: [...state.messages, ...calledPathDatas.messages],
+        };
+      };
     case RECEIVED_PATH:
       // TODO - Réception et injection des données reçues.
       return state;

@@ -21,11 +21,16 @@ const Fiction = ({ messages, choices, submitChoice }) => (
           />
         ))
       }
-      <div className="fiction__loadingmessage">
-        <div className="fiction__iswriting">
-          Message entrant... |<span className="loadingstate">←</span>
+
+      {/* Affiche si un message est en cours de réception. */}
+      {false && (
+        <div className="fiction__loadingmessage">
+          <div className="fiction__iswriting">
+            Message entrant... |<span className="loadingstate">←</span>
+          </div>
         </div>
-      </div>
+      )}
+
     </div>
     <div className="fiction__choices">
       {
