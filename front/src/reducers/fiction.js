@@ -1,4 +1,3 @@
-import { call } from 'file-loader';
 import { uuid, uuid as uuidv4 } from 'uuidv4';
 import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/choice';
 
@@ -9,8 +8,8 @@ const initialState = {
   messages: [
     {
       id: uuidv4(),
-      author: 'Vous',
-      content: 'Attendez, 2612 ? Je ne suis pas sûr de comprendre...',
+      author: '???',
+      content: 'Hé ... Youhou ? Pourquoi ça note tout ce que je dis ce machin, hm ... Et c\'est quoi ça "Connexion établie" ?',
     },
   ],
 
@@ -18,13 +17,8 @@ const initialState = {
   choices: [
     {
       id: uuidv4(),
-      content: 'Le bon choix ici',
-      pathToCall: 1,
-    },
-    {
-      id: uuidv4(),
-      content: 'Choix 2',
-      pathToCall: '1054',
+      content: 'Bonjour... ?',
+      pathToCall: 2,
     },
   ],
 };
