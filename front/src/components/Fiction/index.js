@@ -9,34 +9,32 @@ import Choice from './Choice';
 import './style-mobile.scss';
 import './style-desktop.scss';
 
-const Fiction = ({ messages, choices }) => {
-  console.log(messages);
-  return (
-    <div className="fiction">
-      <div className="fiction__messages">
-        {
-          messages.map((messageObject) => (
-            <Message
-              key={messageObject.id}
-              author={messageObject.author}
-              content={messageObject.content}
-            />
-          ))
-        }
-      </div>
-      <div className="fiction__choices">
-        {
-          choices.map((choiceObject) => (
-            <Choice
-              key={choiceObject.id}
-              targetPath={choiceObject.pathToCall}
-              content={choiceObject.content}
-            />
-          ))
-        }
-      </div>
+const Fiction = ({ messages, choices, submitChoice }) => (
+  <div className="fiction">
+    <div className="fiction__messages">
+      {
+        messages.map((messageObject) => (
+          <Message
+            key={messageObject.id}
+            author={messageObject.author}
+            content={messageObject.content}
+          />
+        ))
+      }
     </div>
-  );
-};
+    <div className="fiction__choices">
+      {
+        choices.map((choiceObject) => (
+          <Choice
+            key={choiceObject.id}
+            targetPath={choiceObject.pathToCall}
+            content={choiceObject.content}
+            submitChoice={submitChoice}
+          />
+        ))
+      }
+    </div>
+  </div>
+);
 
 export default Fiction;
