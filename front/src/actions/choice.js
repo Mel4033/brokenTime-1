@@ -7,7 +7,6 @@ export const submitChoice = (pathToCall) => ({
   pathToCall,
 });
 
-// TODO
 export const receivedPath = () => ({
   type: RECEIVED_PATH,
 });

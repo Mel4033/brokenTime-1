@@ -9,6 +9,8 @@ import Choice from './Choice';
 import './style-mobile.scss';
 import './style-desktop.scss';
 
+// TODO : Réaliser un autoscroll à l'arrivée des messages.
+
 const Fiction = ({ messages, choices, submitChoice }) => (
   <div className="fiction">
     <div className="fiction__messages">
