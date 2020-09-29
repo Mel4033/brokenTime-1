@@ -95,22 +95,25 @@ export default Library;
 import React from 'react';
 import Card from './Card';
 import PropTypes from 'prop-types';
-import '../Library/style-desktop.scss';
-import '../Library/style-desktop.scss';
+import './style-desktop.scss';
+import './style-mobile.scss';
 
-const Library = ({cards}) => {
+const Library = ({ cards }) => {
+  console.log(cards);
 
-  <div className="card">
-    {
-      cards.map((cardObject) => (
-        <Card 
-          title={cardObject.title}
-          resume={cardObject.resume}
-          value={cardObject.locked}
-        />
-      ))
-    }
-  </div>
+  return (
+    <div className="card">
+      {
+        cards.map((cardObject) => (
+          <Card
+            title={cardObject.title}
+            resume={cardObject.resume}
+            value={cardObject.locked}
+          />
+        ))
+      }
+    </div>
+  );
 };
 
 Library.propTypes = {
@@ -118,4 +121,4 @@ Library.propTypes = {
   resume: PropTypes.string.isrequired,
 };
 
-export default Library;  
+export default Library;

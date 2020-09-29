@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import Library from '../components/Library';
 
-const mapState = ( state ) => ({
-  Cards: state.Library.cards
+const mapState = (state) => ({
+  cards: state.cards,
 });
 
-const mapDispatch = {};
+const mapDispatch = null;
 
 export default connect(mapState, mapDispatch)(Library);
