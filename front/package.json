@@ -60,6 +60,7 @@
     "react-dom": "*",
     "react-redux": "*",
     "redux": "*",
-    "styled-components": "*"
+    "styled-components": "*",
+    "uuidv4": "^6.2.3"
   }
 }

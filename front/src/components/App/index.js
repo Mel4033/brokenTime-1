@@ -5,7 +5,7 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
-import Fiction from '../Fiction';
+import Fiction from '../../containers/Fiction';
 import './style.scss';
 
 // == Composant
