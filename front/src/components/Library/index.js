@@ -1,5 +1,4 @@
 import React from 'react';
-import logoSearch from '../../assets/images/loupe.png';
 import './style.scss';
 
 /*
@@ -14,7 +13,8 @@ import './style.scss';
   // TODO : Réussir a mettre l'image en fond et non sur le texte
   // TODO : Revoir l'indentation
   // TODO : Regler les classes locked et unlocked
-     TODO : Dynamiser une classe.
+  // TODO : Dynamiser une classe.
+
 */
 
 const Library = () => (
@@ -82,3 +82,32 @@ const Library = () => (
 );
 
 export default Library;
+
+/* 
+    const Library = ( props ) => {
+
+      const { title, resume } = props;
+
+      const classToApply = locked ? 'resume resume-locked' : 'unlocked';
+
+      return (
+
+        <div className="card">
+          <div className="cardUnit">
+            <h4 className="fictionTitle">{title}</h4>
+            // <button className="play">Jouer</button>
+            <p className="{classToApply}">{resume}</p>
+          </div>
+        </div>
+      );
+    };
+
+    Library.propTypes = {
+      title: PropTypes.string.isrequired,
+      resume: PropTypes.string.isrequired,
+      locked: PropTypes.bool.isrequired,
+    };
+
+    TODO : penser a importer les props au début du fichier. 
+
+*/
