@@ -22,13 +22,15 @@ class Role
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"user_list", "user_view"})
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
+     * @Groups({"user_list", "user_view"})
      */
-    private $roleString;
+    private $roleString = [];
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="role")
@@ -57,12 +59,14 @@ class Role
         return $this;
     }
 
-    public function getRoleString(): ?string
+    public function getRoleString(): array
     {
-        return $this->roleString;
+        $roleString = $this->roleString;
+        $roleString[] = 'ROLE_USER';
+        return array_unique($roleString);
     }
 
-    public function setRoleString(string $roleString): self
+    public function setRoleString(array $roleString): self
     {
         $this->roleString = $roleString;
 

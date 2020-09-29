@@ -19,14 +19,14 @@ class Fiction
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_path"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_path"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_view"})
      */
     private $title;
 
@@ -91,12 +91,19 @@ class Fiction
      */
     private $path;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="Fiction")
+     * 
+     */
+    private $users;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->path = new ArrayCollection();
 
         $this->created_at = new \DateTime('NOW');
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -252,6 +259,34 @@ class Fiction
             if ($path->getFiction() === $this) {
                 $path->setFiction(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFiction($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeFiction($this);
         }
 
         return $this;

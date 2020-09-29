@@ -34,9 +34,11 @@ class Choice
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Path::class, inversedBy="noChoice")
+     * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_path"})
      */
-    private $noChoice;
+    private $toPath;
 
     public function getId(): ?int
     {
@@ -67,15 +69,16 @@ class Choice
         return $this;
     }
 
-    public function getNoChoice(): ?Path
+    public function getToPath(): ?int
     {
-        return $this->noChoice;
+        return $this->toPath;
     }
 
-    public function setNoChoice(?Path $noChoice): self
+    public function setToPath(int $toPath): self
     {
-        $this->noChoice = $noChoice;
+        $this->toPath = $toPath;
 
         return $this;
     }
+
 }
