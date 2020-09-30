@@ -56,6 +56,10 @@
   margin-top: 0.5rem;
   text-align: center;
   text-decoration: underline;
+  &:hover
+  {
+    cursor: pointer,
+  }
 }
 
 .form__button {
