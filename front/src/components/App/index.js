@@ -20,8 +20,7 @@ const App = () => (
       <Route exact path="/">
         <Header />
         <div className="scrollzone">
-          <Home />
-          <Footer />
+          <Fiction />
         </div>
       </Route>
     </Switch>
