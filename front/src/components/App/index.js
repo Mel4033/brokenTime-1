@@ -30,7 +30,7 @@ const App = () => (
           <Footer />
         </Route>
 
-        <Route exact path="/profile">
+        <Route exact path="/profil">
           <Footer />
         </Route>
 
