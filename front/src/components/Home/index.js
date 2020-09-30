@@ -9,12 +9,21 @@ const Home = () => (
       <div className="home__group">
         <img src={logoBrokentime} alt="Logo du site" className="home__item home__logo" />
         <h1 className="home__item home__title">Broken Time</h1>
+
+        {/*
+        // TODO : Des petites phrases générées aléatoirement à la place du H2 actuel, type:
+        - Les meilleures fictions au meilleur endroit
+        - Vivez des aventures partout où vous allez
+        - Etc ...
+         */}
         <h2 className="home__item home__subtitle">Le site de fictions interactives.</h2>
       </div>
       <a className="home__item home__nav-arrow" href="#" alt="Autoscroll">
-        {/* Le logo se situera ici à la place de l'icone */}
         <icon className="fas fa-angle-double-down fa-4x" />
       </a>
+    </div>
+    <div className="home__container">
+      <div>Some content.</div>
     </div>
   </div>
 );
