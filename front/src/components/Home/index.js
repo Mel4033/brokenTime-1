@@ -19,7 +19,8 @@ const Home = () => (
         <h2 className="home__item home__subtitle">Le site de fictions interactives.</h2>
       </div>
       <a className="home__item home__nav-arrow" href="#" alt="Autoscroll">
-        <icon className="fas fa-angle-double-down fa-4x" />
+        {/* Le logo se situera ici à la place de l'icone */}
+        <i className="fas fa-angle-double-down fa-4x" />
       </a>
     </div>
     <div className="home__container">

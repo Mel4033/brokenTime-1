@@ -27,25 +27,6 @@ const App = () => (
     </Switch>
   </div>
 );
-*/
-
-// == Composant test pour la Library 
-
-const App = () => (
-  <div className="app">
-    <Header />
-    <div className="scrollzone">
-      <Library />
-      <Footer />
-    </div>
-  </div>
-);
-
-
-
-
-
-
 
 // == Export
 export default App;

@@ -43,7 +43,7 @@ const cards = (state = initialState, action = {}) => {
   }
 };
 // ! /!\ L'export par défaut a sauté, faire un nouveau fichier ou modifier l'import à partir du fichier d'appel /!\
-export cards;
+export { cards };
 
 // Les messages à afficher dans le chat en direct
 const paths = [
