@@ -6,9 +6,11 @@ use App\Repository\FictionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=FictionRepository::class)
+ *
  */
 class Fiction
 {
@@ -16,36 +18,50 @@ class Fiction
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_view"})
      */
     private $title;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $status;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $completed;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $summary;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", nullable=true, options={"unsigned":true, "default":"0.00"})
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $picture;
 
@@ -56,23 +72,38 @@ class Fiction
 
     /**
      * @ORM\Column(type="datetime")
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $created_at;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="fictions")
+     * 
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=Path::class, mappedBy="fiction", orphanRemoval=true)
+     * 
+     * @Groups({"fiction_view"})
      */
     private $path;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="Fiction")
+     * 
+     */
+    private $users;
 
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->path = new ArrayCollection();
+
+        $this->created_at = new \DateTime('NOW');
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -228,6 +259,34 @@ class Fiction
             if ($path->getFiction() === $this) {
                 $path->setFiction(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFiction($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeFiction($this);
         }
 
         return $this;

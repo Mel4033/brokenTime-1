@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Menu = () => (
+const Menu = ({isLoginOpened}) => (
   <div className="menu">
     <div className="menu__burger">
       <button type="button" className="burger__button">
@@ -9,11 +9,11 @@ const Menu = () => (
     </div>
     <div className="menu__desktop">
       <div className="menu__links">
-        <a className="link" href="#" alt="none">Accueil</a>
+        <a className="link active" href="#" alt="none">Accueil</a>
         <a className="link" href="#" alt="none">Bibliothèque</a>
         <a className="link" href="#" alt="none">Mon profil</a>
       </div>
-      <button type="button" className="menu__item menu__disconnect">Déconnexion</button>
+      <button alt="none" type="button" className="menu__item menu__disconnect"><i className="fas fa-power-off" /></button>
     </div>
   </div>
 );

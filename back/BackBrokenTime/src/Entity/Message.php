@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
@@ -14,27 +15,37 @@ class Message
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_view"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="text")
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $text;
 
     /**
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $number;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $lastMessage;
 
     /**
      * @ORM\ManyToOne(targetEntity=Character::class, inversedBy="message")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
+     * 
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $byCharacter;
 

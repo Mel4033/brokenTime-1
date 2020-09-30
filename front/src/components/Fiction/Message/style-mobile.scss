@@ -1,0 +1,79 @@
+@media (max-width: 600px) {
+  .message {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    &:not(:last-of-type) {
+      margin-bottom: -1rem;
+    }
+
+    &.player {
+      animation: newMessagePlayer 1s;
+    }
+
+    &.protagonist {
+      animation: newMessageProtagonist 1s;
+    }
+
+    &__content {
+      width: 100%;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0px 3px 3px rgb(0, 0, 0);
+    }
+
+    &__content.protagonist {
+      background-color: rgb(187, 139, 67);
+    }
+
+    &__content.player {
+      background-color: rgb(156, 156, 156);
+    }
+
+    &__author {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      font-family: "Oswald", sans-serif;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    &__author.protagonist {
+      color: rgb(160, 59, 0);
+    }
+
+    &__author.player {
+      color: rgb(0, 54, 104);
+      text-align: right;
+    }
+  }
+
+  .profile-picture {
+    position: relative;
+    top: 2rem;
+    width: 70px;
+    border-radius: 100%;
+  }
+}
+
+@keyframes newMessageProtagonist {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 0%;
+  }
+}
+
+@keyframes newMessagePlayer {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
