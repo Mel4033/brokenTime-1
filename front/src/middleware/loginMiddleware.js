@@ -7,7 +7,7 @@ const logMiddleware = (store) => (next) => (action) => {
   // Ensuite, on vérifie l'action qu'on a reçu pour y répondre correctement.
   switch (action.type) {
     default:
-      // console.log('Default case choiceMiddleware');
+      console.log('Default case loginMiddleware', action);
       break;
   }
 };
