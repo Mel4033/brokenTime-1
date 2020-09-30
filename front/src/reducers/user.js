@@ -1,4 +1,4 @@
-import { SWITCH_FORMS_DISPLAY, CHANGE_LOGIN_DISPLAY, INPUT_CHANGE, CHANGE_REGISTER_DISPLAY, LOGIN_ERROR, LOGIN_SUBMIT, LOGIN_SUCCESS } from '../actions/user';
+import { ALTERNATE_FORMS, SWITCH_FORMS_DISPLAY, INPUT_CHANGE, LOGIN_ERROR, LOGIN_SUBMIT, LOGIN_SUCCESS } from '../actions/user';
 
 const initialState = {
   loginFormDisplayed: false,
@@ -13,20 +13,14 @@ const initialState = {
 
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_REGISTER_DISPLAY:
-      return {
-        ...state,
-        loginFormDisplayed: !state.loginFormDisplayed,
-        registerFormDisplayed: !state.registerFormDisplayed,
-      };
-    case CHANGE_LOGIN_DISPLAY:
+    case ALTERNATE_FORMS:
       return {
         ...state,
         loginFormDisplayed: !state.loginFormDisplayed,
         registerFormDisplayed: !state.registerFormDisplayed,
       };
     case SWITCH_FORMS_DISPLAY:
-      if (state.loginFormDisplayed || state.loginFormDisplayed) {
+      if (state.loginFormDisplayed || state.registerFormDisplayed) {
         return {
           ...state,
           loginFormDisplayed: false,

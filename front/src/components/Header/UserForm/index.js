@@ -1,8 +1,8 @@
 import React from 'react';
 import './style-desktop.scss';
 import './style-mobile.scss';
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import LoginForm from '../../../containers/LoginForm';
+import RegisterForm from '../../../containers/RegisterForm';
 
 // fa-times = X
 // fa-power-off = Power button
