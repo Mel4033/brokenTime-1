@@ -22,7 +22,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * Méthode qui permet l'affichage de toutes les informations d'un path d'une fiction
+     * Méthode qui permet l'affichage des fiction d'une catégorie
      * 
      * @Route("/category/{id}", name="fiction_by_category", methods={"GET"}, requirements={"id":"\d+"})
      */
