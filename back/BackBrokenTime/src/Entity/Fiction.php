@@ -38,7 +38,7 @@ class Fiction
     private $status;
 
     /**
-     * @ORM\Column(type="boolean", options={"default":0})
+     * @ORM\Column(type="boolean", nullable=true, options={"default":0})
      * 
      * @Groups({"fiction_list", "fiction_view"})
      */

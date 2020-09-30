@@ -63,7 +63,7 @@ class User
 
     /**
      * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      * @Groups({"user_list", "user_view"})
      */
     private $role;
