@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RegisterForm = ({ switchToLoginForm }) => (
+const RegisterForm = ({ switchToLoginForm, lastname, firstname, email, password, inputChange }) => (
   <form className="login__form">
     <p className="form__label">Nom</p>
     <input className="form__input" type="text" placeholder="Votre nom" />
