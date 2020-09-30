@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
+import Fiction from '../../containers/Fiction';
 import './style.scss';
 
 // TODO : Faire les routes et les redirections
