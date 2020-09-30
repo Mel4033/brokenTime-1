@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const DesktopMenu = () => (
   <div className="menu__desktop">
     <div className="menu__links">
-      <a className="link active" href="#" alt="none">Accueil</a>
-      <a className="link" href="#" alt="none">Bibliothèque</a>
-      <a className="link" href="#" alt="none">Mon profil</a>
+      <NavLink exact to="/" className="link" href="#" alt="none">Accueil</NavLink>
+      <NavLink exact to="/library" className="link" href="#" alt="none">Bibliothèque</NavLink>
+      <NavLink exact to="/profil" className="link" href="#" alt="none">Mon profil</NavLink>
     </div>
   </div>
 );
