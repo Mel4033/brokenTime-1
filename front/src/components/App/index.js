@@ -14,17 +14,27 @@ import './style.scss';
 // == Composant
 const App = () => (
   <div className="app">
-    <Switch>
+    <div className="scrollzone">
+      <Header />
+      <Switch>
 
-      {/* Route vers l'accueil */}
-      <Route exact path="/">
-        <Header />
-        <div className="scrollzone">
+        {/* Route vers l'accueil */}
+        <Route exact path="/">
           <Home />
           <Footer />
-        </div>
-      </Route>
-    </Switch>
+        </Route>
+
+        {/* Route vers la bibliothèque */}
+        <Route exact path="/library">
+          <Library />
+          <Footer />
+        </Route>
+
+        <Route exact path="/profile">
+          <Footer />
+        </Route>
+      </Switch>
+    </div>
   </div>
 );
 
