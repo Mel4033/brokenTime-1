@@ -14,8 +14,8 @@ import './style.scss';
 // == Composant
 const App = () => (
   <div className="app">
+    <Header />
     <div className="scrollzone">
-      <Header />
       <Switch>
 
         {/* Route vers l'accueil */}

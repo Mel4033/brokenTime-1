@@ -29,6 +29,9 @@ import Card from './Card';
 import './style-desktop.scss';
 import './style-mobile.scss';
 
+// Ici j'appelle les card que j'ai crée au préalable j'y incorpore le reste de mon html pour
+// la recherche et mes titres et je dynamise le contenu de mes cards
+
 const Library = ({ cards }) => {
   console.log(cards);
 
