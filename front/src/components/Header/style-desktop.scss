@@ -1,8 +1,12 @@
 @media (min-width: 601px) {
   .header
   {
-    padding: 1rem;
     position: fixed;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
     width: 100vw;
   }
 
@@ -18,21 +22,6 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .menu__disconnect
-  {
-    font-size: 1rem;
-    color: #969696;
-    border: none;
-    background-color: transparent;
-    transition: 1s;
-
-    &:hover
-    {
-      color: green;
-      transition: 0.25s;
-    }
   }
 
   .link
