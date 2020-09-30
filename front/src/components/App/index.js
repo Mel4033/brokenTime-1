@@ -33,6 +33,10 @@ const App = () => (
         <Route exact path="/profile">
           <Footer />
         </Route>
+
+        <Route exact path="/fiction">
+          <Fiction />
+        </Route>
       </Switch>
     </div>
   </div>
