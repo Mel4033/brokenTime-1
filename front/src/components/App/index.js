@@ -6,9 +6,9 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
+import Library from '../../containers/Card';
 import Fiction from '../../containers/Fiction';
 import './style.scss';
-
 // TODO : Faire les routes et les redirections
 
 // == Composant
@@ -27,6 +27,25 @@ const App = () => (
     </Switch>
   </div>
 );
+*/
+
+// == Composant test pour la Library 
+
+const App = () => (
+  <div className="app">
+    <Header />
+    <div className="scrollzone">
+      <Library />
+      <Footer />
+    </div>
+  </div>
+);
+
+
+
+
+
+
 
 // == Export
 export default App;
