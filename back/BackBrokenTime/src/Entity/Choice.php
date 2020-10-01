@@ -42,6 +42,7 @@ class Choice
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"fiction_view", "fiction_path"})
      */
     private $content;
 
