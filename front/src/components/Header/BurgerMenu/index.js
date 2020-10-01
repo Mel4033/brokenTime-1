@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import burgerMenu from '../../../containers/BurgerMenu';
+// import burgerMenu from '../../../containers/BurgerMenu';
 
 const BurgerMenu = ({inputChange}) => (
   <div className="menu__burger">
