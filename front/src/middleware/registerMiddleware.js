@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Importation des actions
-import { LOGIN_SUBMIT, loginSucess, loginError } from '../actions/user';
+import { REGISTER_SUBMIT, registerSuccess, registerError } from '../actions/user';
 
 const registerMiddleware = (store) => (next) => (action) => {
   // En premier, on laisse passer l'action pour ne pas bloquer l'exécution du script.
@@ -11,12 +11,11 @@ const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     default:
       break;
-    case LOGIN_SUBMIT:
-      console.log('login submitted (loginMiddleware)');
+    case REGISTER_SUBMIT:
+      console.log('register submitted (registerMiddleware)');
       // TODO : Réaliser l'appel axios
       // Si le register réussi -> dispatch(registerSuccess());
       // Si le register échoue -> dispatch(registerError());
-      console.log(store.getState().user);
       axios({
         method: 'get',
         url: 'https://swapi.dev/api/people/1/',

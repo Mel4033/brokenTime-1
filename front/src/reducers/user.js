@@ -13,10 +13,19 @@ import {
 const initialState = {
   loginFormDisplayed: false,
   registerFormDisplayed: false,
-  nickname: '',
-  email: '',
-  password: '',
-  confirmpassword: '',
+  formData: {
+    nickname: '',
+    email: 'Bobby.night@gmail.com',
+    password: 'bobby',
+    confirmpassword: '',
+  },
+};
+
+const passwordMatchWithConfirm = (password, confirmation) => {
+  if (password === confirmation) {
+    return true;
+  }
+  return false;
 };
 
 const user = (state = initialState, action = {}) => {
@@ -42,7 +51,10 @@ const user = (state = initialState, action = {}) => {
     case INPUT_CHANGE:
       return {
         ...state,
-        ...action.payload,
+        formData: {
+          ...state.formData,
+          ...action.payload,
+        },
       };
     default:
       return state;
