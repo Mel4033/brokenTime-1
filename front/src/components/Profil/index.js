@@ -3,7 +3,7 @@ import './style-desktop.scss';
 import './style-mobile.scss';
 import OwnedCard from './OwnedCard';
 
-const fakeImage = 'https://images.unsplash.com/photo-1571716846252-df1324ce17bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80';
+const fakeImage = 'https://cdn.discordapp.com/avatars/179551273840934912/c5dc29e716dc0e081e94e64329a5325c.png?size=1024';
 const ficImg1 = 'https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_960_720.jpg';
 const ficImg2 = 'https://cdn.pixabay.com/photo/2019/05/22/14/51/skull-4221695_960_720.jpg';
 const ficImg3 = 'https://cdn.pixabay.com/photo/2017/11/02/03/35/gothic-2910057_960_720.jpg';
@@ -22,11 +22,11 @@ const Profil = () => (
         <div className="profil__data">
           <div className="profil__data--item">
             <p className="profil__data--title">Nom d'utilisateur</p>
-            <p className="profil__data--value">Rémi</p>
+            <p className="profil__data--value">Broken Time</p>
           </div>
           <div className="profil__data--item">
             <p className="profil__data--title">Email associé</p>
-            <p className="profil__data--value">PancakeWouf@gmail.com</p>
+            <p className="profil__data--value">brokentime.project@gmail.com</p>
           </div>
         </div>
       </div>
