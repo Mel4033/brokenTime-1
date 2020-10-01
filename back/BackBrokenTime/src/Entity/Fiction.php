@@ -99,8 +99,6 @@ class Fiction
      */
     private $users;
 
-    private $slugger;
-
     public function __construct()
     {
         $this->category = new ArrayCollection();

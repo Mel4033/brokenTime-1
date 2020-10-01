@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Category;
 use App\Entity\Character;
-use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Choice;
 use App\Entity\Fiction;
@@ -55,6 +54,5 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Choix', 'fa fa-cat', Choice::class),
         ]);
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-cat', User::class);
-        yield MenuItem::linkToCrud('Role', 'fa fa-cat', Role::class);
     }
 }

@@ -7,9 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class User
 {
@@ -25,6 +27,8 @@ class User
      * @ORM\Column(type="string", length=255)
      * 
      * @Groups({"fiction_path", "user_list", "user_view", "fiction_path"})
+     * 
+     * @Assert\NotBlank(message="Vous devez saisir un nom d'utilisateur")
      *
      */
     private $name;
@@ -40,12 +44,15 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"user_view"})
+     * 
+     * @Assert\NotBlank(message="Vous devez saisir un email")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"user_view"})
+     * @Assert\NotBlank(message="Vous devez saisir un mot de passe")
      */
     private $password;
 
@@ -62,21 +69,50 @@ class User
     private $updated_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="users")
-     * @ORM\JoinColumn(nullable=true)
-     * @Groups({"user_list", "user_view"})
-     */
-    private $role;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Fiction::class, inversedBy="users")
      * @Groups({"user_view"})
      */
     private $Fiction;
 
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $role = [];
+
     public function __construct()
     {
         $this->Fiction = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setDatePersistValue()
+    {
+        // Au moment de la création d'une entrée en BDD pour l'entité,
+        // on vient initialiser les propriétés createAt et updatedAt
+        $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setRolePersistValue()
+    {
+        // Au moment de la création d'une entrée en BDD pour l'entité,
+        // on vient initialiser les propriétés createAt et updatedAt
+        $this->role[] = 'ROLE_USER';
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setDateUpdateValue()
+    {
+        // Juste avant la mise à jour d'une entrée en BDD pour l'entité,
+        // on vient mettre à jour la propriété updatedAt
+        $this->updated_at = new \DateTime();
     }
 
     public function __toString() {
@@ -161,18 +197,6 @@ class User
         return $this;
     }
 
-    public function getRole(): ?Role
-    {
-        return $this->role;
-    }
-
-    public function setRole(?Role $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Fiction[]
      */
@@ -195,6 +219,18 @@ class User
         if ($this->Fiction->contains($fiction)) {
             $this->Fiction->removeElement($fiction);
         }
+
+        return $this;
+    }
+
+    public function getRole(): ?array
+    {
+        return $this->role;
+    }
+
+    public function setRole(array $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }
