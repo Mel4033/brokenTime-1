@@ -1,3 +1,4 @@
+@media (min-width: 601px) {
 .login__container {
   display: flex;
   flex-flow: row-reverse nowrap;
@@ -16,7 +17,6 @@
   flex-flow: column nowrap;
   margin-right: 1rem;
   animation: 1s popFromRight ease-in-out;
-  // display: none;
 }
 
 .menu__disconnect {
@@ -81,4 +81,5 @@
   100% {
     left: 100%;
   }
+}
 }
