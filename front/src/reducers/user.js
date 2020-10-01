@@ -13,12 +13,10 @@ import {
 const initialState = {
   loginFormDisplayed: false,
   registerFormDisplayed: false,
-  input: {
-    nickname: null,
-    email: null,
-    password: null,
-    confirmPassword: null,
-  },
+  nickname: null,
+  email: null,
+  password: null,
+  confirmpassword: null,
 };
 
 const user = (state = initialState, action = {}) => {
@@ -42,7 +40,12 @@ const user = (state = initialState, action = {}) => {
         loginFormDisplayed: true,
       };
     case INPUT_CHANGE:
-      return state;
+      console.log(action.payload);
+      console.log(state.input);
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }
