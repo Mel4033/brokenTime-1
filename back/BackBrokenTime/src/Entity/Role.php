@@ -66,7 +66,6 @@ class Role
     public function getRoleString(): array
     {
         $roleString = $this->roleString;
-        $roleString[] = 'ROLE_USER';
         return array_unique($roleString);
     }
 
