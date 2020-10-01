@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use App\Repository\FictionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Service\Slugger;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=FictionRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  *
  */
 class Fiction
@@ -97,6 +99,8 @@ class Fiction
      */
     private $users;
 
+    private $slugger;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -104,6 +108,10 @@ class Fiction
 
         $this->created_at = new \DateTime('NOW');
         $this->users = new ArrayCollection();
+    }
+
+    public function __toString() {
+        return $this->title;
     }
 
     public function getId(): ?int
