@@ -22,12 +22,12 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name', 'nom'),
-            TextField::new('picture', 'Image'),
+            TextField::new('picture', 'Image')->onlyOnIndex(),
             TextField::new('password', 'Mot de passe')->onlyOnForms(),
             EmailField::new('email'),
             DateField::new('created_at', 'Date de création')->onlyOnIndex(),
             DateField::new('updated_at', 'Date de modification')->onlyOnIndex(),
-            ArrayField::new('role')->onlyWhenUpdating(),
+            ArrayField::new('role'),
 
         ];
     }

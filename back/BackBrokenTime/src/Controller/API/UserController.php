@@ -64,9 +64,9 @@ class UserController extends AbstractController
             $message = "L'utilisateur a bien créé";
 
             // ...on sauvegarde l'utilisateur en BDD
-            // $em = $this->getDoctrine()->getManager();
-            // $em->persist($user);
-            // $em->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
         }
 
         // On retourne un message pour dire que tout s'est bien passé...
