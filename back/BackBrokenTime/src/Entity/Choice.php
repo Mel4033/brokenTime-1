@@ -40,6 +40,12 @@ class Choice
      */
     private $toPath;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"fiction_view", "fiction_path"})
+     */
+    private $content;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +83,18 @@ class Choice
     public function setToPath(int $toPath): self
     {
         $this->toPath = $toPath;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }

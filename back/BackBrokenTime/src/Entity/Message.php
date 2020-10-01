@@ -55,6 +55,10 @@ class Message
      */
     private $path;
 
+    public function __toString() {
+        return $this->text;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

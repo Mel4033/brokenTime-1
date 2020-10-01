@@ -8,6 +8,7 @@ use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Choice;
 use App\Entity\Fiction;
+use App\Entity\Message;
 use App\Entity\Path;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -49,6 +50,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Fictions', 'fa fa-cat')->setSubItems([
             MenuItem::linkToCrud('Informations', 'fa fa-cat', Fiction::class),
             MenuItem::linkToCrud('Chemins', 'fa fa-cat', Path::class),
+            MenuItem::linkToCrud('Personnages', 'fa fa-cat', Character::class),
+            MenuItem::linkToCrud('Messages', 'fa fa-cat', Message::class),
+            MenuItem::linkToCrud('Choix', 'fa fa-cat', Choice::class),
         ]);
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-cat', User::class);
         yield MenuItem::linkToCrud('Role', 'fa fa-cat', Role::class);
