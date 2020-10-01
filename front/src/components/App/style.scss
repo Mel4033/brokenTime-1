@@ -7,21 +7,7 @@ html {
   flex-direction: column;
   background-attachment: fixed;
   height: 100vh;
-  background-image: linear-gradient(
-    to right top,
-    #323232,
-    #393945,
-    #3d4158,
-    #3b4a6d,
-    #335483,
-    #285187,
-    #1a4e8c,
-    #004b90,
-    #003a82,
-    #002872,
-    #051662,
-    #0b0051
-  );
+  background-image: linear-gradient(to left bottom, #292929, #2d2d34, #2d323f, #2a384a, #223f55, #254258, #29455c, #2c485f, #3b485b, #454a57, #4b4b52, #4e4e4e);
 }
 
 .scrollzone {

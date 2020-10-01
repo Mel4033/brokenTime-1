@@ -9,7 +9,9 @@ import Home from '../Home';
 import Library from '../../containers/Card';
 import Fiction from '../../containers/Fiction';
 import './style.scss';
-// TODO : Faire les routes et les redirections
+
+// Identifiants : Bobby.night@gmail.com
+// Pswd : bobby
 
 // == Composant
 const App = () => (

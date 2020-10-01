@@ -22,7 +22,7 @@
   // display: none;
 }
 
-.menu__disconnect {
+.menu__login-panel {
   font-size: 1rem;
   color: #969696;
   border: none;
@@ -30,7 +30,7 @@
   transition: 1s;
 
   &:hover {
-    color: green;
+    color: rgb(46, 255, 255);
     transition: 0.25s;
   }
 }

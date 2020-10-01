@@ -18,7 +18,7 @@ const UserForm = ({ registerOpened, loginOpened, switchFormsDisplay }) => {
         <button
           alt="none"
           type="button"
-          className="menu__item menu__disconnect"
+          className="menu__item menu__login-panel"
           onClick={() => {
             switchFormsDisplay();
           }}
