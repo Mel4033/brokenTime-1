@@ -23,7 +23,7 @@ const UserForm = ({ registerOpened, loginOpened, switchFormsDisplay }) => {
             switchFormsDisplay();
           }}
         >
-          <i className={buttonClass} />
+          <i className={`menu__login-panel-icon ${buttonClass}`} />
         </button>
       </div>
 
