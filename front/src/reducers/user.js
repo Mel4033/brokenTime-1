@@ -16,8 +16,8 @@ const initialState = {
   registerFormDisplayed: false,
   formData: {
     nickname: '',
-    email: 'Bobby.night@gmail.com',
-    password: 'bobby',
+    email: '',
+    password: '',
     confirmpassword: '',
   },
   currentUser: {},
