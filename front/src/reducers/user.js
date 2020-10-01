@@ -1,14 +1,22 @@
-import { ALTERNATE_FORMS, SWITCH_FORMS_DISPLAY, INPUT_CHANGE, LOGIN_ERROR, LOGIN_SUBMIT, LOGIN_SUCCESS } from '../actions/user';
+import {
+  ALTERNATE_FORMS,
+  SWITCH_FORMS_DISPLAY,
+  INPUT_CHANGE,
+  LOGIN_ERROR,
+  LOGIN_SUBMIT,
+  LOGIN_SUCCESS,
+  REGISTER_ERROR,
+  REGISTER_SUBMIT,
+  REGISTER_SUCCESS,
+} from '../actions/user';
 
 const initialState = {
   loginFormDisplayed: false,
   registerFormDisplayed: false,
-  input: {
-    firstname: null,
-    lastname: null,
-    email: null,
-    password: null,
-  },
+  nickname: null,
+  email: null,
+  password: null,
+  confirmpassword: null,
 };
 
 const user = (state = initialState, action = {}) => {
@@ -30,6 +38,13 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         loginFormDisplayed: true,
+      };
+    case INPUT_CHANGE:
+      console.log(action.payload);
+      console.log(state.input);
+      return {
+        ...state,
+        ...action.payload,
       };
     default:
       return state;

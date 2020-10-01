@@ -1,14 +1,26 @@
 import { connect } from 'react-redux';
 import LoginForm from '../components/Header/UserForm/LoginForm';
-import { alternateForms } from '../actions/user';
+import { alternateForms, loginSubmit, inputChange } from '../actions/user';
 
 // Notre Dumb-Component a-t-il besoin de données venant du State ?
-const mapState = null;
+const mapState = (state) => ({
+  email: state.user.email,
+  password: state.user.password,
+});
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?
 const mapDispatch = (dispatch) => ({
   switchToRegisterForm: () => {
     dispatch(alternateForms());
+  },
+  loginSubmit: () => {
+    dispatch(loginSubmit());
+  },
+  inputChange: (name, input) => {
+    const object = {
+      [name]: input,
+    };
+    dispatch(inputChange(object));
   },
 });
 
