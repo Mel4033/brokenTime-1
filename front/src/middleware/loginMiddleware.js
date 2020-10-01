@@ -11,23 +11,31 @@ const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     default:
       break;
-    case LOGIN_SUBMIT:
+    case LOGIN_SUBMIT: {
       console.log('login submitted (loginMiddleware)');
       // TODO : Réaliser l'appel axios
-      // Si le register réussi -> dispatch(registerSuccess());
-      // Si le register échoue -> dispatch(registerError());
-      console.log(store.getState().user);
+      // Si le login réussi -> dispatch(loginSuccess());
+      // Si le login échoue -> dispatch(loginError());
+      const data = {
+        email: store.getState().user.formData.email,
+        password: store.getState().user.formData.password,
+      };
+
       axios({
-        method: 'get',
-        url: 'https://swapi.dev/api/people/1/',
+        method: 'post',
+        url: 'none',
+        data,
       })
         .then((response) => {
+          // dispatch(loginSuccess());
           console.log(response);
         })
         .catch((error) => {
+          // dispatch(loginError());
           console.log(error);
         });
       break;
+    }
   }
 };
 

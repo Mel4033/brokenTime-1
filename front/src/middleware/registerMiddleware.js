@@ -12,18 +12,22 @@ const registerMiddleware = (store) => (next) => (action) => {
     default:
       break;
     case REGISTER_SUBMIT:
-      console.log('register submitted (registerMiddleware)');
+      console.log('login submitted (loginMiddleware)');
       // TODO : Réaliser l'appel axios
       // Si le register réussi -> dispatch(registerSuccess());
       // Si le register échoue -> dispatch(registerError());
+
       axios({
-        method: 'get',
-        url: 'https://swapi.dev/api/people/1/',
+        method: 'post',
+        url: 'none',
+        data: store.getState().user.formData,
       })
         .then((response) => {
+          // dispatch(registerSuccess());
           console.log(response);
         })
         .catch((error) => {
+          // dispatch(registerError());
           console.log(error);
         });
       break;
