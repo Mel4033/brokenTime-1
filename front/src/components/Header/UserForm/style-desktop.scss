@@ -1,5 +1,8 @@
 @media (min-width: 601px) {
-  .login__container {
+.login__container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   display: flex;
   flex-flow: row-reverse nowrap;
   justify-content: center;
@@ -17,10 +20,9 @@
   flex-flow: column nowrap;
   margin-right: 1rem;
   animation: 1s popFromRight ease-in-out;
-  // display: none;
 }
 
-.menu__disconnect {
+.menu__login-panel {
   font-size: 1rem;
   color: #969696;
   border: none;
@@ -28,7 +30,7 @@
   transition: 1s;
 
   &:hover {
-    color: green;
+    color: rgb(46, 255, 255);
     transition: 0.25s;
   }
 }

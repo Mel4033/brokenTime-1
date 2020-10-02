@@ -1,15 +1,4 @@
 @media (min-width: 601px) {
-  .header
-  {
-    position: fixed;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1rem;
-    width: 100vw;
-  }
-
   .menu__burger
   {
     display: none;
@@ -17,11 +6,15 @@
 
   .menu__desktop
   {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
     display: flex;
     color: white;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
   }
 
   .link
@@ -42,5 +35,9 @@
   {
     color: #fff;
     border-bottom: 2px solid #fff;
+    &:hover
+    {
+      border-bottom: 2px solid #fff;
+    }
   }
 }

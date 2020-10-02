@@ -2,6 +2,7 @@ import {
   ALTERNATE_FORMS,
   SWITCH_FORMS_DISPLAY,
   INPUT_CHANGE,
+  DISCONNECT_USER,
   LOGIN_ERROR,
   LOGIN_SUBMIT,
   LOGIN_SUCCESS,
@@ -13,10 +14,21 @@ import {
 const initialState = {
   loginFormDisplayed: false,
   registerFormDisplayed: false,
-  nickname: null,
-  email: null,
-  password: null,
-  confirmpassword: null,
+  formData: {
+    nickname: '',
+    email: '',
+    password: '',
+    confirmpassword: '',
+  },
+  currentUser: {},
+};
+
+// Contrôle la correspondance entre le mot de passe saisi et le vérificateur.
+const passwordMatchWithConfirm = (password, confirmation) => {
+  if (password === confirmation) {
+    return true;
+  }
+  return false;
 };
 
 const user = (state = initialState, action = {}) => {
@@ -40,11 +52,17 @@ const user = (state = initialState, action = {}) => {
         loginFormDisplayed: true,
       };
     case INPUT_CHANGE:
-      console.log(action.payload);
-      console.log(state.input);
       return {
         ...state,
-        ...action.payload,
+        formData: {
+          ...state.formData,
+          ...action.payload,
+        },
+      };
+    case DISCONNECT_USER:
+      return {
+        ...state,
+        currentUser: {},
       };
     default:
       return state;

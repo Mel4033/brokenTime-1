@@ -6,10 +6,13 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
+import Profil from '../Profil';
 import Library from '../../containers/Card';
 import Fiction from '../../containers/Fiction';
 import './style.scss';
-// TODO : Faire les routes et les redirections
+
+// Identifiants : Bobby.night@gmail.com
+// Pswd : bobby
 
 // == Composant
 const App = () => (
@@ -31,6 +34,7 @@ const App = () => (
         </Route>
 
         <Route exact path="/profil">
+          <Profil />
           <Footer />
         </Route>
 
