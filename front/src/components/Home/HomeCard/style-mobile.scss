@@ -1,0 +1,67 @@
+@media (max-width: 600px) {
+  .home-fiction__card {
+    background-color: rgb(124, 124, 124);
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .home-fiction__informations {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+  }
+
+  .home-fiction__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px gray;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-bottom: 1px solid black;
+  }
+
+  .home-fiction__resume {
+    text-shadow: 1px 1px 1px gray;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+    line-height: 1.2rem;
+    margin-bottom: 3rem;
+
+    &-container {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .home-fiction__play-button {
+    border: none;
+    border-top: 2px solid black;
+    background-color: rgb(14, 52, 65);
+    color: #2effff;
+    font-weight: bold;
+    font-size: 0.7rem;
+    padding: 0.6rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+  }
+
+  .unavailable {
+    background-color: rgb(49, 49, 49);
+    color: rgb(150, 150, 150);
+  }
+
+  .icon__button {
+    margin-left: 1rem;
+  }
+}
