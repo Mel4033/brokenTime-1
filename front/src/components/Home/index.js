@@ -1,5 +1,6 @@
 import React from 'react';
-import './style.scss';
+import './style-desktop.scss';
+import './style-mobile.scss';
 import logoBrokentime from '../../assets/images/brokentime-logo.png';
 import HomeCard from './HomeCard';
 
@@ -29,11 +30,13 @@ const Home = () => (
     </div>
     <div className="home__fictions" id="home-fictions">
       <HomeCard
+        isAvailable
         title="BrokenTime - La montre du temps"
         resume="Une connexion des plus inattendues se fait avec Meadow, jeune femme d'un monde parallèle. En plein coeur d'un univers Steampunk, saurez-vous la mener jusqu'à la vérité ?"
         image={ficImg1}
       />
       <HomeCard
+        isAvailable={false}
         title="BrokenTime - Au-delà de l'horloge"
         resume="A la suite de son voyage temporel, la connexion avec Meadow se rétabli. Elle n'est plus dans la même dimension, ni confrontée aux mêmes problèmes..."
         image={ficImg2}
