@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
@@ -22,6 +23,20 @@ class UserController extends AbstractController
             'groups' => 'user_view'
             ]);
 
+    }
+
+    /**
+     * Retourne le détail d'un utilisateur en fonction de son Email
+     *
+     * @Route("/user/details")
+     * @return void
+     */
+    public function userDetails(UserRepository $repository, Request $request, SerializerInterface $serialiser)
+    {
+        $dataJSON = $request->getContent();
+        $contentArray = json_decode($dataJSON, true);
+        $user = $repository->findOneBy(['email'=>$contentArray['email']]);
+        return $this->json($user, 200, []);
     }
 
     /**
@@ -43,11 +58,16 @@ class UserController extends AbstractController
     /**
      * @Route("/user/new", name="user_new", methods={"POST"})
      */
-    public function new(Request $request, SerializerInterface $serializer, ValidatorInterface $validator)
+    public function new(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
     {
         $dataJSON = $request->getContent();
 
         $user = $serializer->deserialize($dataJSON, User::class, 'json');
+
+        $plainPassword = $user->getPassword();
+
+        $encodedPassword = $passwordEncoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encodedPassword);
 
         $errors = $validator->validate($user);
         $totalErrors = count($errors);
@@ -64,9 +84,9 @@ class UserController extends AbstractController
             $message = "L'utilisateur a bien créé";
 
             // ...on sauvegarde l'utilisateur en BDD
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+             $em = $this->getDoctrine()->getManager();
+             $em->persist($user);
+             $em->flush();
         }
 
         // On retourne un message pour dire que tout s'est bien passé...
@@ -76,6 +96,14 @@ class UserController extends AbstractController
             'errors' => $errors
         ]);
 
+    }
+
+    /**
+     * @Route("/api/login_check", name="api_login_check")
+     */
+    public function apiLoginCheck()
+    {
+        throw new \LogicException('Le contenu de la route importe peu.');
     }
 
     /**
