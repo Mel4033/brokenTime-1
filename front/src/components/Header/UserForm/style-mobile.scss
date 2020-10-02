@@ -1,6 +1,6 @@
-.login-form
+@media (max-width: 600px) {
+.login__container
 {
-    background-color: orange;
-    padding: 1rem;
-    border-radius: 1rem;
+  display: none;
+}
 }

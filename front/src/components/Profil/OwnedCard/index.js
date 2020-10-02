@@ -1,4 +1,6 @@
 import React from 'react';
+import './style-desktop.scss';
+import './style-mobile.scss';
 
 const OwnedCard = ({title, resume, image}) => (
   <div className="fiction__card" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
