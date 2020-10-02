@@ -32,8 +32,12 @@
     font-style: italic;
   }
 
-  &__container
+  &__fictions
   {
     height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }
