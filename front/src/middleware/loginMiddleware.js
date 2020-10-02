@@ -23,8 +23,11 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'localhostmachinmachin.../api/loginform',
-        data,
+        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
+        data: {
+          username: 'monmail@oclock.io',
+          password: 'motdepasse',
+        },
       })
         .then((response) => {
           // dispatch(loginSuccess());

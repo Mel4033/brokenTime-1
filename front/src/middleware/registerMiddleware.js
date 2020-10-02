@@ -19,7 +19,7 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'none',
+        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/user/new',
         data: store.getState().user.formData,
       })
         .then((response) => {
