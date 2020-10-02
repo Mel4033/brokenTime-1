@@ -23,7 +23,7 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'none',
+        url: 'localhostmachinmachin.../api/loginform',
         data,
       })
         .then((response) => {
