@@ -1,15 +1,16 @@
 import React from 'react';
 import './style-mobile.scss';
+import { Link } from 'react-router-dom';
 
 const BurgerMenu = () => (
-<div class="dropdown">
-  <button class="dropbtn"></button>
-  <div class="dropdown-content">
-    <a href="/">Acceuil</a>
-    <a href="/Profil">Mon profil</a>
-    <a href="/library">Bibliothéque</a>
+  <div className="dropdown">
+    <button type="button" alt="button" className="dropbtn" />
+    <div className="dropdown-content">
+      <Link to="/">Acceuil</Link>
+      <Link to="/Profil">Mon profil</Link>
+      <Link to="/library">Bibliothéque</Link>
+    </div>
   </div>
-</div>
 );
 
 export default BurgerMenu;
