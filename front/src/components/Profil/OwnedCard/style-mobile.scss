@@ -1,0 +1,42 @@
+@media (max-width: 600px) {
+  .cardlist {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+  }
+
+  .fiction__card {
+    background-color: rgb(124, 124, 124);
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .fiction__informations {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+  }
+
+  .fiction__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px gray;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-bottom: 1px solid black;
+  }
+
+  .fiction__resume {
+    text-shadow: 1px 1px 1px gray;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+    line-height: 1.2rem;
+  }
+}
