@@ -4,8 +4,8 @@ import './style-mobile.scss';
 import logoBrokentime from '../../assets/images/brokentime-logo.png';
 import HomeCard from './HomeCard';
 
-const ficImg1 = 'https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_960_720.jpg';
-const ficImg2 = 'https://cdn.pixabay.com/photo/2019/05/22/14/51/skull-4221695_960_720.jpg';
+import pocketwatch from '../../assets/images/pocketwatch.jpeg';
+import skullclock from '../../assets/images/skullclock.jpeg';
 
 const Home = () => (
   <div className="home">
@@ -33,13 +33,13 @@ const Home = () => (
         isAvailable
         title="BrokenTime - La montre du temps"
         resume="Une connexion des plus inattendues se fait avec Meadow, jeune femme d'un monde parallèle. En plein coeur d'un univers Steampunk, saurez-vous la mener jusqu'à la vérité ?"
-        image={ficImg1}
+        image={pocketwatch}
       />
       <HomeCard
         isAvailable={false}
         title="BrokenTime - Au-delà de l'horloge"
         resume="A la suite de son voyage temporel, la connexion avec Meadow se rétabli. Elle n'est plus dans la même dimension, ni confrontée aux mêmes problèmes..."
-        image={ficImg2}
+        image={skullclock}
       />
     </div>
   </div>
