@@ -35,7 +35,7 @@ class DashboardController extends AbstractDashboardController
     public function configureCrud(): Crud
     {
         return Crud::new()
-            ->setDateFormat('d/MM/y')
+            ->setDateFormat('dd/MM/y')
             // this defines the pagination size for all CRUD controllers
             // (each CRUD controller can override this value if needed)
             ->setPaginatorPageSize(30)

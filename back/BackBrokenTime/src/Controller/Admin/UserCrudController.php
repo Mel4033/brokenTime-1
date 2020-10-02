@@ -21,13 +21,13 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name', 'nom'),
+            TextField::new('pseudo', 'nom'),
             TextField::new('picture', 'Image'),
-            TextField::new('password', 'Mot de passe')->onlyOnForms(),
             EmailField::new('email'),
+            TextField::new('password', 'Mot de passe')->onlyOnForms(),
             DateField::new('created_at', 'Date de création')->onlyOnIndex(),
             DateField::new('updated_at', 'Date de modification')->onlyOnIndex(),
-            ArrayField::new('role')->onlyWhenUpdating(),
+            ArrayField::new('roles')->onlyOnIndex(),
 
         ];
     }

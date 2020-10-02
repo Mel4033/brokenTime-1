@@ -93,12 +93,6 @@ class Fiction
      */
     private $path;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="Fiction")
-     * 
-     */
-    private $users;
-
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -265,34 +259,6 @@ class Fiction
             if ($path->getFiction() === $this) {
                 $path->setFiction(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addFiction($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeFiction($this);
         }
 
         return $this;
