@@ -12,7 +12,7 @@ const registerMiddleware = (store) => (next) => (action) => {
     default:
       break;
     case REGISTER_SUBMIT:
-      console.log('login submitted (loginMiddleware)');
+      console.log('register submitted (registerMiddleware)');
       // TODO : Réaliser l'appel axios
       // Si le register réussi -> dispatch(registerSuccess());
       // Si le register échoue -> dispatch(registerError());
@@ -20,7 +20,11 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/user/new',
-        data: store.getState().user.formData,
+        data: {
+          username: 'Axel@gmail.com',
+          pseudo: 'Axel',
+          password: 'axel',
+        },
       })
         .then((response) => {
           // dispatch(registerSuccess());
