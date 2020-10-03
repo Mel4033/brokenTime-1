@@ -12,6 +12,6 @@ nelmio_cors:
         paths:
             '^/':
                 allow_origin: ['http://brokentime-project.surge.sh/']
-                allow_headers: ['content-type', 'application/json']
+                allow_headers: ['content-Type', 'application/json']
                 allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
                 max_age: 3600
