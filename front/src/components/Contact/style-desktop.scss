@@ -7,45 +7,38 @@
     padding-top: 16rem;
     };
 
+    .textCard
+    {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 130px;
+        color: white;
+        font-size: 1.2rem;
+    };
+
     .cardContact
     {
         display: flex;
         justify-content: space-around;
-        margin-top: 150px;
-    };
-
-    .app-vide
-    {
-        position: fixed;
-        width:100vw;
-        left: 50%;
-        top: 50%;
-        height: 100vh;
-        object-Fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: -1;
+        margin-top: 5px;
+     
     };
 
     .intelligence
     {
-        color: white;
-        font-size: 1.2rem;
-        text-align: center;
-        border: 1px white solid;
+        border: 1px #acab solid;
         width: 15%;
         height: 150px;
         background-image: url(../../assets/images/info1.jpg);
         background-size: 101%;
         background-repeat: no-repeat;
         border-radius: 10px;
+        margin-left: 30px;
     };
 
     .idea
     {
-        color: white;
-        font-size: 1.2rem;
-        text-align: center;
-        border: 1px white solid;
+        border: 1px #acab solid;
         width: 15%;
         height: 150px;
         background-image: url(../../assets/images/idea2.jpg);
@@ -56,10 +49,7 @@
 
     .email
     {
-        color: white;
-        font-size: 1.2rem;
-        text-align: center;
-        border: 1px white solid;
+        border: 1px #acab solid;
         width: 15%;
         height: 150px;
         background-image: url(../../assets/images/contact1.jpg);

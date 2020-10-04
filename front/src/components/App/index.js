@@ -11,6 +11,7 @@ import Library from '../../containers/Card';
 import Fiction from '../../containers/Fiction';
 import './style.scss';
 import Contact from '../Contact';
+import ContactForm from'../Contact/ContactForm';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
@@ -46,6 +47,11 @@ const App = () => (
         <Route exact path="/contact">
           <Contact />
         </Route>
+
+        <Route exact path="/ContactForm">
+          <ContactForm />
+        </Route>
+
       </Switch>
     </div>
   </div>
