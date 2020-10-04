@@ -14,9 +14,15 @@ const Contact = () => (
                 <div>Contact</div>
             </div>
             <div className="cardContact">
-                <Link to="/ContactForm" className="intelligence"></Link>
-                <Link to="/ContactForm" className="idea"></Link>
-                <Link to="/ContactForm" className="email"></Link>
+                <Link to="/ContactForm" className="intelligence">
+                    <p className="cardContactText">Renseignements</p>
+                </Link>
+                <Link to="/ContactForm" className="idea">
+                    <p className="cardContactText">Idée</p>
+                </Link>
+                <Link to="/ContactForm" className="email">
+                    <p className="cardContactText">Contact</p>
+                </Link>
             </div>
     </div>
 );

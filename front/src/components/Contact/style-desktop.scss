@@ -16,6 +16,11 @@
         font-size: 1.2rem;
     };
 
+    .cardContactText
+    {
+        display: none;
+    };
+
     .cardContact
     {
         display: flex;
@@ -28,7 +33,7 @@
     {
         border: 1px #acab solid;
         width: 15%;
-        height: 150px;
+        height: 190px;
         background-image: url(../../assets/images/info1.jpg);
         background-size: 101%;
         background-repeat: no-repeat;
@@ -40,9 +45,9 @@
     {
         border: 1px #acab solid;
         width: 15%;
-        height: 150px;
+        height: 190px;
         background-image: url(../../assets/images/idea2.jpg);
-        background-size: 101%;
+        background-size: 117%;
         background-repeat: no-repeat;
         border-radius: 10px;
     };
@@ -51,7 +56,7 @@
     {
         border: 1px #acab solid;
         width: 15%;
-        height: 150px;
+        height: 190px;
         background-image: url(../../assets/images/contact1.jpg);
         background-size: 101%;
         background-repeat: no-repeat;
