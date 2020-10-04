@@ -99,6 +99,49 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/user/update", name="user_update", methods={"PUT"})
+     */
+    public function update(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $dataJSON = $request->getContent();
+
+        $user = $serializer->deserialize($dataJSON, User::class, 'json');
+
+        $plainPassword = $user->getPassword();
+
+        $encodedPassword = $passwordEncoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encodedPassword);
+
+        $errors = $validator->validate($user);
+        $totalErrors = count($errors);
+        $success = false;
+        $message = '';
+
+        if ($totalErrors > 0) {
+            // Si on a des erreurs...alors on ne fait pas de sauvegarde...
+            // Et on prévient l'utilisateur
+            $message = "Il y a {$totalErrors} erreur(s) dans votre requete.";
+        } else {
+            // Pas d'erreur (à priori)
+            $success = true;
+            $message = "L'utilisateur a bien créé";
+
+            // ...on sauvegarde l'utilisateur en BDD
+             $em = $this->getDoctrine()->getManager();
+             $em->persist($user);
+             $em->flush();
+        }
+
+        // On retourne un message pour dire que tout s'est bien passé...
+        return $this->json([
+            'success' => $success,
+            'message' => $message,
+            'errors' => $errors
+        ]);
+
+    }
+
+    /**
      * @Route("/api/login_check", name="api_login_check")
      */
     public function apiLoginCheck()
