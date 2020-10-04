@@ -99,7 +99,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/update", name="user_update", methods={"PUT"})
+     * @Route("/user/update", name="user_update", methods={"PATCH"})
      */
     public function update(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -124,11 +124,10 @@ class UserController extends AbstractController
         } else {
             // Pas d'erreur (à priori)
             $success = true;
-            $message = "L'utilisateur a bien créé";
+            $message = "L'utilisateur a bien été mis à jour";
 
             // ...on sauvegarde l'utilisateur en BDD
              $em = $this->getDoctrine()->getManager();
-             $em->persist($user);
              $em->flush();
         }
 
