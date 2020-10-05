@@ -1,11 +1,13 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH } from '../actions/user';
+
 const cookies = new Cookies();
 
 // Importation des actions
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH } from '../actions/user';
 
-const registerMiddleware = (store) => (next) => (action) => {
+const loginMiddleware = (store) => (next) => (action) => {
   // En premier, on laisse passer l'action pour ne pas bloquer l'exécution du script.
   next(action);
 
@@ -16,9 +18,10 @@ const registerMiddleware = (store) => (next) => (action) => {
 
     // On demande à l'API si l'utilisateur présent sur le site est déjà connecté ou non
     case CHECK_AUTH:
+      console.log('Je suis le check auth');
       axios({
-        method: 'get',
-        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user',
+        method: 'post',
+        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
         // Il est nécessaire pour le serveur de connaître l'utilisateur, donc on utilise
         // le paramètre suivant.
         withCredentials: true,
@@ -45,6 +48,7 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
+        withCredentials: true,
         data: {
           username: store.getState().user.formData.email,
           password: store.getState().user.formData.password,
@@ -64,4 +68,4 @@ const registerMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default registerMiddleware;
+export default loginMiddleware;
