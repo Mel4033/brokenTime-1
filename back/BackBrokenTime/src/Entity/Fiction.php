@@ -21,21 +21,21 @@ class Fiction
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_view"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="boolean", options={"default":0})
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $status;
 
@@ -49,21 +49,21 @@ class Fiction
     /**
      * @ORM\Column(type="text", nullable=true)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $summary;
 
     /**
      * @ORM\Column(type="decimal", nullable=true, options={"unsigned":true, "default":"0.00"})
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $picture;
 
@@ -75,14 +75,14 @@ class Fiction
     /**
      * @ORM\Column(type="datetime")
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $created_at;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="fictions")
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
+     * @Groups({"fiction_list", "fiction_view"})
      */
     private $category;
 
