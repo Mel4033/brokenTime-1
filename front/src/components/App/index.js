@@ -1,6 +1,8 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 // == Import
 import Header from '../Header';
@@ -19,9 +21,8 @@ import ContactForm from '../Contact/ContactForm';
 // == Composant
 const App = ({ checkAuth }) => {
   useEffect(() => {
-    checkAuth();
+      console.log(cookies.get('token'));
   }, []);
-
   return (
     <div className="app">
       <Header />

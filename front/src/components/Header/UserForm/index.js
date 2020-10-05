@@ -12,7 +12,6 @@ const UserForm = ({ registerOpened, loginOpened, switchFormsDisplay, isUserConne
   // On détermine la classe que notre bouton doit avoir afin d'afficher une croix
   // ou un symbole de connexion.
   const buttonClass = registerOpened || loginOpened ? 'fas fa-times' : 'fas fa-power-off';
-  console.log(isUserConnected);
 
   return (
     <div className="login__container">

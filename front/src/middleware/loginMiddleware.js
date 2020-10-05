@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 // Importation des actions
 import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH } from '../actions/user';
@@ -49,6 +51,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
+          cookies.set('token', response.data, { path: '/' });
           store.dispatch(loginSuccess(response.data));
           console.log(response.data);
         })
