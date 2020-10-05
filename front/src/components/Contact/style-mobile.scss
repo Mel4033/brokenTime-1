@@ -1,0 +1,72 @@
+@media (max-width: 600px) {
+    .titreContact
+    {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    };
+
+    .textCard
+    {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 130px;
+        color: white;
+        font-size: 1.2rem;
+        display: none;
+    };
+
+    .cardContact
+    {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5px;
+        flex-wrap: wrap;
+    };
+
+    .cardContactText
+    {
+        text-align: center;
+        color: white;
+        margin-top: 10px;
+        font-size: 1.2rem;
+    };
+
+    .intelligence
+    {
+        border: 1px #acab solid;
+        width: 51%;
+        height: 150px;
+        background-image: url(../../assets/images/info1.jpg);
+        background-size: 125%;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    };
+
+    .idea
+    {
+        border: 1px #acab solid;
+        width: 51%;
+        height: 150px;
+        background-image: url(../../assets/images/idea2.jpg);
+        background-size: 125%;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    };
+
+    .email
+    {
+        border: 1px #acab solid;
+        width: 51%;
+        height: 150px;
+        background-image: url(../../assets/images/contact1.jpg);
+        background-size: 101%;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    };
+}
