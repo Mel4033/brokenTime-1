@@ -28,7 +28,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * 
-     * @Groups({"user_list"})
+     * @Groups({"user_list", "user_view"})
      */
     private $email;
 
@@ -50,7 +50,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"user_list"})
+     * @Groups({"user_list", "user_view"})
      */
     private $pseudo;
 

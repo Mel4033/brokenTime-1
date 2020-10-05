@@ -39,7 +39,9 @@ class UserController extends AbstractController
         $dataJSON = $request->getContent();
         $contentArray = json_decode($dataJSON, true);
         $user = $repository->findOneBy(['email'=>$contentArray['email']]);
-        return $this->json($user, 200, []);
+        return $this->json($user, 200, [], [
+            'groups' => 'user_view'
+            ]);
     }
 
     /**
@@ -114,7 +116,7 @@ class UserController extends AbstractController
         foreach ($data as $key => $value){
 
             if($key && !empty($value)) {
-                
+
                 $name = ucfirst($key);
                 $setter = 'set'.$name;
                 $userUpdate->$setter($value);
