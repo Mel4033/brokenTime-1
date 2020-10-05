@@ -8,6 +8,7 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const ALTERNATE_FORMS = 'ALTERNATE_FORMS';
 export const SWITCH_FORMS_DISPLAY = 'SWITCH_FORMS_DISPLAY';
+export const CHECK_AUTH = 'CHECK_AUTH';
 
 // ============================ Action creators ============================
 export const inputChange = (payload) => ({
@@ -23,7 +24,7 @@ export const loginSubmit = () => ({
   type: LOGIN_SUBMIT,
 });
 
-export const loginSucess = (payload) => ({
+export const loginSuccess = (payload) => ({
   type: LOGIN_SUCCESS,
   payload,
 });
@@ -50,4 +51,8 @@ export const alternateForms = () => ({
 
 export const switchFormsDisplay = () => ({
   type: SWITCH_FORMS_DISPLAY,
+});
+
+export const checkAuth = () => ({
+  type: CHECK_AUTH,
 });
