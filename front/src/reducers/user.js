@@ -64,13 +64,14 @@ const user = (state = initialState, action = {}) => {
           pseudo: 'bobbyNight',
         },
         isErrorDisplayed: false,
-        isSuccessDisplayed: false,
+        isSuccessDisplayed: true,
       };
     case LOGIN_ERROR:
       return {
         ...state,
         currentUser: {},
         isErrorDisplayed: true,
+        isSuccessDisplayed: false,
       };
     case REGISTER_SUCCESS:
       return {
@@ -79,13 +80,13 @@ const user = (state = initialState, action = {}) => {
           pseudo: 'bobbyNight',
         },
         isErrorDisplayed: false,
-        isSuccessDisplayed: false,
+        isSuccessDisplayed: true,
       };
     case REGISTER_ERROR:
       return {
         ...state,
         currentUser: {},
-        isErrorDisplayed: false,
+        isErrorDisplayed: true,
         isSuccessDisplayed: false,
       };
     case DISCONNECT_USER:
