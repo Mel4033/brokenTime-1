@@ -6,6 +6,8 @@ import { alternateForms, loginSubmit, inputChange } from '../actions/user';
 const mapState = (state) => ({
   email: state.user.formData.email,
   password: state.user.formData.password,
+  isErrorDisplayed: state.user.isErrorDisplayed,
+  isSuccessDisplayed: state.user.isSuccessDisplayed,
 });
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?
