@@ -27,7 +27,7 @@ const Library = ({ cards }) => {
             title={cardObject.title}
             resume={cardObject.resume}
             locked={cardObject.locked}
-            picture={cardObject.pictureCard}
+            thumbnail={cardObject.thumbnail}
           />
         ))
       }
