@@ -89,7 +89,7 @@ class Fiction
     /**
      * @ORM\OneToMany(targetEntity=Path::class, mappedBy="fiction", orphanRemoval=true)
      * 
-     * @Groups({"fiction_view"}, "fiction_new")
+     * @Groups({"fiction_view"})
      */
     private $path;
 
