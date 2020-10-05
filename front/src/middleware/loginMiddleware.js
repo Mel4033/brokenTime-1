@@ -16,15 +16,18 @@ const registerMiddleware = (store) => (next) => (action) => {
       // TODO : Réaliser l'appel axios
       // Si le login réussi -> dispatch(loginSuccess());
       // Si le login échoue -> dispatch(loginError());
-      const data = {
-        email: store.getState().user.formData.email,
-        password: store.getState().user.formData.password,
-      };
+      // const data = {
+      //   email: store.getState().user.formData.email,
+      //   password: store.getState().user.formData.password,
+      // };
 
       axios({
         method: 'post',
-        url: 'none',
-        data,
+        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
+        data: {
+          username: store.getState().user.formData.email,
+          password: store.getState().user.formData.password,
+        },
       })
         .then((response) => {
           // dispatch(loginSuccess());

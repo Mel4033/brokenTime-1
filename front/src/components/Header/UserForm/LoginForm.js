@@ -1,6 +1,8 @@
 import React from 'react';
+import Error from './Error';
+import Success from './Success';
 
-const LoginForm = ({ switchToRegisterForm, email, password, inputChange, loginSubmit }) => (
+const LoginForm = ({ switchToRegisterForm, email, password, inputChange, loginSubmit, isErrorDisplayed, isSuccessDisplayed }) => (
   <form
     className="login__form"
     onSubmit={(evt) => {
@@ -27,6 +29,8 @@ const LoginForm = ({ switchToRegisterForm, email, password, inputChange, loginSu
       type="password"
       placeholder="Mot de passe"
     />
+    { isErrorDisplayed && <Error /> }
+    { isSuccessDisplayed && <Success /> }
     <button type="submit" className="form__button">Connexion</button>
     <a
       className="form__link"

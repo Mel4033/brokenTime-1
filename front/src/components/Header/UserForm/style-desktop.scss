@@ -1,88 +1,102 @@
 @media (min-width: 601px) {
-.login__container {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  flex-flow: row-reverse nowrap;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.login__form {
-  border-radius: 1rem;
-  border: 1px solid black;
-  background-color: rgba(0, 0, 0, 0.342);
-  padding: 0.5rem;
-  text-align: right;
-  color: white;
-  display: flex;
-  flex-flow: column nowrap;
-  margin-right: 1rem;
-  animation: 1s popFromRight ease-in-out;
-}
-
-.menu__login-panel {
-  font-size: 1rem;
-  color: #969696;
-  border: none;
-  background-color: transparent;
-  transition: 1s;
-
-  &:hover {
-    color: #2effff;
-    transition: 0.25s;
-  }
-}
-
-.form__input {
-  margin-bottom: 0.4rem;
-  border-radius: 0.5rem;
-  padding: 0.3rem;
-  font-size: 1rem;
-  background-color:  #8ec1ff;
-  border: 2px solid  #3a6394;
-  color: black;
-
-  &::placeholder
-  {
-    color: rgb(122, 122, 122);
-  }
-}
-
-.form__label {
-  text-align: center;
-  margin-bottom: 0.1rem;
-  margin-top: 0.4rem;
-}
-
-.form__link {
-  margin-top: 0.5rem;
-  text-align: center;
-  text-decoration: underline;
-  &:hover
-  {
-    cursor: pointer,
-  }
-}
-
-.form__button {
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  margin: 1rem 0 0;
-  background-color: transparent;
-  color: #8ec1ff;
-  border: 2px solid #8ec1ff;
-}
-
-@keyframes popFromRight {
-  0% {
-    left: 0%;
+  .login__container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: center;
+    align-items: flex-start;
   }
 
-  100% {
-    left: 100%;
+  .login__form {
+    max-width: 280px;
+    border-radius: 1rem;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.342);
+    padding: 0.5rem;
+    text-align: right;
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-right: 1rem;
   }
-}
+
+  .menu__login-panel {
+    font-size: 1rem;
+    color: #969696;
+    border: none;
+    background-color: transparent;
+    transition: 1s;
+
+    &:hover {
+      color: #2effff;
+      transition: 0.25s;
+    }
+  }
+
+  .form__input {
+    margin-bottom: 0.4rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    font-size: 1rem;
+    background-color: #8ec1ff;
+    border: 2px solid #3a6394;
+    color: black;
+
+    &::placeholder {
+      color: rgb(122, 122, 122);
+    }
+  }
+
+  .form__label {
+    text-align: center;
+    margin-bottom: 0.1rem;
+    margin-top: 0.4rem;
+  }
+
+  .form__link {
+    margin-top: 0.5rem;
+    text-align: center;
+    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .form__button {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0 0;
+    background-color: transparent;
+    color: #8ec1ff;
+    border: 2px solid #8ec1ff;
+  }
+
+  .fa-times.confirmInputs {
+    color: red;
+  }
+
+  .fa-check.confirmInputs {
+    color: green;
+  }
+
+  .error {
+    border: 2px solid red;
+    text-align: center;
+    border-radius: 1rem;
+    color: white;
+    background-color: rgb(151, 0, 0);
+    padding: 0.5rem;
+  }
+
+  .success {
+    border: 2px solid green;
+    text-align: center;
+    border-radius: 1rem;
+    color: white;
+    background-color: rgb(0, 58, 0);
+    padding: 0.5rem;
+  }
 }
