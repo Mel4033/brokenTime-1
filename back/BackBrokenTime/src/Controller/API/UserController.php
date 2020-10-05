@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+
 class UserController extends AbstractController
 {
     /**
@@ -48,7 +49,7 @@ class UserController extends AbstractController
     {
         $users = $userRepository->findAll();
 
-        // dd($fictions);
+        // dd($users);
 
         return $this->json($users, 200, [], [
             'groups' => 'user_list'

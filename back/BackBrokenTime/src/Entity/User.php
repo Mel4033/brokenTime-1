@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -18,45 +19,65 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
+     * @Groups({"user_list"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * 
+     * @Groups({"user_list"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="json", nullable=true)
+     * 
+     * @Groups({"user_list"})
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * 
+     * @Groups({"user_list"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Groups({"user_list"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     * @Groups({"user_list"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * 
+     * @Groups({"user_list"})
      */
     private $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * 
+     * @Groups({"user_list"})
      */
     private $updated_at;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTime('NOW');
+    }
     /**
      * @ORM\PrePersist
      */
