@@ -16,11 +16,13 @@ const initialState = {
   isSuccessDisplayed: false,
   formData: {
     pseudo: '',
-    email: '',
-    password: '',
+    email: 'testAPI@gmail.com',
+    password: 'testAPI',
     confirmpassword: '',
   },
-  currentUser: {},
+  currentUser: {
+    pseudo: 'truc',
+  },
 };
 
 const user = (state = initialState, action = {}) => {
@@ -58,6 +60,7 @@ const user = (state = initialState, action = {}) => {
         },
       };
     case LOGIN_SUCCESS:
+      
       return {
         ...state,
         currentUser: {

@@ -58,6 +58,7 @@
     "axios": "^0.20.0",
     "prop-types": "*",
     "react": "*",
+    "react-cookie": "^4.0.3",
     "react-dom": "*",
     "react-redux": "*",
     "react-router-dom": "^5.2.0",
