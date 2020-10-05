@@ -30,7 +30,7 @@ import './style-desktop.scss';
 import './style-mobile.scss';
 
 // Ici j'appelle les card que j'ai crée au préalable j'y incorpore le reste de mon html pour
-// la recherche et mes titres et je dynamise le contenu de mes cards
+// la recherche et mes titres ect et je dynamise le contenu de mes cards
 
 const Library = ({ cards }) => {
   console.log(cards);
@@ -52,6 +52,7 @@ const Library = ({ cards }) => {
             title={cardObject.title}
             resume={cardObject.resume}
             locked={cardObject.locked}
+            picture={cardObject.pictureCard}
           />
         ))
       }
@@ -63,6 +64,7 @@ const Library = ({ cards }) => {
 Library.propTypes = {
   title: PropTypes.string.isrequired,
   resume: PropTypes.string.isrequired,
+  picture:PropTypes.object.isRequired,
 };
 
 export default Library;

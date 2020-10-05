@@ -2,16 +2,21 @@ import React from 'react';
 import './style-desktop.scss';
 import './style-mobile.scss';
 
-// Je vais ici créer et dynamiser mes cards, que je vais par la suite appeller dans ma library j'importe mon style scc desktop et 
+// Je vais ici créer et dynamiser mes cards, que je vais par la suite appeller dans ma library j'importe mon style scss desktop et 
 // mobile, que j'ai aussi dans mon index de card
-const Card = ({ title, resume, locked }) => {
+const Card = ({ title, resume, locked, pictureCard }) => {
 
   return (
-    <div className="cardUnit">
-      <h4 className="fictionTitle">Titre</h4>
+    <div className="cardUnit" style={{ backgroundImage: `url(${pictureCard})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <h4 className="fictionTitle">{title}</h4>  
+      <img 
+        src={pictureCard}
+        alt="Représentation de la fiction" 
+        className="pictureCard"
+        />
       <p className={locked ? 'resume resume-unlocked' : 'resume resume-locked'}>
         {/* <button type="button" className="cardUnit-play">test</button> */}
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit reprehenderit exercitationem eum explicabo.</p>
+        {resume}</p>
     </div>
   );
 };

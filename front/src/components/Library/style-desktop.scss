@@ -45,11 +45,7 @@
     width: 325px;
     border: 1px solid #d3d3d3;
     margin: 1rem;
-    height: 200px;
-    background-image: url("../../assets/images/picture.png");
-    background-position: 50%;
-    background-repeat: no-repeat; 
-    
+    height: 200px; 
   };
   
   .cardUnit:hover
@@ -75,13 +71,13 @@
     font-size: 1.5rem;
   };
   
-  .wallpaper
+  .pictureCard
   {
-    background-image: url("../../assets/images/picture.png");
-    background-position: 50%;
-    background-repeat: no-repeat;
+    z-index: auto;
+    width: 200px;
+    height: 200px;
   };
-  
+
   .resume
   {
     padding-top: 60px;
