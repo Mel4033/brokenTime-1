@@ -7,7 +7,7 @@ import './style-mobile.scss';
 const Card = ({ title, resume, locked, pictureCard }) => {
 
   return (
-    <div className="cardUnit" style={{ backgroundImage: `url(${pictureCard})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="cardUnit">
       <h4 className="fictionTitle">{title}</h4>  
       <img 
         src={pictureCard}
