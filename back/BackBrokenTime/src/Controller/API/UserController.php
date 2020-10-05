@@ -11,7 +11,9 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-
+/**
+ * @Route("/api", name="api_")
+ */
 class UserController extends AbstractController
 {
     /**
@@ -100,7 +102,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/login_check", name="api_login_check")
+     * @Route("/login_check", name="api_login_check")
      */
     public function apiLoginCheck()
     {
