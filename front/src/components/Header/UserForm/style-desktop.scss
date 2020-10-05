@@ -76,12 +76,12 @@
   border: 2px solid #8ec1ff;
 }
 
-@keyframes popFromRight {
-  0% {
-    left: 0%;
-  }
+.fa-times.confirmInputs
+{
+  color: red;
+}
 
-  100% {
-    left: 100%;
-  }
+.fa-check.confirmInputs
+{
+  color: green;
 }

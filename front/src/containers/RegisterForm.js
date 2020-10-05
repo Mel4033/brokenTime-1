@@ -8,6 +8,7 @@ const mapState = (state) => ({
   email: state.user.formData.email,
   password: state.user.formData.password,
   confirmpassword: state.user.formData.confirmpassword,
+  passwordsClass: state.user.formData.password === state.user.formData.confirmpassword ? 'check' : 'times',
 });
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?

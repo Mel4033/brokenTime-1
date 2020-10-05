@@ -12,29 +12,29 @@ const registerMiddleware = (store) => (next) => (action) => {
     default:
       break;
     case REGISTER_SUBMIT:
-      console.log('register submitted (registerMiddleware)');
-      // TODO : Réaliser l'appel axios
       // Si le register réussi -> dispatch(registerSuccess());
       // Si le register échoue -> dispatch(registerError());
 
-      axios({
-        method: 'post',
-        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/user/new',
-        withCredentials: true,
-        data: {
-          pseudo: store.getState().user.formData.pseudo,
-          email: store.getState().user.formData.email,
-          password: store.getState().user.formData.password,
-        },
-      })
-        .then((response) => {
-          // dispatch(registerSuccess());
-          console.log(response);
+      if (store.getState().user.formData.password === store.getState().user.formData.confirmpassword) {
+        axios({
+          method: 'post',
+          url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/user/new',
+          withCredentials: true,
+          data: {
+            pseudo: store.getState().user.formData.pseudo,
+            email: store.getState().user.formData.email,
+            password: store.getState().user.formData.password,
+          },
         })
-        .catch((error) => {
-          // dispatch(registerError());
-          console.log(error);
-        });
+          .then((response) => {
+            // dispatch(registerSuccess());
+            console.log(response);
+          })
+          .catch((error) => {
+            // dispatch(registerError());
+            console.log(error);
+          });
+      }
       break;
   }
 };

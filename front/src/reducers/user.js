@@ -23,14 +23,6 @@ const initialState = {
   currentUser: {},
 };
 
-// Contrôle la correspondance entre le mot de passe saisi et le vérificateur.
-const passwordMatchWithConfirm = (password, confirmation) => {
-  if (password === confirmation) {
-    return true;
-  }
-  return false;
-};
-
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
     case ALTERNATE_FORMS:
