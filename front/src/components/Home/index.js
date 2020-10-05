@@ -1,6 +1,11 @@
 import React from 'react';
-import './style.scss';
+import './style-desktop.scss';
+import './style-mobile.scss';
 import logoBrokentime from '../../assets/images/brokentime-logo.png';
+import HomeCard from './HomeCard';
+
+import pocketwatch from '../../assets/images/pocketwatch.jpeg';
+import skullclock from '../../assets/images/skullclock.jpeg';
 
 const Home = () => (
   <div className="home">
@@ -18,13 +23,24 @@ const Home = () => (
          */}
         <h2 className="home__item home__subtitle">Le site de fictions interactives.</h2>
       </div>
-      <a className="home__item home__nav-arrow" href="#" alt="Autoscroll">
+      <a className="home__item home__nav-arrow" href="#home-fictions" alt="Autoscroll">
         {/* Le logo se situera ici à la place de l'icone */}
         <i className="fas fa-angle-double-down fa-4x" />
       </a>
     </div>
-    <div className="home__container">
-      <div>Some content.</div>
+    <div className="home__fictions" id="home-fictions">
+      <HomeCard
+        isAvailable
+        title="BrokenTime - La montre du temps"
+        resume="Une connexion des plus inattendues se fait avec Meadow, jeune femme d'un monde parallèle. En plein coeur d'un univers Steampunk, saurez-vous la mener jusqu'à la vérité ?"
+        image={pocketwatch}
+      />
+      <HomeCard
+        isAvailable={false}
+        title="BrokenTime - Au-delà de l'horloge"
+        resume="A la suite de son voyage temporel, la connexion avec Meadow se rétabli. Elle n'est plus dans la même dimension, ni confrontée aux mêmes problèmes..."
+        image={skullclock}
+      />
     </div>
   </div>
 );

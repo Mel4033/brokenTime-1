@@ -21,21 +21,21 @@ class Fiction
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "fiction_new"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_view", "fiction_new"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="boolean", options={"default":0})
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
      */
     private $status;
 
@@ -49,21 +49,21 @@ class Fiction
     /**
      * @ORM\Column(type="text", nullable=true)
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
      */
     private $summary;
 
     /**
      * @ORM\Column(type="decimal", nullable=true, options={"unsigned":true, "default":"0.00"})
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
      */
     private $picture;
 
@@ -75,31 +75,23 @@ class Fiction
     /**
      * @ORM\Column(type="datetime")
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
      */
     private $created_at;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="fictions")
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_new"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=Path::class, mappedBy="fiction", orphanRemoval=true)
      * 
-     * @Groups({"fiction_view"})
+     * @Groups({"fiction_view"}, "fiction_new")
      */
     private $path;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="Fiction")
-     * 
-     */
-    private $users;
-
-    private $slugger;
 
     public function __construct()
     {
@@ -267,34 +259,6 @@ class Fiction
             if ($path->getFiction() === $this) {
                 $path->setFiction(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addFiction($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeFiction($this);
         }
 
         return $this;
