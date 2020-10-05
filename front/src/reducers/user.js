@@ -15,7 +15,7 @@ const initialState = {
   loginFormDisplayed: false,
   registerFormDisplayed: false,
   formData: {
-    nickname: '',
+    pseudo: '',
     email: 'Bobby.night@gmail.com',
     password: 'bobby',
     confirmpassword: '',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RegisterForm = ({ switchToLoginForm, nickname, email, password, confirmpassword, inputChange, registerSubmit }) => (
+const RegisterForm = ({ switchToLoginForm, pseudo, email, password, confirmpassword, inputChange, registerSubmit }) => (
   <form
     className="login__form"
     onSubmit={(evt) => {
@@ -9,7 +9,7 @@ const RegisterForm = ({ switchToLoginForm, nickname, email, password, confirmpas
     }}
   >
     <p className="form__label">Pseudo</p>
-    <input onChange={(evt) => inputChange(evt.target.name, evt.target.value)} name="nickname" className="form__input" value={nickname} type="text" placeholder="Votre nom" />
+    <input onChange={(evt) => inputChange(evt.target.name, evt.target.value)} name="pseudo" className="form__input" value={pseudo} type="text" placeholder="Votre nom" />
     <p className="form__label">Email</p>
     <input onChange={(evt) => inputChange(evt.target.name, evt.target.value)} name="email" className="form__input" value={email} type="email" placeholder="Exemple@gmail.com" />
     <p htmlFor="password" className="form__label">Mot de passe</p>

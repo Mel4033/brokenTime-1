@@ -4,7 +4,7 @@ import { alternateForms, registerSubmit, inputChange } from '../actions/user';
 
 // Notre Dumb-Component a-t-il besoin de données venant du State ?
 const mapState = (state) => ({
-  nickname: state.user.formData.nickname,
+  pseudo: state.user.formData.pseudo,
   email: state.user.formData.email,
   password: state.user.formData.password,
   confirmpassword: state.user.formData.confirmpassword,
