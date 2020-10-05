@@ -23,10 +23,10 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/user/new',
+        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
         data: {
-          username: 'monmail@oclock.io',
-          password: 'motdepasse',
+          username: store.getState().user.formData.email,
+          password: store.getState().user.formData.password,
         },
       })
         .then((response) => {
