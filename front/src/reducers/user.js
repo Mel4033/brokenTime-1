@@ -4,20 +4,20 @@ import {
   INPUT_CHANGE,
   DISCONNECT_USER,
   LOGIN_ERROR,
-  LOGIN_SUBMIT,
   LOGIN_SUCCESS,
   REGISTER_ERROR,
-  REGISTER_SUBMIT,
   REGISTER_SUCCESS,
 } from '../actions/user';
 
 const initialState = {
   loginFormDisplayed: false,
   registerFormDisplayed: false,
+  isErrorDisplayed: false,
+  isSuccessDisplayed: false,
   formData: {
     pseudo: '',
-    email: 'Bobby.night@gmail.com',
-    password: 'bobby',
+    email: '',
+    password: '',
     confirmpassword: '',
   },
   currentUser: {},
@@ -30,6 +30,8 @@ const user = (state = initialState, action = {}) => {
         ...state,
         loginFormDisplayed: !state.loginFormDisplayed,
         registerFormDisplayed: !state.registerFormDisplayed,
+        isErrorDisplayed: false,
+        isSuccessDisplayed: false,
       };
     case SWITCH_FORMS_DISPLAY:
       if (state.loginFormDisplayed || state.registerFormDisplayed) {
@@ -37,11 +39,15 @@ const user = (state = initialState, action = {}) => {
           ...state,
           loginFormDisplayed: false,
           registerFormDisplayed: false,
+          isErrorDisplayed: false,
+          isSuccessDisplayed: false,
         };
       }
       return {
         ...state,
         loginFormDisplayed: true,
+        isErrorDisplayed: false,
+        isSuccessDisplayed: false,
       };
     case INPUT_CHANGE:
       return {
@@ -51,10 +57,43 @@ const user = (state = initialState, action = {}) => {
           ...action.payload,
         },
       };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        currentUser: {
+          pseudo: 'bobbyNight',
+        },
+        isErrorDisplayed: false,
+        isSuccessDisplayed: false,
+      };
+    case LOGIN_ERROR:
+      return {
+        ...state,
+        currentUser: {},
+        isErrorDisplayed: true,
+      };
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        currentUser: {
+          pseudo: 'bobbyNight',
+        },
+        isErrorDisplayed: false,
+        isSuccessDisplayed: false,
+      };
+    case REGISTER_ERROR:
+      return {
+        ...state,
+        currentUser: {},
+        isErrorDisplayed: false,
+        isSuccessDisplayed: false,
+      };
     case DISCONNECT_USER:
       return {
         ...state,
         currentUser: {},
+        isErrorDisplayed: false,
+        isSuccessDisplayed: false,
       };
     default:
       return state;
