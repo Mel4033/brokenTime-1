@@ -4,14 +4,19 @@ import { submitChoice } from '../actions/fiction';
 
 // Notre Dumb-Component a-t-il besoin de données venant du State ?
 const mapState = (state) => ({
+  isWriting: state.fiction.isWriting,
   messages: state.fiction.messages,
   choices: state.fiction.choices,
 });
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?
 const mapDispatch = (dispatch) => ({
-  submitChoice: (pathToCall) => {
-    dispatch(submitChoice(pathToCall));
+  submitChoice: (pathToCall, choiceContent) => {
+    const choiceObject = {
+      pathToCall,
+      choiceContent,
+    };
+    dispatch(submitChoice(choiceObject));
   },
 });
 

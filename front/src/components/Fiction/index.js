@@ -11,7 +11,7 @@ import './style-desktop.scss';
 
 // TODO : Réaliser un autoscroll à l'arrivée des messages.
 
-const Fiction = ({ messages, choices, submitChoice }) => (
+const Fiction = ({ messages, choices, submitChoice, isWriting }) => (
   <div className="fiction">
     <div className="fiction__messages">
       {
@@ -25,7 +25,7 @@ const Fiction = ({ messages, choices, submitChoice }) => (
       }
 
       {/* Affiche si un message est en cours de réception. */}
-      {false && (
+      { isWriting && (
         <div className="fiction__loadingmessage">
           <div className="fiction__iswriting">
             Message entrant... |<span className="loadingstate">←</span>
@@ -40,8 +40,9 @@ const Fiction = ({ messages, choices, submitChoice }) => (
           <Choice
             key={choiceObject.id}
             targetPath={choiceObject.pathToCall}
-            content={choiceObject.content}
+            text={choiceObject.text}
             submitChoice={submitChoice}
+            choiceContent={choiceObject.content}
           />
         ))
       }

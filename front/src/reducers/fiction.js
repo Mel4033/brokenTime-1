@@ -1,24 +1,16 @@
 import { uuid, uuid as uuidv4 } from 'uuidv4';
-import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/fiction';
-
-// TEST
-import paths from './data';
+import { SUBMIT_CHOICE, RECEIVED_PATH, MESSAGE_LOADING, MESSAGE_NOTLOADING } from '../actions/fiction';
 
 const initialState = {
-  messages: [
-    {
-      id: uuidv4(),
-      author: '???',
-      content: 'Hé ... Youhou ? Pourquoi ça note tout ce que je dis ce machin, hm ... Et c\'est quoi ça "Connexion établie" ?',
-    },
-  ],
-
+  isWriting: false,
+  messages: [],
   // Les choix de chemins qui s'offrent au joueur
   choices: [
     {
       id: uuidv4(),
-      content: 'Bonjour... ?',
-      pathToCall: 2,
+      text: '[Rechercher une fréquence temporelle]',
+      content: '[Recherche temporelle envoyée. Connexion établie avec succès.]',
+      pathToCall: 1,
     },
   ],
 };
@@ -39,9 +31,11 @@ const transformPathToMessages = (receivedPath) => {
 };
 
 const transformPathToChoices = (receivedPath) => {
+  console.log(receivedPath);
   const extractedChoices = receivedPath.choice.map((choiceObject) => ({
     id: uuidv4(),
-    content: choiceObject.text,
+    content: choiceObject.content,
+    text: choiceObject.text,
     pathToCall: choiceObject.toPath,
   }));
 
@@ -51,23 +45,38 @@ const transformPathToChoices = (receivedPath) => {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
-      // Récupération du chemin souhaité.
-      const calledPath = paths.find((pathObject) => pathObject.number === action.pathToCall);
-
-      // Transformation du chemin en une liste de messages triés et exploitables.
-      const allMessages = transformPathToMessages(calledPath);
-      const allChoices = transformPathToChoices(calledPath);
-
-      // Et insertion des messages dans le chat en direct.
+      console.log(action.payload);
       return {
         ...state,
-        messages: [...state.messages, ...allMessages],
-        choices: [...allChoices],
+        messages: [...state.messages, {
+          id: uuidv4(),
+          author: 'Vous',
+          content: action.payload.choiceContent,
+        }],
       };
     }
-    case RECEIVED_PATH:
-      // TODO - Réception et injection des données reçues.
-      return state;
+    case RECEIVED_PATH: {
+      console.log(action.payload);
+      const messagesToDisplay = transformPathToMessages(action.payload);
+      const choicesToDisplay = transformPathToChoices(action.payload);
+      console.log(messagesToDisplay);
+      console.log(choicesToDisplay);
+      return {
+        ...state,
+        messages: [...state.messages, ...messagesToDisplay],
+        choices: [...choicesToDisplay],
+      };
+    }
+    case MESSAGE_LOADING:
+      return {
+        ...state,
+        isWriting: true,
+      };
+    case MESSAGE_NOTLOADING:
+      return {
+        ...state,
+        isWriting: false,
+      };
     default:
       return state;
   }
