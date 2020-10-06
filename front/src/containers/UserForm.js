@@ -6,6 +6,7 @@ import { switchFormsDisplay } from '../actions/user';
 const mapState = (state) => ({
   loginOpened: state.user.loginFormDisplayed,
   registerOpened: state.user.registerFormDisplayed,
+  isUserConnected: state.user.currentUser === {},
 });
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?

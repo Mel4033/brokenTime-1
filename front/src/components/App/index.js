@@ -1,6 +1,8 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 // == Import
 import Header from '../Header';
@@ -11,7 +13,7 @@ import Library from '../../containers/Card';
 import Fiction from '../../containers/Fiction';
 import './style.scss';
 import Contact from '../Contact';
-import ContactForm from'../Contact/ContactForm';
+import ContactForm from '../Contact/ContactForm';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
@@ -55,8 +57,8 @@ const App = () => (
 
       </Switch>
     </div>
-  </div>
-);
+  );
+};
 
 // == Export
 export default App;
