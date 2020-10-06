@@ -13,6 +13,7 @@ import Fiction from '../../containers/Fiction';
 import './style.scss';
 import Contact from '../Contact';
 import ContactForm from '../Contact/ContactForm';
+import TeamPage from '../TeamPage';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
@@ -61,6 +62,10 @@ const App = ({ checkAuth }) => {
 
           <Route exact path="/ContactForm">
             <ContactForm />
+          </Route>
+
+          <Route exact path="/TeamPage">
+            <TeamPage />
           </Route>
 
         </Switch>
