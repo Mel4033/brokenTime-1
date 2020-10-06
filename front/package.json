@@ -58,11 +58,13 @@
     "axios": "^0.20.0",
     "prop-types": "*",
     "react": "*",
+    "react-cookie": "^4.0.3",
     "react-dom": "*",
     "react-redux": "*",
     "react-router-dom": "^5.2.0",
     "redux": "*",
     "styled-components": "*",
+    "universal-cookie": "^4.0.4",
     "uuidv4": "^6.2.3"
   }
 }

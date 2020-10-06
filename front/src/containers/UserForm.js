@@ -4,8 +4,10 @@ import { switchFormsDisplay } from '../actions/user';
 
 // Notre Dumb-Component a-t-il besoin de données venant du State ?
 const mapState = (state) => ({
+  disconnectButtonOpened: state.user.disconnectButtonDisplayed,
   loginOpened: state.user.loginFormDisplayed,
   registerOpened: state.user.registerFormDisplayed,
+  isUserConnected: state.user.currentUser === {},
 });
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?

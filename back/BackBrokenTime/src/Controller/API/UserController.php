@@ -39,7 +39,9 @@ class UserController extends AbstractController
         $dataJSON = $request->getContent();
         $contentArray = json_decode($dataJSON, true);
         $user = $repository->findOneBy(['email'=>$contentArray['email']]);
-        return $this->json($user, 200, []);
+        return $this->json($user, 200, [], [
+            'groups' => 'user_view'
+            ]);
     }
 
     /**
@@ -90,6 +92,58 @@ class UserController extends AbstractController
              $em = $this->getDoctrine()->getManager();
              $em->persist($user);
              $em->flush();
+        }
+
+        // On retourne un message pour dire que tout s'est bien passé...
+        return $this->json([
+            'success' => $success,
+            'message' => $message,
+            'errors' => $errors
+        ]);
+
+    }
+
+    /**
+     * @Route("/user/{id}/update", name="user_update", methods={"POST"})
+     */
+    public function update(User $user, Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
+    {
+
+        $userUpdate = $this->getUser();
+
+        $data = json_decode($request->getContent());
+
+        foreach ($data as $key => $value){
+
+            if($key && !empty($value)) {
+
+                $name = ucfirst($key);
+                $setter = 'set'.$name;
+                $userUpdate->$setter($value);
+            }
+        }
+
+        $plainPassword = $userUpdate->getPassword();
+
+        $encodedPassword = $passwordEncoder->encodePassword($userUpdate, $plainPassword);
+        $userUpdate->setPassword($encodedPassword);
+
+        $errors = $validator->validate($user);
+        $totalErrors = count($errors);
+        $success = false;
+        $message = '';
+
+        if ($totalErrors > 0) {
+            // Si on a des erreurs...alors on ne fait pas de sauvegarde...
+            // Et on prévient l'utilisateur
+            $message = "Il y a {$totalErrors} erreur(s) dans votre requete.";
+        } else {
+            // Pas d'erreur (à priori)
+            $success = true;
+            $message = "L'utilisateur a bien été mis à jour";
+
+            // ...on sauvegarde l'utilisateur en BDD
+             $this->getDoctrine()->getManager()->flush();
         }
 
         // On retourne un message pour dire que tout s'est bien passé...
