@@ -25,43 +25,46 @@ const App = ({ checkAuth }) => {
     checkAuth();
   }, []);
 
-  return (
-    <div className="app">
-      <Header />
-      <div className="scrollzone">
-        <Switch>
+  <div className="app">
+    <Header />
+    <div className="scrollzone">
+      <Switch>
 
-          {/* Route vers l'accueil */}
-          <Route exact path="/">
-            <Home />
-            <Footer />
-          </Route>
+        {/* Route vers l'accueil */}
+        <Route exact path="/">
+          <Home />
+          <Footer />
+        </Route>
 
-          {/* Route vers la bibliothèque */}
-          <Route exact path="/library">
-            <Library />
-            <Footer />
-          </Route>
+        {/* Route vers la bibliothèque */}
+        <Route exact path="/library">
+          <Library />
+          <Footer />
+        </Route>
 
-          <Route exact path="/profil">
-            <Profil />
-            <Footer />
-          </Route>
+        {/* Route vers la page de profil */}
+        <Route exact path="/profil">
+          <Profil />
+          <Footer />
+        </Route>
 
-          <Route exact path="/fiction">
-            <Fiction />
-          </Route>
+        {/* Route vers la page de fiction */}
+        <Route exact path="/fiction">
+          <Fiction />
+        </Route>
 
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
+        {/* Route vers la page de contact */}
+        <Route exact path="/contact">
+          <Contact />
+          <Footer />
+        </Route>
 
-          <Route exact path="/ContactForm">
-            <ContactForm />
-          </Route>
+        <Route exact path="/ContactForm">
+          <ContactForm />
+        </Route>
 
-        </Switch>
-      </div>
+      </Switch>
+     </div>
     </div>
   );
 };

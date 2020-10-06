@@ -1,17 +1,22 @@
 @media (min-width:601px){
 
+  .bibliotheque
+  {
+    height: 100vh;
+  };
+
   .menuTitle
   {
     text-align: center;
     font-size: 2.5rem;
-    margin: 40px;
-    color: #acab;
+    margin: 80px;
+    color: white;
   };
   
   .searchForm
   {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
   };
   
   .searchInput
@@ -45,11 +50,7 @@
     width: 325px;
     border: 1px solid #d3d3d3;
     margin: 1rem;
-    height: 200px;
-    background-image: url("../../assets/images/picture.png");
-    background-position: 50%;
-    background-repeat: no-repeat; 
-    
+    height: 200px; 
   };
   
   .cardUnit:hover
@@ -74,20 +75,13 @@
     border-bottom: 1px solid lightgray;
     font-size: 1.5rem;
   };
-  
-  .wallpaper
-  {
-    background-image: url("../../assets/images/picture.png");
-    background-position: 50%;
-    background-repeat: no-repeat;
-  };
-  
+
   .resume
   {
     padding-top: 60px;
     padding-left: 15px;
     padding-right: 15px;
-    color: white;
+    color: rgb(255, 255, 255);
     
     &-unlocked {
       background-image: url("../../assets/images/play-button.png");
