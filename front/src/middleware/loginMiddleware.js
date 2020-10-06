@@ -53,6 +53,8 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
+          // TODO : Ici il ne faut pas accéder à response.config. Il faut se servir du token généré pour accéder ensuite aux
+          // TODO : Données utilisateur associées.
           const userToken = response.data;
           cookies.set('token', userToken, { path: '/' });
           store.dispatch(loginSuccess(response.config.data));
