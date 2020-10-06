@@ -1,3 +1,5 @@
+import Cookies from 'universal-cookie';
+
 import {
   ALTERNATE_FORMS,
   SWITCH_FORMS_DISPLAY,
@@ -8,6 +10,8 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
 } from '../actions/user';
+
+const cookies = new Cookies();
 
 const initialState = {
   loginFormDisplayed: false,
@@ -60,7 +64,7 @@ const user = (state = initialState, action = {}) => {
         },
       };
     case LOGIN_SUCCESS:
-      
+
       return {
         ...state,
         currentUser: {
@@ -93,6 +97,7 @@ const user = (state = initialState, action = {}) => {
         isSuccessDisplayed: false,
       };
     case DISCONNECT_USER:
+      cookies.remove('token');
       return {
         ...state,
         currentUser: {},

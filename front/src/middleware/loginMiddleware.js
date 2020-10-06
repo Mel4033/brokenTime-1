@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH } from '../actions/user';
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, DISCONNECT_USER } from '../actions/user';
 
 const cookies = new Cookies();
 
@@ -18,13 +18,12 @@ const loginMiddleware = (store) => (next) => (action) => {
 
     // On demande à l'API si l'utilisateur présent sur le site est déjà connecté ou non
     case CHECK_AUTH:
-      console.log('Je suis le check auth');
       axios({
-        method: 'post',
-        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
-        // Il est nécessaire pour le serveur de connaître l'utilisateur, donc on utilise
-        // le paramètre suivant.
-        withCredentials: true,
+        method: 'get',
+        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user',
+        header: {
+          Authorization: `Bearer ${cookies.get('token')}`,
+        },
       })
         .then((response) => {
           console.log(response);
@@ -48,7 +47,6 @@ const loginMiddleware = (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/login_check',
-        withCredentials: true,
         data: {
           username: store.getState().user.formData.email,
           password: store.getState().user.formData.password,
