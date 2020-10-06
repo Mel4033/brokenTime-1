@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-const cookies = new Cookies();
 
 // == Import
 import Header from '../Header';
@@ -15,14 +14,17 @@ import './style.scss';
 import Contact from '../Contact';
 import ContactForm from '../Contact/ContactForm';
 
+const cookies = new Cookies();
+
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
 
 // == Composant
 const App = ({ checkAuth }) => {
   useEffect(() => {
-      console.log(cookies.get('token'));
+    checkAuth();
   }, []);
+
   return (
     <div className="app">
       <Header />
@@ -41,17 +43,21 @@ const App = ({ checkAuth }) => {
             <Footer />
           </Route>
 
+          {/* Route vers la page de profil */}
           <Route exact path="/profil">
             <Profil />
             <Footer />
           </Route>
 
+          {/* Route vers la page de fiction */}
           <Route exact path="/fiction">
             <Fiction />
           </Route>
 
+          {/* Route vers la page de contact */}
           <Route exact path="/contact">
             <Contact />
+            <Footer />
           </Route>
 
           <Route exact path="/ContactForm">

@@ -3,12 +3,12 @@ import './style-desktop.scss';
 import './style-mobile.scss';
 import LoginForm from '../../../containers/LoginForm';
 import RegisterForm from '../../../containers/RegisterForm';
-import Disconnect from './Disconnect';
+import Disconnect from '../../../containers/Disconnect';
 
 // fa-times = X
 // fa-power-off = Power button
 
-const UserForm = ({ registerOpened, loginOpened, switchFormsDisplay, isUserConnected }) => {
+const UserForm = ({ registerOpened, loginOpened, switchFormsDisplay, disconnectButtonOpened }) => {
   // On détermine la classe que notre bouton doit avoir afin d'afficher une croix
   // ou un symbole de connexion.
   const buttonClass = registerOpened || loginOpened ? 'fas fa-times' : 'fas fa-power-off';
@@ -26,7 +26,7 @@ const UserForm = ({ registerOpened, loginOpened, switchFormsDisplay, isUserConne
         >
           <i className={`menu__login-panel-icon ${buttonClass}`} />
         </button>
-        { !isUserConnected && <Disconnect /> }
+        { disconnectButtonOpened && <Disconnect /> }
       </div>
 
       {/* On détermine quel élément doit être affiché ou non selon */}

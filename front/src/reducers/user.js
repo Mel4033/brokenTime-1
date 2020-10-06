@@ -1,3 +1,5 @@
+import Cookies from 'universal-cookie';
+
 import {
   ALTERNATE_FORMS,
   SWITCH_FORMS_DISPLAY,
@@ -9,7 +11,10 @@ import {
   REGISTER_SUCCESS,
 } from '../actions/user';
 
+const cookies = new Cookies();
+
 const initialState = {
+  disconnectButtonDisplayed: false,
   loginFormDisplayed: false,
   registerFormDisplayed: false,
   isErrorDisplayed: false,
@@ -20,9 +25,7 @@ const initialState = {
     password: 'testAPI',
     confirmpassword: '',
   },
-  currentUser: {
-    pseudo: 'truc',
-  },
+  currentUser: {},
 };
 
 const user = (state = initialState, action = {}) => {
@@ -36,6 +39,17 @@ const user = (state = initialState, action = {}) => {
         isSuccessDisplayed: false,
       };
     case SWITCH_FORMS_DISPLAY:
+      if (Object.keys(state.currentUser).length > 0) {
+        return {
+          ...state,
+          disconnectButtonDisplayed: !state.disconnectButtonDisplayed,
+          loginFormDisplayed: false,
+          registerFormDisplayed: false,
+          isErrorDisplayed: false,
+          isSuccessDisplayed: false,
+
+        };
+      }
       if (state.loginFormDisplayed || state.registerFormDisplayed) {
         return {
           ...state,
@@ -60,14 +74,21 @@ const user = (state = initialState, action = {}) => {
         },
       };
     case LOGIN_SUCCESS:
-      
+      console.log(action.payload);
       return {
         ...state,
+        // TODO : Zone de traitement à revoir. Les données reçues sont-elles sous le bon format ?
         currentUser: {
-          pseudo: 'bobbyNight',
+          pseudo: action.payload,
         },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
+        formData: {
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmpassword: '',
+        },
       };
     case LOGIN_ERROR:
       return {
@@ -80,7 +101,14 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         currentUser: {
-          pseudo: 'bobbyNight',
+          pseudo: state.formData.pseudo,
+          email: state.formData.email,
+        },
+        formData: {
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmpassword: '',
         },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
@@ -93,9 +121,13 @@ const user = (state = initialState, action = {}) => {
         isSuccessDisplayed: false,
       };
     case DISCONNECT_USER:
+      cookies.remove('token');
       return {
         ...state,
         currentUser: {},
+        disconnectButtonDisplayed: false,
+        loginFormDisplayed: false,
+        registerFormDisplayed: false,
         isErrorDisplayed: false,
         isSuccessDisplayed: false,
       };

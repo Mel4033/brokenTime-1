@@ -1,11 +1,13 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, DISCONNECT_USER } from '../actions/user';
+
 const cookies = new Cookies();
 
 // Importation des actions
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH } from '../actions/user';
 
-const registerMiddleware = (store) => (next) => (action) => {
+const loginMiddleware = (store) => (next) => (action) => {
   // En premier, on laisse passer l'action pour ne pas bloquer l'exécution du script.
   next(action);
 
@@ -19,9 +21,9 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios({
         method: 'get',
         url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user',
-        // Il est nécessaire pour le serveur de connaître l'utilisateur, donc on utilise
-        // le paramètre suivant.
-        withCredentials: true,
+        header: {
+          Authorization: `Bearer ${cookies.get('token')}`,
+        },
       })
         .then((response) => {
           console.log(response);
@@ -51,9 +53,11 @@ const registerMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          cookies.set('token', response.data, { path: '/' });
-          store.dispatch(loginSuccess(response.data));
-          console.log(response.data);
+          // TODO : Ici il ne faut pas accéder à response.config. Il faut se servir du token généré pour accéder ensuite aux
+          // TODO : Données utilisateur associées.
+          const userToken = response.data;
+          cookies.set('token', userToken, { path: '/' });
+          store.dispatch(loginSuccess(response.config.data));
         })
         .catch((error) => {
           store.dispatch(loginError());
@@ -64,4 +68,4 @@ const registerMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default registerMiddleware;
+export default loginMiddleware;

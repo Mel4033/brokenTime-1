@@ -45,10 +45,6 @@
       border: 1px solid #d3d3d3;
       margin: 1rem;
       height: 200px;
-      background-image: url("../../assets/images/picture.png");
-      background-position: 50%;
-      background-repeat: no-repeat; 
-      
     };
     
     .cardUnit:hover
@@ -61,21 +57,16 @@
     
     .fictionTitle
     {
+      text-shadow: 1px 1px 1px gray;
       padding: 10px;
       text-align: center;
       border-bottom: 1px solid lightgray;
       font-size: 1.5rem;
     };
     
-    .wallpaper
-    {
-      background-image: url("../../assets/images/picture.png");
-      background-position: 50%;
-      background-repeat: no-repeat;
-    };
-    
     .resume
     {
+      text-shadow: 1px 1px 1px gray;
       padding-top: 60px;
       padding-left: 15px;
       padding-right: 15px;
