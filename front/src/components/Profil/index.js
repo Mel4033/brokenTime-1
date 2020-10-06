@@ -10,24 +10,22 @@ import thunderstorm from '../../assets/images/thunderstorm.jpeg';
 import futurefantasy from '../../assets/images/futurefantasy.jpeg';
 import electrocardiogram from '../../assets/images/electrocardiogram.jpeg';
 
-const fakeImage = 'https://cdn.discordapp.com/avatars/179551273840934912/c5dc29e716dc0e081e94e64329a5325c.png?size=1024';
-
-const Profil = () => (
+const Profil = ({ userpicture, username, useremail }) => (
   <div className="profil">
     <h2 className="profil__title">Mes informations</h2>
     <div className="profil__card">
       <div className="profil__informations">
         <div className="profil__picture">
-          <img className="profil__picture--image" src={fakeImage} alt="profil" />
+          <img className="profil__picture--image" src={userpicture} alt="PictureProfile" />
         </div>
         <div className="profil__data">
           <div className="profil__data--item">
             <p className="profil__data--title">Nom d'utilisateur</p>
-            <p className="profil__data--value">Broken Time</p>
+            <p className="profil__data--value">{username}</p>
           </div>
           <div className="profil__data--item">
             <p className="profil__data--title">Email associé</p>
-            <p className="profil__data--value">brokentime.project@gmail.com</p>
+            <p className="profil__data--value">{useremail}</p>
           </div>
         </div>
       </div>

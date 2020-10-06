@@ -104,16 +104,6 @@ const user = (state = initialState, action = {}) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        currentUser: {
-          pseudo: state.formData.pseudo,
-          email: state.formData.email,
-        },
-        formData: {
-          pseudo: '',
-          email: '',
-          password: '',
-          confirmpassword: '',
-        },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
       };
