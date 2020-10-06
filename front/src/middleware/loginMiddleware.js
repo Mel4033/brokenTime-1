@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, DISCONNECT_USER } from '../actions/user';
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, DISCONNECT_USER, connectUser, checkAuth } from '../actions/user';
 
 const cookies = new Cookies();
 
@@ -18,19 +18,21 @@ const loginMiddleware = (store) => (next) => (action) => {
 
     // On demande à l'API si l'utilisateur présent sur le site est déjà connecté ou non
     case CHECK_AUTH:
-      axios({
-        method: 'get',
-        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user',
-        header: {
-          Authorization: `Bearer ${cookies.get('token')}`,
-        },
-      })
-        .then((response) => {
-          console.log(response);
+      if (cookies.get('token')) {
+        axios({
+          method: 'get',
+          url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/details',
+          headers: {
+            authorization: `Bearer ${cookies.get('token').token}`,
+          },
         })
-        .catch((error) => {
-          console.log(error);
-        });
+          .then((response) => {
+            store.dispatch(connectUser(response.data));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
       break;
 
     // On reçois la demande de Login et on fait une demande de vérification vers l'API
@@ -58,6 +60,7 @@ const loginMiddleware = (store) => (next) => (action) => {
           const userToken = response.data;
           cookies.set('token', userToken, { path: '/' });
           store.dispatch(loginSuccess(response.config.data));
+          store.dispatch(checkAuth());
         })
         .catch((error) => {
           store.dispatch(loginError());
