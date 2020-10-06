@@ -1,3 +1,5 @@
+import Cookies from 'universal-cookie';
+
 import {
   ALTERNATE_FORMS,
   SWITCH_FORMS_DISPLAY,
@@ -8,6 +10,8 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
 } from '../actions/user';
+
+const cookies = new Cookies();
 
 const initialState = {
   loginFormDisplayed: false,
@@ -20,9 +24,7 @@ const initialState = {
     password: 'testAPI',
     confirmpassword: '',
   },
-  currentUser: {
-    pseudo: 'truc',
-  },
+  currentUser: {},
 };
 
 const user = (state = initialState, action = {}) => {
@@ -60,14 +62,19 @@ const user = (state = initialState, action = {}) => {
         },
       };
     case LOGIN_SUCCESS:
-      
+      console.log(action.payload);
       return {
         ...state,
-        currentUser: {
-          pseudo: 'bobbyNight',
-        },
+        // TODO : Zone de traitement à revoir. Les données reçues sont-elles sous le bon format ?
+        currentUser: action.payload,
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
+        formData: {
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmpassword: '',
+        },
       };
     case LOGIN_ERROR:
       return {
@@ -80,7 +87,14 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         currentUser: {
-          pseudo: 'bobbyNight',
+          pseudo: state.formData.pseudo,
+          email: state.formData.email,
+        },
+        formData: {
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmpassword: '',
         },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
@@ -93,6 +107,7 @@ const user = (state = initialState, action = {}) => {
         isSuccessDisplayed: false,
       };
     case DISCONNECT_USER:
+      cookies.remove('token');
       return {
         ...state,
         currentUser: {},

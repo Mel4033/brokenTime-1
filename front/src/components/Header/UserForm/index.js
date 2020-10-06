@@ -3,7 +3,7 @@ import './style-desktop.scss';
 import './style-mobile.scss';
 import LoginForm from '../../../containers/LoginForm';
 import RegisterForm from '../../../containers/RegisterForm';
-import Disconnect from './Disconnect';
+import Disconnect from '../../../containers/Disconnect';
 
 // fa-times = X
 // fa-power-off = Power button
