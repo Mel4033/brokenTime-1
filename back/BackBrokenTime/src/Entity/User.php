@@ -28,7 +28,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * 
-     * @Groups({"user_list", "user_view"})
+     * @Groups({"user_list", "user_view", "user_details"})
      */
     private $email;
 
@@ -50,14 +50,14 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"user_list", "user_view"})
+     * @Groups({"user_list", "user_view", "user_details"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
-     * @Groups({"user_list"})
+     * @Groups({"user_list", "user_details"})
      */
     private $picture;
 
@@ -79,6 +79,7 @@ class User implements UserInterface
     {
         $this->created_at = new \DateTime('NOW');
     }
+
     /**
      * @ORM\PrePersist
      */

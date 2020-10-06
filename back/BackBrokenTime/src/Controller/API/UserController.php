@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
@@ -31,16 +32,14 @@ class UserController extends AbstractController
     /**
      * Retourne le détail d'un utilisateur en fonction de son Email
      *
-     * @Route("/user/details")
+     * @Route("/user/details", name="user_details")
      * @return void
      */
-    public function userDetails(UserRepository $repository, Request $request, SerializerInterface $serialiser)
+    public function userDetails()
     {
-        $dataJSON = $request->getContent();
-        $contentArray = json_decode($dataJSON, true);
-        $user = $repository->findOneBy(['email'=>$contentArray['email']]);
+        $user = $this->getUser();
         return $this->json($user, 200, [], [
-            'groups' => 'user_view'
+            'groups' => 'user_details'
             ]);
     }
 

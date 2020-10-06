@@ -51,6 +51,9 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/api/user, roles: ROLE_ADMIN }
+        # - { path: ^/api/user/id, roles: ROLE_USER}
+
 
     # Tout le monde peut faire une demande d'accès à l'API (IS_AUTHENTICATED_ANONYMOUSLY)
     - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
