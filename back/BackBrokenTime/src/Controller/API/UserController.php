@@ -19,6 +19,8 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/user/{id}", name="user_view", methods={"GET"}, requirements={"id"="\d+"})
+     * 
+     * 
      */
     public function view(User $user)
     {
@@ -47,6 +49,7 @@ class UserController extends AbstractController
      * Méthode qui permet l'affichage de la liste des users
      * 
      * @Route("/user", name="user_list", methods={"GET"})
+     * 
      */
     public function list(UserRepository $userRepository)
     {
