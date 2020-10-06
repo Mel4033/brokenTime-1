@@ -46,6 +46,7 @@ const App = () => (
 
         <Route exact path="/contact">
           <Contact />
+          <Footer />
         </Route>
 
         <Route exact path="/ContactForm">

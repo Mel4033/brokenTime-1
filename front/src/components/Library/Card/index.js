@@ -8,7 +8,7 @@ const Card = ({ title, resume, locked, thumbnail }) => {
 
   return (
     <div className="cardUnit">
-      <div style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '198px' }}>
+      <div style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '198px'}}>
       <h4 className="fictionTitle">{title}</h4>  
         <p className={locked ? 'resume resume-unlocked' : 'resume resume-locked'}>
          {/* <button type="button" className="cardUnit-play">test</button> */}
