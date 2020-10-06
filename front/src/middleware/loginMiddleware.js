@@ -53,9 +53,9 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          cookies.set('token', response.data, { path: '/' });
-          store.dispatch(loginSuccess(response.data));
-          console.log(response.data);
+          const userToken = response.data;
+          cookies.set('token', userToken, { path: '/' });
+          store.dispatch(loginSuccess(response.config.data));
         })
         .catch((error) => {
           store.dispatch(loginError());
