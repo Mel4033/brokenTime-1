@@ -14,6 +14,7 @@ import {
 const cookies = new Cookies();
 
 const initialState = {
+  disconnectButtonDisplayed: false,
   loginFormDisplayed: false,
   registerFormDisplayed: false,
   isErrorDisplayed: false,
@@ -38,6 +39,17 @@ const user = (state = initialState, action = {}) => {
         isSuccessDisplayed: false,
       };
     case SWITCH_FORMS_DISPLAY:
+      if (Object.keys(state.currentUser).length > 0) {
+        return {
+          ...state,
+          disconnectButtonDisplayed: !state.disconnectButtonDisplayed,
+          loginFormDisplayed: false,
+          registerFormDisplayed: false,
+          isErrorDisplayed: false,
+          isSuccessDisplayed: false,
+
+        };
+      }
       if (state.loginFormDisplayed || state.registerFormDisplayed) {
         return {
           ...state,
@@ -66,7 +78,9 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         // TODO : Zone de traitement à revoir. Les données reçues sont-elles sous le bon format ?
-        currentUser: action.payload,
+        currentUser: {
+          pseudo: action.payload,
+        },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
         formData: {
@@ -111,6 +125,9 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         currentUser: {},
+        disconnectButtonDisplayed: false,
+        loginFormDisplayed: false,
+        registerFormDisplayed: false,
         isErrorDisplayed: false,
         isSuccessDisplayed: false,
       };
