@@ -35,21 +35,6 @@ const fictionMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
         });
-
-      // ========================================
-      axios({
-        method: 'get',
-        url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/details',
-        headers: {
-          authorization: `Bearer ${cookies.get('token').token}`,
-        },
-      })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
       break;
     }
   }

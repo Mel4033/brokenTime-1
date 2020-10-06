@@ -9,6 +9,7 @@ import {
   LOGIN_SUCCESS,
   REGISTER_ERROR,
   REGISTER_SUCCESS,
+  CONNECT_USER,
 } from '../actions/user';
 
 const cookies = new Cookies();
@@ -77,10 +78,6 @@ const user = (state = initialState, action = {}) => {
       console.log(action.payload);
       return {
         ...state,
-        // TODO : Zone de traitement à revoir. Les données reçues sont-elles sous le bon format ?
-        currentUser: {
-          pseudo: action.payload,
-        },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
         formData: {
@@ -88,6 +85,13 @@ const user = (state = initialState, action = {}) => {
           email: '',
           password: '',
           confirmpassword: '',
+        },
+      };
+    case CONNECT_USER:
+      return {
+        ...state,
+        currentUser: {
+          ...action.payload,
         },
       };
     case LOGIN_ERROR:
