@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
@@ -18,6 +19,8 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/user/{id}", name="user_view", methods={"GET"}, requirements={"id"="\d+"})
+     * 
+     * 
      */
     public function view(User $user)
     {
@@ -31,16 +34,14 @@ class UserController extends AbstractController
     /**
      * Retourne le détail d'un utilisateur en fonction de son Email
      *
-     * @Route("/user/details")
+     * @Route("/user/details", name="user_details")
      * @return void
      */
-    public function userDetails(UserRepository $repository, Request $request, SerializerInterface $serialiser)
+    public function userDetails()
     {
-        $dataJSON = $request->getContent();
-        $contentArray = json_decode($dataJSON, true);
-        $user = $repository->findOneBy(['email'=>$contentArray['email']]);
+        $user = $this->getUser();
         return $this->json($user, 200, [], [
-            'groups' => 'user_view'
+            'groups' => 'user_details'
             ]);
     }
 
@@ -48,6 +49,7 @@ class UserController extends AbstractController
      * Méthode qui permet l'affichage de la liste des users
      * 
      * @Route("/user", name="user_list", methods={"GET"})
+     * 
      */
     public function list(UserRepository $userRepository)
     {

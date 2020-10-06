@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Importation des actions
-import { REGISTER_SUBMIT, registerSuccess, registerError } from '../actions/user';
+import { REGISTER_SUBMIT, registerSuccess, registerError, loginSubmit } from '../actions/user';
 
 const registerMiddleware = (store) => (next) => (action) => {
   // En premier, on laisse passer l'action pour ne pas bloquer l'exécution du script.
@@ -26,6 +26,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         })
           .then((response) => {
             store.dispatch(registerSuccess());
+            store.dispatch(loginSubmit());
             console.log(response);
           })
           .catch((error) => {

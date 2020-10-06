@@ -39,6 +39,13 @@ security:
             anonymous: true
             lazy: true
             provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\AdminAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -49,17 +56,21 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/api/user, roles: ROLE_ADMIN }
+        # - { path: ^/api/user/id, roles: ROLE_USER}
 
-    # Tout le monde peut faire une demande d'accès à l'API (IS_AUTHENTICATED_ANONYMOUSLY)
-    - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/api/user/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    # Par contre, seules les personnes authentifié peuvent interagir avec l'API       
-    - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+
+        # Tout le monde peut faire une demande d'accès à l'API (IS_AUTHENTICATED_ANONYMOUSLY)
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/user/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # Par contre, seules les personnes authentifié peuvent interagir avec l'API       
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
 
     # Hiearchisation des rôles
-    #role_hierarchy:
-        #ROLE_ADMIN:        [ROLE_USER]
-        #ROLE_SUPER_ADMIN:  [ROLE_ADMIN]
+    # role_hierarchy:
+        # ROLE_ADMIN:        [ROLE_USER]
+        # ROLE_SUPER_ADMIN:  [ROLE_ADMIN]
 

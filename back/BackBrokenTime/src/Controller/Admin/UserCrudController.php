@@ -28,7 +28,7 @@ class UserCrudController extends AbstractCrudController
             EmailField::new('email'),
             DateField::new('created_at', 'Date de création')->onlyOnIndex(),
             DateField::new('updated_at', 'Date de modification')->onlyOnIndex(),
-            ArrayField::new('roles')->onlyOnIndex(),
+            ArrayField::new('roles'),
         ];
     }
     

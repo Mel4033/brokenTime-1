@@ -9,11 +9,13 @@ import {
   LOGIN_SUCCESS,
   REGISTER_ERROR,
   REGISTER_SUCCESS,
+  CONNECT_USER,
 } from '../actions/user';
 
 const cookies = new Cookies();
 
 const initialState = {
+  disconnectButtonDisplayed: false,
   loginFormDisplayed: false,
   registerFormDisplayed: false,
   isErrorDisplayed: false,
@@ -38,6 +40,17 @@ const user = (state = initialState, action = {}) => {
         isSuccessDisplayed: false,
       };
     case SWITCH_FORMS_DISPLAY:
+      if (Object.keys(state.currentUser).length > 0) {
+        return {
+          ...state,
+          disconnectButtonDisplayed: !state.disconnectButtonDisplayed,
+          loginFormDisplayed: false,
+          registerFormDisplayed: false,
+          isErrorDisplayed: false,
+          isSuccessDisplayed: false,
+
+        };
+      }
       if (state.loginFormDisplayed || state.registerFormDisplayed) {
         return {
           ...state,
@@ -65,8 +78,6 @@ const user = (state = initialState, action = {}) => {
       console.log(action.payload);
       return {
         ...state,
-        // TODO : Zone de traitement à revoir. Les données reçues sont-elles sous le bon format ?
-        currentUser: action.payload,
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
         formData: {
@@ -74,6 +85,13 @@ const user = (state = initialState, action = {}) => {
           email: '',
           password: '',
           confirmpassword: '',
+        },
+      };
+    case CONNECT_USER:
+      return {
+        ...state,
+        currentUser: {
+          ...action.payload,
         },
       };
     case LOGIN_ERROR:
@@ -86,16 +104,6 @@ const user = (state = initialState, action = {}) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        currentUser: {
-          pseudo: state.formData.pseudo,
-          email: state.formData.email,
-        },
-        formData: {
-          pseudo: '',
-          email: '',
-          password: '',
-          confirmpassword: '',
-        },
         isErrorDisplayed: false,
         isSuccessDisplayed: true,
       };
@@ -111,6 +119,9 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         currentUser: {},
+        disconnectButtonDisplayed: false,
+        loginFormDisplayed: false,
+        registerFormDisplayed: false,
         isErrorDisplayed: false,
         isSuccessDisplayed: false,
       };

@@ -8,6 +8,7 @@ const DesktopMenu = () => (
       <NavLink exact to="/library" className="link" href="#" alt="none">Bibliothèque</NavLink>
       <NavLink exact to="/profil" className="link" href="#" alt="none">Mon profil</NavLink>
       <NavLink exact to="/TeamPage" className="link" href="#" alt="none">L'équipe</NavLink>
+      <NavLink exact to="/contact" className="link" href="#" alt="none">Contact</NavLink>
     </div>
   </div>
 );

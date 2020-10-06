@@ -1,5 +1,6 @@
 export const INPUT_CHANGE = 'INPUT_CHANGE';
 export const DISCONNECT_USER = 'DISCONNECT_USER';
+export const CONNECT_USER = 'CONNECT_USER';
 export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
@@ -13,6 +14,11 @@ export const CHECK_AUTH = 'CHECK_AUTH';
 // ============================ Action creators ============================
 export const inputChange = (payload) => ({
   type: INPUT_CHANGE,
+  payload,
+});
+
+export const connectUser = (payload) => ({
+  type: CONNECT_USER,
   payload,
 });
 
