@@ -21,6 +21,7 @@ import ContactForm from '../Contact/ContactForm';
 const App = ({ checkAuth }) => {
   useEffect(() => {
     checkAuth();
+    document.title = 'Broken Time';
   }, []);
 
   return (
