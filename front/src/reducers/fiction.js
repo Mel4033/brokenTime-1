@@ -1,5 +1,5 @@
 import { uuid, uuid as uuidv4 } from 'uuidv4';
-import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/choice';
+import { SUBMIT_CHOICE, RECEIVED_PATH } from '../actions/fiction';
 
 // TEST
 import paths from './data';
@@ -39,8 +39,6 @@ const transformPathToMessages = (receivedPath) => {
 };
 
 const transformPathToChoices = (receivedPath) => {
-  console.log(receivedPath.choice);
-
   const extractedChoices = receivedPath.choice.map((choiceObject) => ({
     id: uuidv4(),
     content: choiceObject.text,
@@ -59,7 +57,6 @@ const fiction = (state = initialState, action = {}) => {
       // Transformation du chemin en une liste de messages triés et exploitables.
       const allMessages = transformPathToMessages(calledPath);
       const allChoices = transformPathToChoices(calledPath);
-      console.log(allChoices);
 
       // Et insertion des messages dans le chat en direct.
       return {

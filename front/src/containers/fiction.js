@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Fiction from '../components/Fiction';
-import { submitChoice } from '../actions/choice';
+import { submitChoice } from '../actions/fiction';
 
 // Notre Dumb-Component a-t-il besoin de données venant du State ?
 const mapState = (state) => ({
