@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import App from '../components/App';
 import { checkAuth } from '../actions/user';
 
-const mapState = null;
+const mapState = (state) => ({
+  isLogged: state.user.isLogged,
+});
 
 const mapDispatch = (dispatch) => ({
   checkAuth: () => {

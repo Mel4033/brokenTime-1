@@ -7,7 +7,7 @@ import HomeCard from './HomeCard';
 import pocketwatch from '../../assets/images/pocketwatch.jpeg';
 import skullclock from '../../assets/images/skullclock.jpeg';
 
-const Home = () => (
+const Home = ({ isLogged }) => (
   <div className="home">
     {/* Encapsulation des éléments de première vue avec la div suivante */}
     <div className="home__firstlook">
@@ -30,12 +30,14 @@ const Home = () => (
     </div>
     <div className="home__fictions" id="home-fictions">
       <HomeCard
+        isLogged={isLogged}
         isAvailable
         title="BrokenTime - La montre du temps"
         resume="Une connexion des plus inattendues se fait avec Meadow, jeune femme d'un monde parallèle. En plein coeur d'un univers Steampunk, saurez-vous la mener jusqu'à la vérité ?"
         image={pocketwatch}
       />
       <HomeCard
+        isLogged={isLogged}
         isAvailable={false}
         title="BrokenTime - Au-delà de l'horloge"
         resume="A la suite de son voyage temporel, la connexion avec Meadow se rétabli. Elle n'est plus dans la même dimension, ni confrontée aux mêmes problèmes..."

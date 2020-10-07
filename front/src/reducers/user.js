@@ -27,6 +27,7 @@ const initialState = {
     password: '',
     confirmpassword: '',
   },
+  isLogged: false,
   currentUser: {},
 };
 
@@ -103,6 +104,7 @@ const user = (state = initialState, action = {}) => {
           password: '',
           confirmpassword: '',
         },
+        isLogged: true,
       };
     case LOGIN_ERROR:
       return {
@@ -110,6 +112,7 @@ const user = (state = initialState, action = {}) => {
         currentUser: {},
         isErrorDisplayed: true,
         isSuccessDisplayed: false,
+        isLogged: false,
       };
     case REGISTER_SUCCESS:
       return {
@@ -123,6 +126,7 @@ const user = (state = initialState, action = {}) => {
         currentUser: {},
         isErrorDisplayed: true,
         isSuccessDisplayed: false,
+        isLogged: false,
       };
     case DISCONNECT_USER:
       cookies.remove('token');
@@ -134,6 +138,7 @@ const user = (state = initialState, action = {}) => {
         registerFormDisplayed: false,
         isErrorDisplayed: false,
         isSuccessDisplayed: false,
+        isLogged: false,
       };
     default:
       return state;
