@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
-import Profil from '../components/Profil';
+import UserModifyCard from '../components/Profil/UserCard/UserModifyCard';
 import defaultImage from '../assets/images/usericon.png';
+
+import { switchProfilDisplay } from '../actions/profilCard';
 
 // Application d'une image de profil par défaut dans le cas
 // où l'utilisateur possède une image de profil égale à null.
 const defaultifyImage = (providedImage) => {
-  if (providedImage === null) {
+  if (providedImage === null || providedImage === undefined) {
     return defaultImage;
   }
   return providedImage;
@@ -17,6 +19,10 @@ const mapState = (state) => ({
   useremail: state.user.currentUser.email,
 });
 
-const mapDispatch = null;
+const mapDispatch = (dispatch) => ({
+  switchDisplay: () => {
+    dispatch(switchProfilDisplay());
+  },
+});
 
-export default connect(mapState, mapDispatch)(Profil);
+export default connect(mapState, mapDispatch)(UserModifyCard);

@@ -2,6 +2,7 @@ import React from 'react';
 import './style-desktop.scss';
 import './style-mobile.scss';
 import OwnedCard from './OwnedCard';
+import UserCard from '../../containers/UserCard';
 
 import pocketwatch from '../../assets/images/pocketwatch.jpeg';
 import skullclock from '../../assets/images/skullclock.jpeg';
@@ -10,27 +11,9 @@ import thunderstorm from '../../assets/images/thunderstorm.jpeg';
 import futurefantasy from '../../assets/images/futurefantasy.jpeg';
 import electrocardiogram from '../../assets/images/electrocardiogram.jpeg';
 
-const Profil = ({ userpicture, username, useremail }) => (
+const Profil = () => (
   <div className="profil">
-    <h2 className="profil__title">Mes informations</h2>
-    <div className="profil__card">
-      <div className="profil__informations">
-        <div className="profil__picture">
-          <img className="profil__picture--image" src={userpicture} alt="PictureProfile" />
-        </div>
-        <div className="profil__data">
-          <div className="profil__data--item">
-            <p className="profil__data--title">Nom d'utilisateur</p>
-            <p className="profil__data--value">{username}</p>
-          </div>
-          <div className="profil__data--item">
-            <p className="profil__data--title">Email associé</p>
-            <p className="profil__data--value">{useremail}</p>
-          </div>
-        </div>
-      </div>
-      <button type="button" className="profil__button"><span className="profil__button--text">Modifier</span></button>
-    </div>
+    <UserCard />
 
     <h2 className="profil__title">Ma bibliothèque</h2>
     <div className="cardlist">

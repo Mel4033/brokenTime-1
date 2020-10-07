@@ -7,7 +7,7 @@ import Cookies from 'universal-cookie';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../Home';
-import Profil from '../../containers/Profil';
+import Profil from '../Profil';
 import Library from '../../containers/Card';
 import Fiction from '../../containers/Fiction';
 import './style.scss';
