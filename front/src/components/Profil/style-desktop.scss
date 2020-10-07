@@ -47,6 +47,11 @@
       {
         width: 200px;
         height: 200px;
+        &-modify
+        {
+          border-top: 2px solid black;
+          border-bottom: 2px solid black;
+        }
       }
     }
 
@@ -59,7 +64,7 @@
       
       &--item
       {
-        padding: 1rem;
+        padding: 0.8rem;
         color: white;
         display: flex;
         flex-flow: column nowrap;
@@ -68,7 +73,7 @@
 
       &--title
       {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 0.2rem;
         font-weight: bold;
       }
@@ -76,7 +81,7 @@
       &--input
       {
         color: white;
-        background-color: transparent;
+        background-color: #4d4d4d;
         border: none;
         font-size: 1.1rem;
       }
@@ -84,7 +89,7 @@
       &--value
       {
         color: rgb(146, 146, 146);
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
     }
 

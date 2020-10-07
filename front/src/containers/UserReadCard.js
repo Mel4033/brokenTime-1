@@ -7,7 +7,7 @@ import { switchProfilDisplay } from '../actions/profilCard';
 // Application d'une image de profil par défaut dans le cas
 // où l'utilisateur possède une image de profil égale à null.
 const defaultifyImage = (providedImage) => {
-  if (providedImage === null || providedImage === undefined) {
+  if (providedImage === null || providedImage === undefined || providedImage === '') {
     return defaultImage;
   }
   return providedImage;

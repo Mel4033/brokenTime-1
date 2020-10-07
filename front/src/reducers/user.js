@@ -10,6 +10,7 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
   CONNECT_USER,
+  PROFIL_INPUT_CHANGE,
 } from '../actions/user';
 
 const cookies = new Cookies();
@@ -74,6 +75,14 @@ const user = (state = initialState, action = {}) => {
           ...action.payload,
         },
       };
+    case PROFIL_INPUT_CHANGE:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          ...action.payload,
+        },
+      };
     case LOGIN_SUCCESS:
       console.log(action.payload);
       return {
@@ -92,6 +101,8 @@ const user = (state = initialState, action = {}) => {
         ...state,
         currentUser: {
           ...action.payload,
+          password: '',
+          confirmpassword: '',
         },
       };
     case LOGIN_ERROR:

@@ -10,6 +10,7 @@ export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const ALTERNATE_FORMS = 'ALTERNATE_FORMS';
 export const SWITCH_FORMS_DISPLAY = 'SWITCH_FORMS_DISPLAY';
 export const CHECK_AUTH = 'CHECK_AUTH';
+export const PROFIL_INPUT_CHANGE = 'PROFIL_INPUT_CHANGE';
 
 // ============================ Action creators ============================
 export const inputChange = (payload) => ({
@@ -61,4 +62,9 @@ export const switchFormsDisplay = () => ({
 
 export const checkAuth = () => ({
   type: CHECK_AUTH,
+});
+
+export const profilInputChange = (payload) => ({
+  type: PROFIL_INPUT_CHANGE,
+  payload,
 });
