@@ -106,32 +106,33 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}/update", name="user_update", methods={"PATCH"})
+     * @Route("/user/update", name="user_update", methods={"PATCH"})
      */
-    public function update(User $user, Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
+    public function update(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
     {
 
         $userUpdate = $this->getUser();
 
-        $data = json_decode($request->getContent());
+        $data = json_decode($request->getContent(), true);
 
         foreach ($data as $key => $value){
 
-            if($key && !empty($value)) {
-
+            if ($key && !empty($value)) {
                 $name = ucfirst($key);
                 $setter = 'set'.$name;
                 $userUpdate->$setter($value);
             }
         }
-        
-            $plainPassword = $userUpdate->getPassword();
 
+        //dd($data);
+        if(array_key_exists("password", $data)) {
+            $plainPassword = $userUpdate->getPassword();
+            
             $encodedPassword = $passwordEncoder->encodePassword($userUpdate, $plainPassword);
             $userUpdate->setPassword($encodedPassword);
-
-            $errors = $validator->validate($user);
-            $totalErrors = count($errors);
+        }
+            $errors = $validator->validate($userUpdate);
+            $totalErrors = count($errors); 
             $success = false;
             $message = '';
         
