@@ -10,7 +10,8 @@ export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const ALTERNATE_FORMS = 'ALTERNATE_FORMS';
 export const SWITCH_FORMS_DISPLAY = 'SWITCH_FORMS_DISPLAY';
 export const CHECK_AUTH = 'CHECK_AUTH';
-export const PROFIL_INPUT_CHANGE = 'PROFIL_INPUT_CHANGE';
+export const PROFILE_INPUT_CHANGE = 'PROFILE_INPUT_CHANGE';
+export const SUBMIT_MODIFIED_PROFILE = 'SUBMIT_MODIFIED_PROFILE';
 
 // ============================ Action creators ============================
 export const inputChange = (payload) => ({
@@ -64,7 +65,11 @@ export const checkAuth = () => ({
   type: CHECK_AUTH,
 });
 
-export const profilInputChange = (payload) => ({
-  type: PROFIL_INPUT_CHANGE,
+export const profileInputChange = (payload) => ({
+  type: PROFILE_INPUT_CHANGE,
   payload,
+});
+
+export const submitModifiedProfile = () => ({
+  type: SUBMIT_MODIFIED_PROFILE,
 });
