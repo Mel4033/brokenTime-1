@@ -27,6 +27,7 @@ const loginMiddleware = (store) => (next) => (action) => {
           },
         })
           .then((response) => {
+            console.log(response.data);
             store.dispatch(connectUser(response.data));
           })
           .catch((error) => {
@@ -67,16 +68,11 @@ const loginMiddleware = (store) => (next) => (action) => {
       break;
     }
     case SUBMIT_MODIFIED_PROFILE: {
-      let data = {
-        email: store.getState().user.currentUser.email,
-        pseudo: store.getState().user.currentUser.pseudo,
-      };
-      if (store.getState().user.currentUser.picture !== '') {
-        data = {
-          ...data,
-          picture: store.getState().user.currentUser.picture,
-        };
-      }
+      let data = {};
+      (store.getState().user.currentUser.pseudo !== '' ? data = { ...data, pseudo: store.getState().user.currentUser.pseudo } : '');
+      (store.getState().user.currentUser.email !== '' ? data = { ...data, email: store.getState().user.currentUser.email } : '');
+      (store.getState().user.currentUser.picture !== '' ? data = { ...data, picture: store.getState().user.currentUser.picture } : '');
+
       if (store.getState().user.currentUser.password !== '') {
         if (store.getState().user.currentUser.password === store.getState().user.currentUser.confirmpassword) {
           data = {

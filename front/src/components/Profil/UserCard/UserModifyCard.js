@@ -1,8 +1,8 @@
 import React from 'react';
 
-const UserModifyCard = ({ userpicture, username, useremail, userpassword, userconfirmpassword, switchDisplay, profileInputChange, passwordsClasses, submitModifiedProfile }) => (
+const UserModifyCard = ({ checkEmail, checkUsername, userpicture, username, useremail, userpassword, userconfirmpassword, switchDisplay, profileInputChange, passwordsClasses, submitModifiedProfile }) => (
   <div>
-    <h2 className="profil__title">Mes informations (Modification active)</h2>
+    <h2 className="profil__title">Mes informations</h2>
     <div className="profil__card">
       <div className="profil__informations">
         <div className="profil__picture">
@@ -10,12 +10,12 @@ const UserModifyCard = ({ userpicture, username, useremail, userpassword, userco
         </div>
         <div className="profil__data">
           <div className="profil__data--item">
-            <p className="profil__data--title">Nom d'utilisateur</p>
-            <input onChange={(evt) => { profileInputChange(evt.target.name, evt.target.value) }} className="profil__data--input" name="pseudo" required value={username} />
+            <p className="profil__data--title">Nom d'utilisateur <i className={`fas fa-${checkUsername} confirmInputs`} /></p>
+            <input onChange={(evt) => { profileInputChange(evt.target.name, evt.target.value) }} className="profil__data--input" name="pseudo" value={username} />
           </div>
           <div className="profil__data--item">
-            <p className="profil__data--title">Email associé</p>
-            <input onChange={(evt) => { profileInputChange(evt.target.name, evt.target.value) }} className="profil__data--input" name="email" required value={useremail} />
+            <p className="profil__data--title">Email associé <i className={`fas fa-${checkEmail} confirmInputs`} /></p>
+            <input onChange={(evt) => { profileInputChange(evt.target.name, evt.target.value) }} className="profil__data--input" name="email" value={useremail} />
           </div>
           <div className="profil__data--item">
             <p className="profil__data--title">URL d'image de profil</p>

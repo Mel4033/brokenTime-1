@@ -22,6 +22,8 @@ const mapState = (state) => ({
   userpassword: state.user.currentUser.password,
   userconfirmpassword: state.user.currentUser.confirmpassword,
   passwordsClasses: state.user.currentUser.confirmpassword === state.user.currentUser.password ? 'check' : 'times',
+  checkUsername: state.user.currentUser.pseudo !== '' ? 'check' : 'times',
+  checkEmail: state.user.currentUser.email !== '' ? 'check' : 'times',
 });
 
 // Notre composant a besoin d'interagir avec le state.
@@ -35,7 +37,6 @@ const mapDispatch = (dispatch) => ({
   },
 
   profileInputChange: (name, value) => {
-    console.log('truc');
     const object = {
       [name]: value,
     };
