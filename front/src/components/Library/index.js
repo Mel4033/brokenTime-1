@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import './style-desktop.scss';
 import './style-mobile.scss';
+import { use } from 'chai';
+import { fetchLibrary } from '../../actions/library';
 
 // Ici j'appelle les card que j'ai crée au préalable j'y incorpore le reste de mon html pour
 // la recherche et mes titres ect et je dynamise le contenu de mes cards
 
-const Library = ({ cards }) => {
-  console.log(cards);
+const Library = ({ fetchLibrary }) => {
+
+  useEffect(fetchLibrary, [] );
 
   return (
     <div className="bibliotheque">
