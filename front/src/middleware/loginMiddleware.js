@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, DISCONNECT_USER, connectUser, checkAuth } from '../actions/user';
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE } from '../actions/user';
 
 const cookies = new Cookies();
 
@@ -55,8 +55,6 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // TODO : Ici il ne faut pas accéder à response.config. Il faut se servir du token généré pour accéder ensuite aux
-          // TODO : Données utilisateur associées.
           const userToken = response.data;
           cookies.set('token', userToken, { path: '/' });
           store.dispatch(loginSuccess(response.config.data));
@@ -66,6 +64,42 @@ const loginMiddleware = (store) => (next) => (action) => {
           store.dispatch(loginError());
           console.log(error);
         });
+      break;
+    }
+    case SUBMIT_MODIFIED_PROFILE: {
+      let data = {
+        email: store.getState().user.currentUser.email,
+        pseudo: store.getState().user.currentUser.pseudo,
+      };
+      if (store.getState().user.currentUser.picture !== '') {
+        data = {
+          ...data,
+          picture: store.getState().user.currentUser.picture,
+        };
+      }
+      if (store.getState().user.currentUser.password !== '') {
+        if (store.getState().user.currentUser.password === store.getState().user.currentUser.confirmpassword) {
+          data = {
+            ...data,
+            password: store.getState().user.currentUser.password,
+          };
+        }
+      }
+      console.log(data);
+      // axios({
+      //   method: 'post',
+      //   url: '',
+      //   data: {},
+      //   headers: {
+      //     authorization: `Bearer ${cookies.get('token').token}`,
+      //   },
+      // })
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
       break;
     }
   }
