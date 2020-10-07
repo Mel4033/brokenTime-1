@@ -74,7 +74,7 @@ const loginMiddleware = (store) => (next) => (action) => {
       const userId = store.getState().user.currentUser.id;
       const url = `http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/${userId}/update`;
       axios({
-        method: 'post',
+        method: 'patch',
         url,
         data,
         headers: {
