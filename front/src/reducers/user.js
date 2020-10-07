@@ -23,8 +23,8 @@ const initialState = {
   isSuccessDisplayed: false,
   formData: {
     pseudo: '',
-    email: 'testAPI@gmail.com',
-    password: 'testAPI',
+    email: '',
+    password: '',
     confirmpassword: '',
   },
   currentUser: {},
