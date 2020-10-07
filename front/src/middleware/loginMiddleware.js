@@ -71,8 +71,7 @@ const loginMiddleware = (store) => (next) => (action) => {
       // Envoi des données de l'utilisateur à une fonction de vérification de
       // données. Cette dernière rempli d'elle-même data.
       const data = checkProfileDatas(store.getState().user.currentUser);
-      const userId = store.getState().user.currentUser.id;
-      const url = `http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/${userId}/update`;
+      const url = 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/update';
       axios({
         method: 'patch',
         url,
