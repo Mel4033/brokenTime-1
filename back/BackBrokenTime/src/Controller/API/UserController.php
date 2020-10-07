@@ -106,7 +106,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}/update", name="user_update", methods={"POST"})
+     * @Route("/user/{id}/update", name="user_update", methods={"PATCH"})
      */
     public function update(User $user, Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -124,17 +124,17 @@ class UserController extends AbstractController
                 $userUpdate->$setter($value);
             }
         }
+        
+            $plainPassword = $userUpdate->getPassword();
 
-        $plainPassword = $userUpdate->getPassword();
+            $encodedPassword = $passwordEncoder->encodePassword($userUpdate, $plainPassword);
+            $userUpdate->setPassword($encodedPassword);
 
-        $encodedPassword = $passwordEncoder->encodePassword($userUpdate, $plainPassword);
-        $userUpdate->setPassword($encodedPassword);
-
-        $errors = $validator->validate($user);
-        $totalErrors = count($errors);
-        $success = false;
-        $message = '';
-
+            $errors = $validator->validate($user);
+            $totalErrors = count($errors);
+            $success = false;
+            $message = '';
+        
         if ($totalErrors > 0) {
             // Si on a des erreurs...alors on ne fait pas de sauvegarde...
             // Et on prévient l'utilisateur
