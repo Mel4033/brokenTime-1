@@ -18,14 +18,13 @@ class CategoryController extends AbstractController
      * 
      * @Route("/category/list", name="category_list")
      */
-    public function list(CategoryRepository $categoryRepository)
-    {
+    public function list(CategoryRepository $repository)
+    {   
+        $categories = $repository->findAll();
         
-        $categories = $categoryRepository->findAll();
-        dd($categories);
-        //return $this->json($categories, 200, [], [
-                //'groups' => 'category_list'
-       // ]);
+        return $this->json($categories, 200, [], [
+            'groups' => 'category_list',
+        ]);
     }
 
     /**
