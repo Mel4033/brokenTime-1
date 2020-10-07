@@ -32,7 +32,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * Retourne le détail d'un utilisateur en fonction de son Email
+     * Retourne le détail d'un utilisateur en fonction de son Email.
      *
      * @Route("/user/details", name="user_details")
      * @return void
