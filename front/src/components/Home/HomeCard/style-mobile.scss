@@ -45,8 +45,6 @@
   .home-fiction__play-button {
     border: none;
     border-top: 2px solid black;
-    background-color: rgb(14, 52, 65);
-    color: #2effff;
     font-weight: bold;
     font-size: 0.7rem;
     padding: 0.6rem;
@@ -54,6 +52,18 @@
     width: 100%;
     bottom: 0;
     right: 0;
+
+    &-logged
+    {
+      color: #2effff;
+      background-color: rgb(14, 52, 65);
+    }
+    
+    &-notlogged
+    {
+      color: #ff7c7c;
+      background-color: rgb(83, 31, 24);
+    }
   }
 
   .unavailable {
