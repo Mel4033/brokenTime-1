@@ -175,13 +175,4 @@ class UserController extends AbstractController
         // ]);
     }
 
-    /**
-     * @Route("/user/{slug}/edit", name="user_edit")
-     */
-    public function edit()
-    {
-        // return $this->render('user/index.html.twig', [
-        //     'controller_name' => 'UserController',
-        // ]);
-    }
 }
