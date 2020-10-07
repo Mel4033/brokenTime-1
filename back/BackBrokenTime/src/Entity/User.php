@@ -9,10 +9,14 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity
+ * @Vich\Uploadable
  */
 class User implements UserInterface
 {
@@ -58,8 +62,18 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
      * @Groups({"user_list", "user_details"})
+     * @var string
      */
     private $picture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     * @Groups({"user_list", "user_details"})
+     * @var File
+     */
+    private $pictureFile;
+
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -211,6 +225,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getPictureFile(): ?string
+    {
+        return $this->pictureFile;
+    }
+
+    public function setPictureFile(File $picture = null): self
+    {
+        $this->pictureFile = $picture;
+
+        return $this;
+    }
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -234,4 +260,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
