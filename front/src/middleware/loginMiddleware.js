@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import checkProfileDatas from '../functions/checkProfileDatas';
 
 import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE } from '../actions/user';
 
@@ -27,7 +28,6 @@ const loginMiddleware = (store) => (next) => (action) => {
           },
         })
           .then((response) => {
-            console.log(response.data);
             store.dispatch(connectUser(response.data));
           })
           .catch((error) => {
@@ -68,34 +68,25 @@ const loginMiddleware = (store) => (next) => (action) => {
       break;
     }
     case SUBMIT_MODIFIED_PROFILE: {
-      let data = {};
-      (store.getState().user.currentUser.pseudo !== '' ? data = { ...data, pseudo: store.getState().user.currentUser.pseudo } : '');
-      (store.getState().user.currentUser.email !== '' ? data = { ...data, email: store.getState().user.currentUser.email } : '');
-      (store.getState().user.currentUser.picture !== '' ? data = { ...data, picture: store.getState().user.currentUser.picture } : '');
-
-      if (store.getState().user.currentUser.password !== '') {
-        if (store.getState().user.currentUser.password === store.getState().user.currentUser.confirmpassword) {
-          data = {
-            ...data,
-            password: store.getState().user.currentUser.password,
-          };
-        }
-      }
-      console.log(data);
-      // axios({
-      //   method: 'post',
-      //   url: '',
-      //   data: {},
-      //   headers: {
-      //     authorization: `Bearer ${cookies.get('token').token}`,
-      //   },
-      // })
-      //   .then((response) => {
-      //     console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
+      // Envoi des données de l'utilisateur à une fonction de vérification de
+      // données. Cette dernière rempli d'elle-même data.
+      const data = checkProfileDatas(store.getState().user.currentUser);
+      const userId = store.getState().user.currentUser.id;
+      const url = `http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/${userId}/update`;
+      axios({
+        method: 'post',
+        url,
+        data,
+        headers: {
+          authorization: `Bearer ${cookies.get('token').token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
     }
   }
