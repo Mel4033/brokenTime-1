@@ -7,7 +7,6 @@ const OwnedCard = ({ title, resume, image, isAvailable, isLogged }) => {
   const launchMessage = isLogged ? 'Lancer l\'aventure' : 'Connexion requise pour jouer';
   const launchIcon = isLogged ? 'caret-right' : 'times';
   const launchClass = isLogged ? 'logged' : 'notlogged';
-  console.log(isLogged);
   return (
     <div className="home-fiction__card" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="home-fiction__informations">

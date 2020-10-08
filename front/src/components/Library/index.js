@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from './Card';
 import './style-desktop.scss';
 import './style-mobile.scss';
@@ -7,19 +6,16 @@ import './style-mobile.scss';
 // Ici j'appelle les card que j'ai crée au préalable j'y incorpore le reste de mon html pour
 // la recherche et mes titres ect et je dynamise le contenu de mes cards
 
-const Library = ({ cards }) => {
-  console.log(cards);
-
-  return (
-    <div className="bibliotheque">
+const Library = ({ cards }) => (
+  <div className="bibliotheque">
     <h1 className="menuTitle"> BROKEN TIME - La Bibliotheque </h1>
-      <form className="searchForm">
-        <input 
-          type="text" 
-          placeholder="Rechercher une fiction"
-          className="searchInput">
-        </input>
-      </form>
+    <form className="searchForm">
+      <input
+        type="text"
+        placeholder="Rechercher une fiction"
+        className="searchInput"
+      />
+    </form>
     <div className="card">
       {
         cards.map((cardObject) => (
@@ -32,14 +28,7 @@ const Library = ({ cards }) => {
         ))
       }
     </div>
-    </div>
-  );
-};
-
-Library.propTypes = {
-  title: PropTypes.string.isrequired,
-  resume: PropTypes.string.isrequired,
-  picture:PropTypes.object.isRequired,
-};
+  </div>
+);
 
 export default Library;
