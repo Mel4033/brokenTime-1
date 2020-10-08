@@ -21,14 +21,14 @@ class Fiction
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "user_details"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "add_fiction"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "add_fiction","user_details"})
      */
     private $title;
 
@@ -42,14 +42,14 @@ class Fiction
     /**
      * @ORM\Column(type="boolean", nullable=true, options={"default":0})
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "user_details"})
      */
     private $completed;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "user_details"})
      */
     private $summary;
 
@@ -63,7 +63,7 @@ class Fiction
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
-     * @Groups({"fiction_list", "fiction_view"})
+     * @Groups({"fiction_list", "fiction_view", "user_details"})
      */
     private $picture;
 
