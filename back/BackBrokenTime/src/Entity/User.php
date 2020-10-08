@@ -89,6 +89,8 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=Fiction::class)
+     * 
+     * @Groups({"user_details"})
      */
     private $fictions;
 

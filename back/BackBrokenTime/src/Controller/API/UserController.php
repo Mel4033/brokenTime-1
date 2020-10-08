@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * Retourne le détail d'un utilisateur en fonction de son Email.
+     * Retourne le détail d'un utilisateur 
      *
      * @Route("/user/details", name="user_details")
      * @return void
@@ -170,8 +170,6 @@ class UserController extends AbstractController
         return $this->json([
            'message' => $message,    
         ]);
-
-        
     }
 
     /**
