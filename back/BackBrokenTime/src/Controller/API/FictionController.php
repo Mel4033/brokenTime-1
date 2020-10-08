@@ -17,14 +17,14 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class FictionController extends AbstractController
 {
     /**
-     * Méthode qui permet l'affiche des informations d'une fiction
+     * Méthode qui permet l'affichage des informations d'une fiction
      * 
      * @Route("/fiction/{slug}", name="fiction_view", methods={"GET"})
      */
     public function view(Fiction $fiction)
     {
 
-        // dd($fiction);
+        // Retourne le détails d'une fiction au format JSON
         return $this->json($fiction, 200, [], [
             'groups' => 'fiction_view'
             ]);
@@ -37,23 +37,23 @@ class FictionController extends AbstractController
      */
     public function list(FictionRepository $fictionRepository)
     {
+        // On récupère la liste des fictions
         $fictions = $fictionRepository->findAll();
 
-        // dd($fictions);
-
+        // On retourne la liste au format JSON
         return $this->json($fictions, 200, [], [
             'groups' => 'fiction_list'
         ]);
     }
 
     /**
-     * Méthode qui permet l'affichage de toutes les informations d'un path d'une fiction
+     * Méthode qui permet l'affichage de toutes les informations d'un chemin d'une fiction
      * 
      * @Route("/fiction/{slug}/path/{number}", name="fiction_path", methods={"GET"})
      */
     public function path(Fiction $fiction, Path $path)
     {
-        // dd($path);
+        // Retourne le détails d'un chemin d'une fiction au format JSON
         return $this->json($path, 200, [], [
             'groups' => 'fiction_path'
         ]);

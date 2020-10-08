@@ -28,7 +28,7 @@ class Fiction
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "add_fiction","user_details"})
+     * @Groups({"fiction_list", "fiction_view", "fiction_by_category", "add_fiction", "user_details"})
      */
     private $title;
 

@@ -26,21 +26,20 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"user_list", "user_details"})
+     * @Groups({"user_details"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * 
-     * @Groups({"user_list", "user_view", "user_details"})
+     * @Groups({"user_details"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="json", nullable=true)
      * 
-     * @Groups({"user_list"})
      */
     private $roles = [];
 
@@ -48,21 +47,20 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * 
-     * @Groups({"user_list"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"user_list", "user_view", "user_details"})
+     * @Groups({"user_details"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
-     * @Groups({"user_list", "user_details"})
+     * @Groups({"user_details"})
      * 
      */
     private $picture;
@@ -76,14 +74,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * 
-     * @Groups({"user_list"})
      */
     private $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * 
-     * @Groups({"user_list"})
      */
     private $updated_at;
 

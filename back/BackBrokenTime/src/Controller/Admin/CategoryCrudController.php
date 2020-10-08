@@ -24,5 +24,4 @@ class CategoryCrudController extends AbstractCrudController
             DateField::new('created_at', 'Date de création'),
         ];
     }
-    
 }
