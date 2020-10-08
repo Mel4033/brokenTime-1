@@ -31,7 +31,6 @@ const transformPathToMessages = (receivedPath) => {
 };
 
 const transformPathToChoices = (receivedPath) => {
-  console.log(receivedPath);
   const extractedChoices = receivedPath.choice.map((choiceObject) => ({
     id: uuidv4(),
     content: choiceObject.content,
@@ -45,7 +44,6 @@ const transformPathToChoices = (receivedPath) => {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
-      console.log(action.payload);
       return {
         ...state,
         messages: [...state.messages, {
@@ -56,11 +54,8 @@ const fiction = (state = initialState, action = {}) => {
       };
     }
     case RECEIVED_PATH: {
-      console.log(action.payload);
       const messagesToDisplay = transformPathToMessages(action.payload);
       const choicesToDisplay = transformPathToChoices(action.payload);
-      console.log(messagesToDisplay);
-      console.log(choicesToDisplay);
       return {
         ...state,
         messages: [...state.messages, ...messagesToDisplay],
