@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 import Library from '../components/Library';
-import {fetchLibrary} from '../actions/library';
+import { fetchLibrary } from '../actions/library';
+import { getLibraryCards } from '../reducers/library';
 
-const mapState = null;
+const mapState = (state) => ({
+    list: getLibraryCards(state.library.list),
+  });
 
 
 const mapDispatch = (dispatch) => ({

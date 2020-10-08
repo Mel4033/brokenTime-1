@@ -1,6 +1,8 @@
 import axios from 'axios';
+import {fetchLibrarySuccess, FETCH_LIBRARY} from '../actions/library';
+import Cookies from 'universal-cookie';
 
-import {FETCH_LIBRARY} from '../actions/library';
+const cookies = new Cookies();
 
 const libraryMiddleware = (store) => (next) => (action) => {
 
@@ -14,15 +16,14 @@ const libraryMiddleware = (store) => (next) => (action) => {
         axios({
             method: 'get',
             url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/fiction',
-            data: {
-            title: store.getState().fiction.Data.title,
-            resume: store.getState().fiction.Data.resume,
-            thumbnail: store.getState().fiction.Data.thumbnail,
-            },
+            headers: {
+                authorization: `Bearer ${cookies.get('token').token}`,
+              },
         })
             .then((response) => {
              console.log(response);
-             const {data} = res;
+             const { data } = response;
+             store.dispatch(fetchLibrarySuccess(data));
              })
              .catch((error) => {
              console.log(error);
