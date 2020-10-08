@@ -2,6 +2,7 @@
 
 namespace App\Controller\API;
 
+use App\Entity\Fiction;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,20 +18,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class UserController extends AbstractController
 {
-    /**
-     * @Route("/user/{id}", name="user_view", methods={"GET"}, requirements={"id"="\d+"})
-     * 
-     * 
-     */
-    public function view(User $user)
-    {
-        
-        return $this->json($user, 200, [], [
-            'groups' => 'user_view'
-            ]);
-
-    }
-
     /**
      * Retourne le détail d'un utilisateur en fonction de son Email.
      *
@@ -163,6 +150,28 @@ class UserController extends AbstractController
     public function apiLoginCheck()
     {
         throw new \LogicException('Le contenu de la route importe peu.');
+    }
+
+    /**
+     * Méthode pour ajouter une fiction à un utilisateur en fonction de l'id de la fiction
+     * 
+     * @Route("/addfiction/{id}", name="add_fiction", requirements={"id":"\d+"})
+     */
+    public function addFictionToUser(Fiction $fiction)
+    {
+        $user = $this->getUser();
+        
+        $user->addFiction($fiction);
+
+        $this->getDoctrine()->getManager()->flush();
+        
+        $message = "La fiction a bien été ajoutée";
+
+        return $this->json([
+           'message' => $message,    
+        ]);
+
+        
     }
 
     /**
