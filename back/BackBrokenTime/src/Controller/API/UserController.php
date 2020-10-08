@@ -124,7 +124,6 @@ class UserController extends AbstractController
             }
         }
 
-        //dd($data);
         if(array_key_exists("password", $data)) {
             $plainPassword = $userUpdate->getPassword();
             
