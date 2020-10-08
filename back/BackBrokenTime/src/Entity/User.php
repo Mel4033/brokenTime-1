@@ -259,14 +259,14 @@ class User implements UserInterface
         return $this->pictureFile;
     }
 
-    public function setpictureName(?string $pictureName): void
+    public function setpicture(?string $picture): void
     {
-        $this->pictureName = $pictureName;
+        $this->picture = $picture;
     }
 
-    public function getPictureName(): ?string
+    public function getPicture(): ?string
     {
-        return $this->pictureName;
+        return $this->picture;
     }
 
 }
