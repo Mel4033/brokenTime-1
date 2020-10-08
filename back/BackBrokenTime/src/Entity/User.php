@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -86,9 +87,15 @@ class User implements UserInterface
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Fiction::class)
+     */
+    private $fictions;
+
     public function __construct()
     {
         $this->created_at = new \DateTime('NOW');
+        $this->fictions = new ArrayCollection();
     }
 
     /**
@@ -267,6 +274,32 @@ class User implements UserInterface
     public function getPicture(): ?string
     {
         return $this->picture;
+    }
+
+    /**
+     * @return Collection|Fiction[]
+     */
+    public function getFictions(): Collection
+    {
+        return $this->fictions;
+    }
+
+    public function addFiction(Fiction $fiction): self
+    {
+        if (!$this->fictions->contains($fiction)) {
+            $this->fictions[] = $fiction;
+        }
+
+        return $this;
+    }
+
+    public function removeFiction(Fiction $fiction): self
+    {
+        if ($this->fictions->contains($fiction)) {
+            $this->fictions->removeElement($fiction);
+        }
+
+        return $this;
     }
 
 }
