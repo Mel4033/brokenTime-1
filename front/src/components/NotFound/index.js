@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style-desktop.scss';
 import { Typewriter } from 'react-typewriting-effect';
 
@@ -10,11 +11,11 @@ const NotFound = () => (
     </div>
     <div className="errorpage__livechat">
       <p className="errorpage__text">
-        <Typewriter string="Fin de la transmission. Communications interrompues. Votre dernier choix est décisif." stopBlinkinOnComplete delay={10} cursor="|" />
+        <Typewriter string="Fin de la transmission. Communications interrompues. Votre dernier choix est décisif." stopBlinkinOnComplete delay={30} cursor="|" />
       </p>
       <div className="livechat__choices">
-        <input className="livechat__choices--item" type="button" value="[Revenir sur la page d'accueil]" />
-        <input className="livechat__choices--item" type="button" value="[Rester éternellement sur la page 404]" />
+        <Link to="/"><input className="livechat__choices--item" type="button" value="[Revenir sur la page d'accueil]" /></Link>
+        <input className="livechat__choices--item" type="button" value="[Bouffer du f0f à la pelle]" />
       </div>
     </div>
   </div>
