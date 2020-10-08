@@ -14,7 +14,7 @@ import './style.scss';
 import Contact from '../Contact';
 import ContactForm from '../Contact/ContactForm';
 import TeamPage from '../TeamPage';
-import NotFound from '../NotFound';
+import NotFound from '../../containers/NotFound';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
