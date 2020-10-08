@@ -14,6 +14,7 @@ import './style.scss';
 import Contact from '../Contact';
 import ContactForm from '../Contact/ContactForm';
 import TeamPage from '../TeamPage';
+import NotFound from '../../containers/NotFound';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
@@ -68,6 +69,11 @@ const App = ({ checkAuth, isLogged }) => {
 
           <Route exact path="/TeamPage">
             <TeamPage />
+          </Route>
+
+          <Route>
+            <NotFound />
+            <Footer />
           </Route>
 
         </Switch>
