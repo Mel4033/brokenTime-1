@@ -62,15 +62,12 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
      * @Groups({"user_list", "user_details"})
-     * @var string
+     * 
      */
     private $picture;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * 
-     * @Groups({"user_list", "user_details"})
-     * @var File
+     * @Vich\UploadableField(mapping="user_images", fileNameProperty="picture")
      */
     private $pictureFile;
 
@@ -213,30 +210,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getPictureFile(): ?string
-    {
-        return $this->pictureFile;
-    }
-
-    public function setPictureFile(File $picture = null): self
-    {
-        $this->pictureFile = $picture;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -259,6 +232,41 @@ class User implements UserInterface
         $this->updated_at = $updated_at;
 
         return $this;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $pictureFile
+     */
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    public function setpictureName(?string $pictureName): void
+    {
+        $this->pictureName = $pictureName;
+    }
+
+    public function getPictureName(): ?string
+    {
+        return $this->pictureName;
     }
 
 }
