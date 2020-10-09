@@ -7,13 +7,14 @@ import Cookies from 'universal-cookie';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../../containers/Home';
-import Profil from '../Profil';
-import Library from '../../containers/Card';
-import Fiction from '../../containers/fiction';
+import Profil from '../../containers/Profil';
+import Fiction from '../../containers/Fiction';
+import Library from '../../containers/Library';
 import './style.scss';
 import Contact from '../Contact';
 import ContactForm from '../Contact/ContactForm';
 import TeamPage from '../TeamPage';
+import NotFound from '../../containers/NotFound';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
@@ -68,6 +69,11 @@ const App = ({ checkAuth, isLogged }) => {
 
           <Route exact path="/TeamPage">
             <TeamPage />
+          </Route>
+
+          <Route>
+            <NotFound />
+            <Footer />
           </Route>
 
         </Switch>

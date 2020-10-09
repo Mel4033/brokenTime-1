@@ -62,7 +62,9 @@
     "react-dom": "*",
     "react-redux": "*",
     "react-router-dom": "^5.2.0",
+    "react-typewriting-effect": "^1.0.4",
     "redux": "*",
+    "slugify": "^1.4.5",
     "styled-components": "*",
     "universal-cookie": "^4.0.4",
     "uuidv4": "^6.2.3"
