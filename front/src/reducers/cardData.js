@@ -1,4 +1,4 @@
-import pocketwatch from '../assets/images/pocketwatch.jpeg';
+/* import pocketwatch from '../assets/images/pocketwatch.jpeg';
 import skullclock from '../assets/images/skullclock.jpeg';
 import hourglass from '../assets/images/hourglass.jpeg';
 import thunderstorm from '../assets/images/thunderstorm.jpeg';
@@ -57,3 +57,5 @@ const cards = (state = initialState, action = {}) => {
 };
 
 export default cards;
+
+*/
