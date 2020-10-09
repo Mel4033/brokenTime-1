@@ -20,7 +20,8 @@ import NotFound from '../../containers/NotFound';
 // Pswd : bobby
 
 // == Composant
-const App = ({ checkAuth, isLogged }) => {
+const App = ({ isLoading, checkAuth, isLogged }) => {
+  // Vérification du token JWT lors du premier chargement de page.
   useEffect(() => {
     checkAuth();
     document.title = 'Broken Time';

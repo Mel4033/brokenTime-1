@@ -1,14 +1,6 @@
 import { uuid as uuidv4 } from 'uuidv4';
 import { NEXT_MESSAGE } from '../actions/notFound';
 
-console.log(`
-███ ███ █  █ ███ █  █ ███ ███ ███
-█ █ █   ██ █ █ █ ██ █ █   █     █
-██  ██  █ ██ █ █ █ ██ █   ██   █ 
-█ █ █   █  █ █ █ █  █ █   █   █  
-█ █ ███ █  █ ███ █  █ ███ ███ ███
-`)
-
 const initialState = {
   // La valeur de secretkey correspond au nombre de clicks nécessaires avant l'apparition du message.
   messages: [

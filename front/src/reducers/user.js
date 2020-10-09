@@ -11,11 +11,14 @@ import {
   REGISTER_SUCCESS,
   CONNECT_USER,
   PROFILE_INPUT_CHANGE,
+  IS_LOADING,
+  NOT_LOADING,
 } from '../actions/user';
 
 const cookies = new Cookies();
 
 const initialState = {
+  isLoading: false,
   disconnectButtonDisplayed: false,
   loginFormDisplayed: false,
   registerFormDisplayed: false,
@@ -33,6 +36,16 @@ const initialState = {
 
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
+    case IS_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case NOT_LOADING:
+      return {
+        ...state,
+        isLoading: false,
+      };
     case ALTERNATE_FORMS:
       return {
         ...state,
