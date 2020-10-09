@@ -4,15 +4,20 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity
+ * @Vich\Uploadable
  */
 class User implements UserInterface
 {
@@ -21,21 +26,20 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups({"user_list"})
+     * @Groups({"user_details"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * 
-     * @Groups({"user_list", "user_view", "user_details"})
+     * @Groups({"user_details"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="json", nullable=true)
      * 
-     * @Groups({"user_list"})
      */
     private $roles = [];
 
@@ -43,41 +47,53 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * 
-     * @Groups({"user_list"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"user_list", "user_view", "user_details"})
+     * @Groups({"user_details"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * 
-     * @Groups({"user_list", "user_details"})
+     * @Groups({"user_details"})
+     * 
      */
     private $picture;
 
     /**
+     * @Vich\UploadableField(mapping="user_images", fileNameProperty="picture")
+     */
+    private $pictureFile;
+
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      * 
-     * @Groups({"user_list"})
      */
     private $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * 
-     * @Groups({"user_list"})
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Fiction::class)
+     * 
+     * @Groups({"user_details"})
+     */
+    private $fictions;
 
     public function __construct()
     {
         $this->created_at = new \DateTime('NOW');
+        $this->fictions = new ArrayCollection();
     }
 
     /**
@@ -199,18 +215,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -234,4 +238,66 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $pictureFile
+     */
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    public function setpicture(?string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @return Collection|Fiction[]
+     */
+    public function getFictions(): Collection
+    {
+        return $this->fictions;
+    }
+
+    public function addFiction(Fiction $fiction): self
+    {
+        if (!$this->fictions->contains($fiction)) {
+            $this->fictions[] = $fiction;
+        }
+
+        return $this;
+    }
+
+    public function removeFiction(Fiction $fiction): self
+    {
+        if ($this->fictions->contains($fiction)) {
+            $this->fictions->removeElement($fiction);
+        }
+
+        return $this;
+    }
+
 }

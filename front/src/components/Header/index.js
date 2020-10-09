@@ -2,7 +2,7 @@ import React from 'react';
 import './style-mobile.scss';
 import './style-desktop.scss';
 import BurgerMenu from './BurgerMenu';
-import DesktopMenu from './DesktopMenu';
+import DesktopMenu from '../../containers/DesktopMenu';
 import UserForm from '../../containers/UserForm';
 
 const Header = () => (

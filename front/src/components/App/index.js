@@ -1,12 +1,12 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 // == Import
 import Header from '../Header';
 import Footer from '../Footer';
-import Home from '../Home';
+import Home from '../../containers/Home';
 import Profil from '../../containers/Profil';
 import Fiction from '../../containers/Fiction';
 import Library from '../../containers/Library';
@@ -14,12 +14,13 @@ import './style.scss';
 import Contact from '../Contact';
 import ContactForm from '../Contact/ContactForm';
 import TeamPage from '../TeamPage';
+import NotFound from '../../containers/NotFound';
 
 // Identifiants : Bobby.night@gmail.com
 // Pswd : bobby
 
 // == Composant
-const App = ({ checkAuth }) => {
+const App = ({ checkAuth, isLogged }) => {
   useEffect(() => {
     checkAuth();
     document.title = 'Broken Time';
@@ -45,12 +46,14 @@ const App = ({ checkAuth }) => {
 
           {/* Route vers la page de profil */}
           <Route exact path="/profil">
+            {!isLogged && <Redirect to="/" />}
             <Profil />
             <Footer />
           </Route>
 
           {/* Route vers la page de fiction */}
           <Route exact path="/fiction">
+            {!isLogged && <Redirect to="/" />}
             <Fiction />
           </Route>
 
@@ -66,6 +69,11 @@ const App = ({ checkAuth }) => {
 
           <Route exact path="/TeamPage">
             <TeamPage />
+          </Route>
+
+          <Route>
+            <NotFound />
+            <Footer />
           </Route>
 
         </Switch>

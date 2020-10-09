@@ -4,6 +4,7 @@ namespace App\Controller\API;
 
 use App\Entity\Category;
 use App\Entity\Fiction;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,9 +18,13 @@ class CategoryController extends AbstractController
      * 
      * @Route("/category/list", name="category_list")
      */
-    public function list()
-    {
-        return $this->json([
+    public function list(CategoryRepository $repository)
+    {   
+        // On récupère la liste de toutes les catégories
+        $categories = $repository->findAll();
+        
+        // On envois au format JSON la liste
+        return $this->json($categories, 200, [], [
             'groups' => 'category_list',
         ]);
     }
@@ -31,7 +36,7 @@ class CategoryController extends AbstractController
      */
     public function fictionByCategory(Category $category)
     {
-        // dd($path);
+        // Retourne la liste des fictions lié à une catégorie
         return $this->json($category, 200, [], [
             'groups' => 'fiction_by_category'
         ]);

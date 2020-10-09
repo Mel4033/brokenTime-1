@@ -29,6 +29,7 @@ class UserCrudController extends AbstractCrudController
             DateField::new('created_at', 'Date de création')->onlyOnIndex(),
             DateField::new('updated_at', 'Date de modification')->onlyOnIndex(),
             ArrayField::new('roles'),
+            AssociationField::new('fictions', 'Fictions possédées'),
         ];
     }
     

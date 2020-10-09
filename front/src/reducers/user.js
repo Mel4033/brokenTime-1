@@ -10,6 +10,7 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
   CONNECT_USER,
+  PROFILE_INPUT_CHANGE,
 } from '../actions/user';
 
 const cookies = new Cookies();
@@ -22,10 +23,11 @@ const initialState = {
   isSuccessDisplayed: false,
   formData: {
     pseudo: '',
-    email: 'testAPI@gmail.com',
-    password: 'testAPI',
+    email: '',
+    password: '',
     confirmpassword: '',
   },
+  isLogged: false,
   currentUser: {},
 };
 
@@ -74,8 +76,15 @@ const user = (state = initialState, action = {}) => {
           ...action.payload,
         },
       };
+    case PROFILE_INPUT_CHANGE:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          ...action.payload,
+        },
+      };
     case LOGIN_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
         isErrorDisplayed: false,
@@ -92,7 +101,10 @@ const user = (state = initialState, action = {}) => {
         ...state,
         currentUser: {
           ...action.payload,
+          password: '',
+          confirmpassword: '',
         },
+        isLogged: true,
       };
     case LOGIN_ERROR:
       return {
@@ -100,6 +112,7 @@ const user = (state = initialState, action = {}) => {
         currentUser: {},
         isErrorDisplayed: true,
         isSuccessDisplayed: false,
+        isLogged: false,
       };
     case REGISTER_SUCCESS:
       return {
@@ -113,6 +126,7 @@ const user = (state = initialState, action = {}) => {
         currentUser: {},
         isErrorDisplayed: true,
         isSuccessDisplayed: false,
+        isLogged: false,
       };
     case DISCONNECT_USER:
       cookies.remove('token');
@@ -124,6 +138,7 @@ const user = (state = initialState, action = {}) => {
         registerFormDisplayed: false,
         isErrorDisplayed: false,
         isSuccessDisplayed: false,
+        isLogged: false,
       };
     default:
       return state;

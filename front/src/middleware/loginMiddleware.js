@@ -1,7 +1,8 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import checkProfileDatas from '../functions/checkProfileDatas';
 
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, DISCONNECT_USER, connectUser, checkAuth } from '../actions/user';
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE } from '../actions/user';
 
 const cookies = new Cookies();
 
@@ -55,8 +56,6 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // TODO : Ici il ne faut pas accéder à response.config. Il faut se servir du token généré pour accéder ensuite aux
-          // TODO : Données utilisateur associées.
           const userToken = response.data;
           cookies.set('token', userToken, { path: '/' });
           store.dispatch(loginSuccess(response.config.data));
@@ -64,6 +63,27 @@ const loginMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           store.dispatch(loginError());
+          console.log(error);
+        });
+      break;
+    }
+    case SUBMIT_MODIFIED_PROFILE: {
+      // Envoi des données de l'utilisateur à une fonction de vérification de
+      // données. Cette dernière rempli d'elle-même data.
+      const data = checkProfileDatas(store.getState().user.currentUser);
+      const url = 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/update';
+      axios({
+        method: 'patch',
+        url,
+        data,
+        headers: {
+          authorization: `Bearer ${cookies.get('token').token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
           console.log(error);
         });
       break;

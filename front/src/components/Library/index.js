@@ -19,13 +19,13 @@ const Library = ({ fetchLibrary,list}) => {
   return (
     <div className="bibliotheque">
     <h1 className="menuTitle"> BROKEN TIME - La Bibliotheque </h1>
-      <form className="searchForm">
-        <input 
-          type="text" 
-          placeholder="Rechercher une fiction"
-          className="searchInput">
-        </input>
-      </form>
+    <form className="searchForm">
+      <input
+        type="text"
+        placeholder="Rechercher une fiction"
+        className="searchInput"
+      />
+    </form>
     <div className="card">
       {
       // A la place de fetchLibrary, faire un .map sur l'élément du State
@@ -41,14 +41,7 @@ const Library = ({ fetchLibrary,list}) => {
         ))
       }
     </div>
-    </div>
-  );
-};
-
-Library.propTypes = {
-  title: PropTypes.string.isrequired,
-  resume: PropTypes.string.isrequired,
-  picture:PropTypes.object.isRequired,
-};
+  </div>
+);
 
 export default Library;
