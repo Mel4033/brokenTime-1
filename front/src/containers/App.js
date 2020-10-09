@@ -4,6 +4,7 @@ import { checkAuth } from '../actions/user';
 
 const mapState = (state) => ({
   isLogged: state.user.isLogged,
+  isLoading: state.user.isLoading,
 });
 
 const mapDispatch = (dispatch) => ({

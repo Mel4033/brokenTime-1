@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import checkProfileDatas from '../functions/checkProfileDatas';
 
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE } from '../actions/user';
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE, isLoading, notLoading } from '../actions/user';
 
 const cookies = new Cookies();
 
@@ -20,6 +20,7 @@ const loginMiddleware = (store) => (next) => (action) => {
     // On demande à l'API si l'utilisateur présent sur le site est déjà connecté ou non
     case CHECK_AUTH:
       if (cookies.get('token')) {
+        store.dispatch(isLoading());
         axios({
           method: 'get',
           url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/user/details',
@@ -32,6 +33,11 @@ const loginMiddleware = (store) => (next) => (action) => {
           })
           .catch((error) => {
             console.log(error);
+          })
+          .finally(() => {
+            setTimeout(() => {
+              store.dispatch(notLoading());
+            }, 1000);
           });
       }
       break;

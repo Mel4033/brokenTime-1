@@ -12,8 +12,18 @@ export const SWITCH_FORMS_DISPLAY = 'SWITCH_FORMS_DISPLAY';
 export const CHECK_AUTH = 'CHECK_AUTH';
 export const PROFILE_INPUT_CHANGE = 'PROFILE_INPUT_CHANGE';
 export const SUBMIT_MODIFIED_PROFILE = 'SUBMIT_MODIFIED_PROFILE';
+export const IS_LOADING = 'IS_LOADING';
+export const NOT_LOADING = 'NOT_LOADING';
 
 // ============================ Action creators ============================
+export const isLoading = () => ({
+  type: IS_LOADING,
+});
+
+export const notLoading = () => ({
+  type: NOT_LOADING,
+});
+
 export const inputChange = (payload) => ({
   type: INPUT_CHANGE,
   payload,

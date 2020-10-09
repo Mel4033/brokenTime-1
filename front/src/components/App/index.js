@@ -7,7 +7,7 @@ import Cookies from 'universal-cookie';
 import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../../containers/Home';
-import Profil from '../Profil';
+import Profil from '../../containers/Profil';
 import Library from '../../containers/Card';
 import Fiction from '../../containers/fiction';
 import './style.scss';
@@ -20,7 +20,8 @@ import NotFound from '../../containers/NotFound';
 // Pswd : bobby
 
 // == Composant
-const App = ({ checkAuth, isLogged }) => {
+const App = ({ isLoading, checkAuth, isLogged }) => {
+  // Vérification du token JWT lors du premier chargement de page.
   useEffect(() => {
     checkAuth();
     document.title = 'Broken Time';
