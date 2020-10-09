@@ -24,6 +24,5 @@ export const getLibraryCards = (librarys) => librarys.map((dataObject) => ({
     title: dataObject.title,
     picture: dataObject.picture,
     summary: dataObject.summary,
-
   }));
 export default libraryReducer;
