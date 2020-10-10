@@ -25,6 +25,11 @@ security:
             stateless: true
             anonymous: true
 
+        fiction:
+            pattern: ^/api/fiction
+            stateless: true
+            anonymous: true
+
         api:
             pattern:   ^/api
             stateless: true
@@ -66,7 +71,7 @@ security:
         # Tout le monde peut faire une demande d'accès à l'API (IS_AUTHENTICATED_ANONYMOUSLY)
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/library, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/fiction, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # Par contre, seules les personnes authentifié peuvent interagir avec l'API       
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
 

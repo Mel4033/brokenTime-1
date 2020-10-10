@@ -34,7 +34,6 @@ class FictionController extends AbstractController
      * Méthode qui permet l'affichage de la liste des fictions
      * 
      * @Route("/fiction", name="fiction_list", methods={"GET"})
-     * 
      */
     public function list(FictionRepository $fictionRepository)
     {
