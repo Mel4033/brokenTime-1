@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Import de composants nécessaires au fonctionnement de l'interface
 // de fiction
@@ -11,7 +11,7 @@ import './style-desktop.scss';
 
 // TODO : Réaliser un autoscroll à l'arrivée des messages.
 
-const Fiction = ({ messages, choices, submitChoice, isWriting }) => (
+const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting }) => (
   <div className="fiction">
     <div className="fiction__messages">
       {
@@ -25,7 +25,7 @@ const Fiction = ({ messages, choices, submitChoice, isWriting }) => (
       }
 
       {/* Affiche si un message est en cours de réception. */}
-      { isWriting && (
+      {isWriting && (
         <div className="fiction__loadingmessage">
           <div className="fiction__iswriting">
             Message entrant... |<span className="loadingstate">←</span>
@@ -35,16 +35,16 @@ const Fiction = ({ messages, choices, submitChoice, isWriting }) => (
 
     </div>
     <div className="fiction__choices">
-      {
-        choices.map((choiceObject) => (
-          <Choice
-            key={choiceObject.id}
-            targetPath={choiceObject.pathToCall}
-            text={choiceObject.text}
-            submitChoice={submitChoice}
-            choiceContent={choiceObject.content}
-          />
-        ))
+      {choicesDisplayed && choices.map((choiceObject) => (
+        <Choice
+          key={choiceObject.id}
+          targetPath={choiceObject.pathToCall}
+          text={choiceObject.text}
+          submitChoice={submitChoice}
+          choiceContent={choiceObject.content}
+          shouldBeDisplayed={choicesDisplayed}
+        />
+      ))
       }
     </div>
   </div>

@@ -14,6 +14,11 @@
       border: none;
       transition: 0.5s;
 
+      &__hidden
+      {
+        display: hidden;
+      }
+
       &:hover {
         transition: 0.5s;
         color: #fff;

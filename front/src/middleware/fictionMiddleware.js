@@ -1,7 +1,7 @@
 // Importation des actions
 import axios from 'axios';
 import Cookie from 'universal-cookie';
-import { SUBMIT_CHOICE, receivedMessage, receivedChoices, messageNotLoading, messageLoading } from '../actions/fiction';
+import { SUBMIT_CHOICE, receivedMessage, receivedChoices, messageNotLoading, messageLoading, showChoices } from '../actions/fiction';
 import { transformPathToChoices, transformPathToMessages } from '../functions/fictionFunctions';
 
 const cookies = new Cookie();
@@ -17,12 +17,22 @@ const fictionMiddleware = (store) => (next) => (action) => {
 
     allMessages.forEach((messageObject) => {
       console.log(messageObject);
+      iterate += 1;
+      setTimeout(() => {
+        store.dispatch(messageLoading());
+      }, iterate * 1000);
+
       setTimeout(() => {
         store.dispatch(receivedMessage(messageObject));
-      }, iterate * 1000);
-      iterate += 1;
+      }, iterate * 3000);
+
+      setTimeout(() => {
+        store.dispatch(messageNotLoading());
+        store.dispatch(showChoices());
+      }, allMessages.length * 3000);
+
+      store.dispatch(receivedChoices(allChoices));
     });
-    store.dispatch(receivedChoices(allChoices));
   };
 
   // Ensuite, on vérifie l'action qu'on a reçu pour y répondre correctement.
@@ -39,15 +49,7 @@ const fictionMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          const messageLength = response.data.message[0].text.length;
-          setTimeout(() => {
-            store.dispatch(messageLoading());
-          }, 0 * messageLength); // ! <------------ 20
-          setTimeout(() => {
-            progressiveDispatcher(response.data);
-            // store.dispatch(receivedPath(response.data));
-            store.dispatch(messageNotLoading());
-          }, 0 * messageLength); // ! <------------ 50
+          progressiveDispatcher(response.data);
         })
         .catch((error) => {
           console.log(error);

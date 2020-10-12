@@ -5,6 +5,7 @@ import { submitChoice } from '../actions/fiction';
 // Notre Dumb-Component a-t-il besoin de données venant du State ?
 const mapState = (state) => ({
   isWriting: state.fiction.isWriting,
+  choicesDisplayed: state.fiction.choicesDisplayed,
   messages: state.fiction.messages,
   choices: state.fiction.choices,
 });

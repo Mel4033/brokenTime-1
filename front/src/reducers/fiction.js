@@ -1,8 +1,8 @@
-import { uuid, uuid as uuidv4 } from 'uuidv4';
-import { RECEIVED_MESSAGE, SUBMIT_CHOICE, MESSAGE_LOADING, MESSAGE_NOTLOADING, RECEIVED_CHOICES } from '../actions/fiction';
-import { transformPathToChoices, transformPathToMessages } from '../functions/fictionFunctions';
+import { uuid as uuidv4 } from 'uuidv4';
+import { SHOW_CHOICES, HIDE_CHOICES, RECEIVED_MESSAGE, SUBMIT_CHOICE, MESSAGE_LOADING, MESSAGE_NOTLOADING, RECEIVED_CHOICES } from '../actions/fiction';
 
 const initialState = {
+  choicesDisplayed: true,
   isWriting: false,
   messages: [],
   // Les choix de chemins qui s'offrent au joueur
@@ -26,6 +26,7 @@ const fiction = (state = initialState, action = {}) => {
           author: 'Vous',
           content: action.payload.choiceContent,
         }],
+        choicesDisplayed: false,
       };
     }
     case RECEIVED_CHOICES:
@@ -43,6 +44,18 @@ const fiction = (state = initialState, action = {}) => {
       return {
         ...state,
         isWriting: true,
+      };
+    case HIDE_CHOICES:
+      console.log('Je dois cacher les choix');
+      return {
+        ...state,
+        displayChoices: false,
+      };
+    case SHOW_CHOICES:
+      console.log('Je dois afficher les choix');
+      return {
+        ...state,
+        displayChoices: true,
       };
     case MESSAGE_NOTLOADING:
       return {
