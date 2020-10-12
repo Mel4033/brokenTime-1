@@ -5,12 +5,11 @@ import './style-desktop.scss';
 import classToApply, { imageToApply } from '../../../functions/messagesFunctions';
 
 // Utilisation d'une image temporaire en guise de photo de profil.
-const fakeImg = 'https://media.discordapp.net/attachments/364094342953959424/765186494528094228/unknown.png';
 
-const Message = ({ author, content }) => (
+const Message = ({ author, content, picture }) => (
   <div className={`message ${classToApply(author)}`}>
     <div className="message__profile-picture">
-      <img className="profile-picture" src={fakeImg} alt="profil" />
+      <img className="profile-picture" src={picture} alt="profilepicture" />
     </div>
     <div className={`message__content ${classToApply(author)}`}>
       <div className={`message__author ${classToApply(author)}`}>{author}</div>

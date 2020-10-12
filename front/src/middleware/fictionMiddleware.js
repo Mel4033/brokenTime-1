@@ -51,6 +51,7 @@ const fictionMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
+          console.log(response.data);
           progressiveDispatcher(response.data);
         })
         .catch((error) => {

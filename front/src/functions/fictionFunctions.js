@@ -8,7 +8,10 @@ export const transformPathToMessages = (receivedPath) => {
     author: messageObject.byCharacter.name,
     content: messageObject.text,
     number: messageObject.number,
+    picture: messageObject.byCharacter.picture,
   }));
+
+  console.log(purifiedMessages);
 
   // Réorganisation des messages selon leur propriété "number";
   return purifiedMessages.sort((a, b) => (a.number - b.number));
