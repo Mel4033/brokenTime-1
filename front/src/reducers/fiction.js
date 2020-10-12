@@ -1,5 +1,6 @@
 import { uuid, uuid as uuidv4 } from 'uuidv4';
-import { SUBMIT_CHOICE, RECEIVED_PATH, MESSAGE_LOADING, MESSAGE_NOTLOADING } from '../actions/fiction';
+import { RECEIVED_MESSAGE, SUBMIT_CHOICE, MESSAGE_LOADING, MESSAGE_NOTLOADING, RECEIVED_CHOICES } from '../actions/fiction';
+import { transformPathToChoices, transformPathToMessages } from '../functions/fictionFunctions';
 
 const initialState = {
   isWriting: false,
@@ -15,32 +16,6 @@ const initialState = {
   ],
 };
 
-// Fonction de transformation des messages associés à un chemin en des messages
-// exploitables par notre interface
-const transformPathToMessages = (receivedPath) => {
-  // Purification des messages reçus dans le chemin
-  const purifiedMessages = receivedPath.message.map((messageObject) => ({
-    id: uuidv4(),
-    author: messageObject.byCharacter.name,
-    content: messageObject.text,
-    number: messageObject.number,
-  }));
-
-  // Réorganisation des messages selon leur propriété "number";
-  return purifiedMessages.sort((a, b) => (a.number - b.number));
-};
-
-const transformPathToChoices = (receivedPath) => {
-  const extractedChoices = receivedPath.choice.map((choiceObject) => ({
-    id: uuidv4(),
-    content: choiceObject.content,
-    text: choiceObject.text,
-    pathToCall: choiceObject.toPath,
-  }));
-
-  return extractedChoices;
-};
-
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
@@ -53,15 +28,17 @@ const fiction = (state = initialState, action = {}) => {
         }],
       };
     }
-    case RECEIVED_PATH: {
-      const messagesToDisplay = transformPathToMessages(action.payload);
-      const choicesToDisplay = transformPathToChoices(action.payload);
+    case RECEIVED_CHOICES:
       return {
         ...state,
-        messages: [...state.messages, ...messagesToDisplay],
-        choices: [...choicesToDisplay],
+        choices: [...action.payload],
       };
-    }
+    case RECEIVED_MESSAGE:
+      console.log(action.payload);
+      return {
+        ...state,
+        messages: [...state.messages, action.payload],
+      };
     case MESSAGE_LOADING:
       return {
         ...state,

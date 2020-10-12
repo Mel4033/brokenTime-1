@@ -7,7 +7,6 @@ const cookies = new Cookies();
 const libraryMiddleware = (store) => (next) => (action) => {
 
     next(action);
-    console.log('middlewareHere');
     switch (action.type) {
         default:
           break;
