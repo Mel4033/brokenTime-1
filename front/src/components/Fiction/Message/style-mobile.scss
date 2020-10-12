@@ -1,27 +1,34 @@
 @media (max-width: 600px) {
   .message {
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     position: relative;
-    &:not(:last-of-type) {
-      margin-bottom: -1rem;
-    }
+    width: 100%;
+    font-size: 1.3rem;
 
-    &.player {
+    &.player
+    {
       animation: newMessagePlayer 1s;
     }
 
-    &.protagonist {
+    &.protagonist
+    {
       animation: newMessageProtagonist 1s;
+    }
+
+    &.system
+    {
+      animation: newMessagePlayer 1s;
     }
 
     &__content {
       width: 100%;
-      border-radius: 1rem;
       padding: 1rem;
       box-shadow: 0px 3px 3px rgb(0, 0, 0);
+      border-radius: 0.5rem;
     }
 
     &__content.protagonist {
@@ -30,6 +37,13 @@
 
     &__content.player {
       background-color: rgb(156, 156, 156);
+    }
+
+    &__content.system
+    {
+      background-color: rgb(17, 17, 17);
+      color: rgb(0, 160, 0);
+      text-align: center;
     }
 
     &__author {
@@ -48,12 +62,18 @@
       color: rgb(0, 54, 104);
       text-align: right;
     }
+
+    &__author.system
+    {
+      text-align: center;
+    }
   }
 
   .profile-picture {
     position: relative;
-    top: 2rem;
+    top: 2.5rem;
     width: 70px;
+    height: 70px;
     border-radius: 100%;
   }
 }

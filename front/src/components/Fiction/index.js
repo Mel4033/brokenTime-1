@@ -12,8 +12,6 @@ import './style-desktop.scss';
 // TODO : Réaliser un autoscroll à l'arrivée des messages.
 
 const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting, playerPicture }) => {
-  console.log(messages);
-
   const maFutureDiv = useRef(null);
   useEffect(() => {
     const maDiv = maFutureDiv.current;
@@ -26,7 +24,7 @@ const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting,
 
   return (
     <div className="fiction">
-      <div ref={maFutureDiv} className="fiction__messages">
+      <p ref={maFutureDiv} className="fiction__messages">
         {
           messages.map((messageObject) => (
             <Message
@@ -37,17 +35,15 @@ const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting,
             />
           ))
         }
-
-        {/* Affiche si un message est en cours de réception. */}
-        {isWriting && (
-          <div className="fiction__loadingmessage">
-            <div className="fiction__iswriting">
-              Message entrant... |<span className="loadingstate">←</span>
-            </div>
+      </p>
+      {/* Affiche si un message est en cours de réception. */}
+      {isWriting && (
+        <div className="fiction__loadingmessage">
+          <div className="fiction__iswriting">
+            Message entrant... |<span className="loadingstate">←</span>
           </div>
-        )}
-
-      </div>
+        </div>
+      )}
       <div className="fiction__choices">
         {
           choices.map((choiceObject) => (
@@ -64,6 +60,5 @@ const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting,
     </div>
   );
 };
-
 
 export default Fiction;

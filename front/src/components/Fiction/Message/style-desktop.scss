@@ -7,6 +7,7 @@
     position: relative;
     width: 60%;
     margin-bottom: 1rem;
+    font-size: 1.1rem;
 
     &.player
     {
@@ -29,24 +30,25 @@
 
     &__content {
       width: 100%;
-      border-radius: 1rem;
       padding: 1rem;
       box-shadow: 0px 3px 3px rgb(0, 0, 0);
     }
 
     &__content.protagonist {
       background-color: rgb(187, 139, 67);
+      border-radius: 0 0.5rem 0.5rem 0.5rem;
     }
 
     &__content.player {
       background-color: rgb(156, 156, 156);
       text-align: right;
+      border-radius: 0.5rem 0 0.5rem 0.5rem;
     }
 
     &__content.system
     {
       background-color: rgb(17, 17, 17);
-      color: rgb(0, 88, 0);
+      color: rgb(0, 160, 0);
       text-align: center;
     }
 
