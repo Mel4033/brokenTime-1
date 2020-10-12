@@ -12,8 +12,8 @@ const fictionMiddleware = (store) => (next) => (action) => {
 
   const progressiveDispatcher = (receivedPath) => {
     let iterate = 0;
-    const allMessages = transformPathToMessages(receivedPath);
-    const allChoices = transformPathToChoices(receivedPath);
+    const allMessages = transformPathToMessages(receivedPath, store.getState().user.currentUser.pseudo);
+    const allChoices = transformPathToChoices(receivedPath, store.getState().user.currentUser.pseudo);
 
     allMessages.forEach((messageObject) => {
       console.log(messageObject);

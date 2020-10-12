@@ -2,7 +2,7 @@ import React from 'react';
 import './style-mobile.scss';
 import './style-desktop.scss';
 
-import classToApply, { imageToApply } from '../../../functions/messagesFunctions';
+import classToApply from '../../../functions/messagesFunctions';
 
 // Utilisation d'une image temporaire en guise de photo de profil.
 

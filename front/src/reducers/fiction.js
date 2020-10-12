@@ -19,7 +19,6 @@ const initialState = {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
-
       // Si tous les messages du protagoniste n'ont pas encore été affichés, l'envoi
       // de nouvelles requêtes de chemins est bloqué.
       if (!state.choicesDisplayed) { return state; }
