@@ -9,8 +9,8 @@
   {
     text-align: center;
     font-size: 2.5rem;
-    margin: 40px;
-    color: #acab;
+    margin: 80px;
+    color: white;
   };
   
   .searchForm
@@ -48,28 +48,26 @@
   .cardUnit
   {
     width: 325px;
-    border: 1px solid #d3d3d3;
+    border-radius: 15px;
     margin: 1rem;
     height: 200px;
   };
   
-  .cardUnit:hover
-  {
-    background-color: rgba(0, 0, 0, 0.250);
-    &play {
-      visibility: visible;
-    }
-  };
-  
   .fictionTitle
-  {
-    
+  { 
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid black;
     font-size: 1.5rem;
     color: white;
   };
+
+  .thumbnail
+  {
+    border-radius: 1rem;
+    height: 198px;
+    border: 2px solid black;
+  }
   
   .resume
   {
@@ -91,19 +89,5 @@
       background-position-y: 10px;
       background-repeat: no-repeat;
     }
-  };
-  
-  .play
-  {
-    // visibility: hidden;
-    margin-left: 130px;
-    margin-top: 10px;
-    width: 60px;
-    height: 25px;
-    border-radius: 4px;
-    border: none;
-    background-color: #acab;
-    margin-bottom: 25px;
-  };
-  
+  }; 
 }

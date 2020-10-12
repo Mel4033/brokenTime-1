@@ -7,7 +7,7 @@ import './style-mobile.scss';
 const Card = ({ title, resume, locked, thumbnail }) => (
 
     <div className="cardUnit">
-      <div style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '198px'}}>
+      <div style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="thumbnail">
       <h4 className="fictionTitle">{title}</h4>  
         <p className={locked ? 'resume resume-unlocked' : 'resume resume-locked'}>
           {resume}</p>
