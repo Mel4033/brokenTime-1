@@ -6,9 +6,9 @@ const BurgerMenu = () => (
   <div className="dropdown">
     <button type="button" alt="button" className="dropbtn" />
     <div className="dropdown-content">
-      <Link to="/">Accueil</Link>
-      <Link to="/Profil">Mon profil</Link>
-      <Link to="/library">Bibliothéque</Link>
+      <Link to="/" className="link">Accueil</Link>
+      <Link to="/Profil" className="link">Mon profil</Link>
+      <Link to="/library" className="link">Bibliothéque</Link>
     </div>
   </div>
 );
