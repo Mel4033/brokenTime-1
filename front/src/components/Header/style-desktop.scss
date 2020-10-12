@@ -4,6 +4,12 @@
     display: none;
   }
 
+  .header
+  {
+    position: relative;
+    z-index: 10;
+  }
+
   .menu__desktop
   {
     position: fixed;
