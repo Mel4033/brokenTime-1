@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import checkProfileDatas from '../functions/checkProfileDatas';
 
-import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE, isLoading, notLoading } from '../actions/user';
+import { LOGIN_SUBMIT, loginSuccess, loginError, CHECK_AUTH, connectUser, checkAuth, SUBMIT_MODIFIED_PROFILE, isLoading, notLoading, closeEverything } from '../actions/user';
 
 const cookies = new Cookies();
 

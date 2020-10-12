@@ -100,14 +100,16 @@ const user = (state = initialState, action = {}) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        isErrorDisplayed: false,
-        isSuccessDisplayed: true,
         formData: {
           pseudo: '',
           email: '',
           password: '',
           confirmpassword: '',
         },
+        disconnectButtonDisplayed: false,
+        loginFormDisplayed: false,
+        registerFormDisplayed: false,
+        isLogged: false,
       };
     case CONNECT_USER:
       return {
@@ -131,7 +133,10 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         isErrorDisplayed: false,
-        isSuccessDisplayed: true,
+        disconnectButtonDisplayed: false,
+        loginFormDisplayed: false,
+        registerFormDisplayed: false,
+        isLogged: false,
       };
     case REGISTER_ERROR:
       return {
