@@ -10,7 +10,7 @@ const initialState = {
     {
       id: uuidv4(),
       text: '[Rechercher une fréquence temporelle]',
-      content: '[Recherche temporelle envoyée. Connexion établie avec succès.]',
+      content: '[Recherche temporelle envoyée. Connexion établie avec succès. Année de destination : 2612.]',
       pathToCall: 1,
     },
   ],
@@ -19,6 +19,7 @@ const initialState = {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
+      if (!state.choicesDisplayed) { return state;}
       return {
         ...state,
         messages: [...state.messages, {
@@ -26,7 +27,6 @@ const fiction = (state = initialState, action = {}) => {
           author: 'Vous',
           content: action.payload.choiceContent,
         }],
-        choicesDisplayed: false,
       };
     }
     case RECEIVED_CHOICES:
@@ -46,16 +46,14 @@ const fiction = (state = initialState, action = {}) => {
         isWriting: true,
       };
     case HIDE_CHOICES:
-      console.log('Je dois cacher les choix');
       return {
         ...state,
-        displayChoices: false,
+        choicesDisplayed: false,
       };
     case SHOW_CHOICES:
-      console.log('Je dois afficher les choix');
       return {
         ...state,
-        displayChoices: true,
+        choicesDisplayed: true,
       };
     case MESSAGE_NOTLOADING:
       return {

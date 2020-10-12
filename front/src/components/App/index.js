@@ -1,7 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 
 // == Import
 import Header from '../Header';
@@ -16,11 +15,8 @@ import ContactForm from '../Contact/ContactForm';
 import TeamPage from '../TeamPage';
 import NotFound from '../../containers/NotFound';
 
-// Identifiants : Bobby.night@gmail.com
-// Pswd : bobby
-
 // == Composant
-const App = ({ isLoading, checkAuth, isLogged }) => {
+const App = ({ checkAuth, isLogged }) => {
   // Vérification du token JWT lors du premier chargement de page.
   useEffect(() => {
     checkAuth();

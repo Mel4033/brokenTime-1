@@ -1,7 +1,7 @@
 // Importation des actions
 import axios from 'axios';
 import Cookie from 'universal-cookie';
-import { SUBMIT_CHOICE, receivedMessage, receivedChoices, messageNotLoading, messageLoading, showChoices } from '../actions/fiction';
+import { SUBMIT_CHOICE, receivedMessage, receivedChoices, messageNotLoading, messageLoading, hideChoices, showChoices } from '../actions/fiction';
 import { transformPathToChoices, transformPathToMessages } from '../functions/fictionFunctions';
 
 const cookies = new Cookie();
@@ -29,9 +29,8 @@ const fictionMiddleware = (store) => (next) => (action) => {
       setTimeout(() => {
         store.dispatch(messageNotLoading());
         store.dispatch(showChoices());
+        store.dispatch(receivedChoices(allChoices));
       }, allMessages.length * 3000);
-
-      store.dispatch(receivedChoices(allChoices));
     });
   };
 
@@ -40,6 +39,9 @@ const fictionMiddleware = (store) => (next) => (action) => {
     default:
       break;
     case SUBMIT_CHOICE: {
+      if (!store.getState().fiction.choicesDisplayed) { return; }
+      store.dispatch(hideChoices());
+
       const { pathToCall } = action.payload;
       axios({
         method: 'get',

@@ -35,19 +35,20 @@ const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting 
 
     </div>
     <div className="fiction__choices">
-      {choicesDisplayed && choices.map((choiceObject) => (
-        <Choice
-          key={choiceObject.id}
-          targetPath={choiceObject.pathToCall}
-          text={choiceObject.text}
-          submitChoice={submitChoice}
-          choiceContent={choiceObject.content}
-          shouldBeDisplayed={choicesDisplayed}
-        />
-      ))
+      {
+        choices.map((choiceObject) => (
+          <Choice
+            key={choiceObject.id}
+            targetPath={choiceObject.pathToCall}
+            text={choiceObject.text}
+            submitChoice={submitChoice}
+            choiceContent={choiceObject.content}
+          />
+        ))
       }
     </div>
   </div>
 );
+
 
 export default Fiction;

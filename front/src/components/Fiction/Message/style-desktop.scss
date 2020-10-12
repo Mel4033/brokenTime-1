@@ -8,14 +8,23 @@
     width: 60%;
     margin-bottom: 1rem;
 
-    &.player {
+    &.player
+    {
       align-self: flex-end;
       flex-flow: row-reverse nowrap;
       animation: newMessagePlayer 1s;
     }
 
-    &.protagonist {
+    &.protagonist
+    {
       animation: newMessageProtagonist 1s;
+    }
+
+    &.system
+    {
+      animation: newMessagePlayer 1s;
+      align-self: flex-end;
+      flex-flow: row-reverse nowrap;
     }
 
     &__content {
@@ -31,6 +40,14 @@
 
     &__content.player {
       background-color: rgb(156, 156, 156);
+      text-align: right;
+    }
+
+    &__content.system
+    {
+      background-color: rgb(17, 17, 17);
+      color: rgb(0, 88, 0);
+      text-align: center;
     }
 
     &__author {
@@ -48,6 +65,11 @@
     &__author.player {
       color: rgb(0, 54, 104);
       text-align: right;
+    }
+
+    &__author.system
+    {
+      text-align: center;
     }
   }
 
