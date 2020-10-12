@@ -8,6 +8,7 @@ const mapState = (state) => ({
   choicesDisplayed: state.fiction.choicesDisplayed,
   messages: state.fiction.messages,
   choices: state.fiction.choices,
+  playerPicture: state.user.currentUser.picture,
 });
 
 // Notre Dumb-Component a-t-il besoin de Dispatcher des données ?
