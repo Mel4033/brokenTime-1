@@ -19,7 +19,26 @@ const initialState = {
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
-      if (!state.choicesDisplayed) { return state;}
+
+      // Si tous les messages du protagoniste n'ont pas encore été affichés, l'envoi
+      // de nouvelles requêtes de chemins est bloqué.
+      if (!state.choicesDisplayed) { return state; }
+
+      // Le premier message doit provenir du système. Dans ce cas, si le joueur initialise
+      // l'histoire avec le premier appel de chemin, "Système" sera le premier envoyeur.
+      if (action.payload.pathToCall === 1) {
+        return {
+          ...state,
+          messages: [...state.messages, {
+            id: uuidv4(),
+            author: 'Système',
+            content: action.payload.choiceContent,
+            picture: 'https://media.discordapp.net/attachments/364094342953959424/765186494528094228/unknown.png',
+          }],
+        };
+      }
+
+      // Sinon, on renvoie le message lié au choix avec pour auteur le joueur.
       return {
         ...state,
         messages: [...state.messages, {
