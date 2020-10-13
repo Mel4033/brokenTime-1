@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './style-desktop.scss';
 import SingleMessage from './SingleMessage';
-import { Typewriter } from 'react-typewriting-effect';
 
 const NotFound = ({ allMessages, counter, launchNextMessage }) => {
   const maFutureDiv = useRef(null);

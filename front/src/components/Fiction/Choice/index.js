@@ -2,7 +2,7 @@ import React from 'react';
 import './style-mobile.scss';
 import './style-desktop.scss';
 
-const Choice = ({ targetPath, text, choiceContent, shouldBeDisplayed, submitChoice }) => (
+const Choice = ({ targetPath, text, choiceContent, submitChoice }) => (
   <div className="choice">
     <button
       type="button"

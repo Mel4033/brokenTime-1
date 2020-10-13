@@ -1,7 +1,8 @@
 // Importation des actions
 import axios from 'axios';
 import Cookie from 'universal-cookie';
-import { SUBMIT_CHOICE, receivedPath, messageNotLoading, messageLoading } from '../actions/fiction';
+import { SUBMIT_CHOICE, receivedMessage, receivedChoices, messageNotLoading, messageLoading, hideChoices, showChoices } from '../actions/fiction';
+import { transformPathToChoices, transformPathToMessages } from '../functions/fictionFunctions';
 
 const cookies = new Cookie();
 
@@ -9,11 +10,38 @@ const fictionMiddleware = (store) => (next) => (action) => {
   // En premier, on laisse passer l'action pour ne pas bloquer l'exécution du script.
   next(action);
 
+  const progressiveDispatcher = (receivedPath) => {
+    let iterate = 0;
+    const allMessages = transformPathToMessages(receivedPath, store.getState().user.currentUser.pseudo);
+    const allChoices = transformPathToChoices(receivedPath, store.getState().user.currentUser.pseudo);
+
+    allMessages.forEach((messageObject) => {
+      console.log(messageObject);
+      iterate += 1;
+      setTimeout(() => {
+        store.dispatch(messageLoading());
+      }, iterate * 1000);
+
+      setTimeout(() => {
+        store.dispatch(receivedMessage(messageObject));
+      }, iterate * 3000);
+
+      setTimeout(() => {
+        store.dispatch(messageNotLoading());
+        store.dispatch(showChoices());
+        store.dispatch(receivedChoices(allChoices));
+      }, allMessages.length * 3000);
+    });
+  };
+
   // Ensuite, on vérifie l'action qu'on a reçu pour y répondre correctement.
   switch (action.type) {
     default:
       break;
     case SUBMIT_CHOICE: {
+      if (!store.getState().fiction.choicesDisplayed) { return; }
+      store.dispatch(hideChoices());
+
       const { pathToCall } = action.payload;
       axios({
         method: 'get',
@@ -23,14 +51,8 @@ const fictionMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          const messageLength = response.data.message[0].text.length;
-          setTimeout(() => {
-            store.dispatch(messageLoading());
-          }, 20 * messageLength);
-          setTimeout(() => {
-            store.dispatch(receivedPath(response.data));
-            store.dispatch(messageNotLoading());
-          }, 50 * messageLength);
+          console.log(response.data);
+          progressiveDispatcher(response.data);
         })
         .catch((error) => {
           console.log(error);

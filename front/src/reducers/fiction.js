@@ -1,7 +1,8 @@
-import { uuid, uuid as uuidv4 } from 'uuidv4';
-import { SUBMIT_CHOICE, RECEIVED_PATH, MESSAGE_LOADING, MESSAGE_NOTLOADING } from '../actions/fiction';
+import { uuid as uuidv4 } from 'uuidv4';
+import { SHOW_CHOICES, HIDE_CHOICES, RECEIVED_MESSAGE, SUBMIT_CHOICE, MESSAGE_LOADING, MESSAGE_NOTLOADING, RECEIVED_CHOICES } from '../actions/fiction';
 
 const initialState = {
+  choicesDisplayed: true,
   isWriting: false,
   messages: [],
   // Les choix de chemins qui s'offrent au joueur
@@ -9,41 +10,34 @@ const initialState = {
     {
       id: uuidv4(),
       text: '[Rechercher une fréquence temporelle]',
-      content: '[Recherche temporelle envoyée. Connexion établie avec succès.]',
+      content: '[Recherche temporelle envoyée. Connexion établie avec succès. Année de destination : 2612.]',
       pathToCall: 1,
     },
   ],
 };
 
-// Fonction de transformation des messages associés à un chemin en des messages
-// exploitables par notre interface
-const transformPathToMessages = (receivedPath) => {
-  // Purification des messages reçus dans le chemin
-  const purifiedMessages = receivedPath.message.map((messageObject) => ({
-    id: uuidv4(),
-    author: messageObject.byCharacter.name,
-    content: messageObject.text,
-    number: messageObject.number,
-  }));
-
-  // Réorganisation des messages selon leur propriété "number";
-  return purifiedMessages.sort((a, b) => (a.number - b.number));
-};
-
-const transformPathToChoices = (receivedPath) => {
-  const extractedChoices = receivedPath.choice.map((choiceObject) => ({
-    id: uuidv4(),
-    content: choiceObject.content,
-    text: choiceObject.text,
-    pathToCall: choiceObject.toPath,
-  }));
-
-  return extractedChoices;
-};
-
 const fiction = (state = initialState, action = {}) => {
   switch (action.type) {
     case SUBMIT_CHOICE: {
+      // Si tous les messages du protagoniste n'ont pas encore été affichés, l'envoi
+      // de nouvelles requêtes de chemins est bloqué.
+      if (!state.choicesDisplayed) { return state; }
+
+      // Le premier message doit provenir du système. Dans ce cas, si le joueur initialise
+      // l'histoire avec le premier appel de chemin, "Système" sera le premier envoyeur.
+      if (action.payload.pathToCall === 1) {
+        return {
+          ...state,
+          messages: [...state.messages, {
+            id: uuidv4(),
+            author: 'Système',
+            content: action.payload.choiceContent,
+            picture: 'https://media.discordapp.net/attachments/364094342953959424/765186494528094228/unknown.png',
+          }],
+        };
+      }
+
+      // Sinon, on renvoie le message lié au choix avec pour auteur le joueur.
       return {
         ...state,
         messages: [...state.messages, {
@@ -53,19 +47,31 @@ const fiction = (state = initialState, action = {}) => {
         }],
       };
     }
-    case RECEIVED_PATH: {
-      const messagesToDisplay = transformPathToMessages(action.payload);
-      const choicesToDisplay = transformPathToChoices(action.payload);
+    case RECEIVED_CHOICES:
       return {
         ...state,
-        messages: [...state.messages, ...messagesToDisplay],
-        choices: [...choicesToDisplay],
+        choices: [...action.payload],
       };
-    }
+    case RECEIVED_MESSAGE:
+      console.log(action.payload);
+      return {
+        ...state,
+        messages: [...state.messages, action.payload],
+      };
     case MESSAGE_LOADING:
       return {
         ...state,
         isWriting: true,
+      };
+    case HIDE_CHOICES:
+      return {
+        ...state,
+        choicesDisplayed: false,
+      };
+    case SHOW_CHOICES:
+      return {
+        ...state,
+        choicesDisplayed: true,
       };
     case MESSAGE_NOTLOADING:
       return {

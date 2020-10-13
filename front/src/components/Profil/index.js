@@ -22,6 +22,7 @@ const Profil = ({ isLoading, ownedFictions }) => {
           ownedFictions.map((fictionObject) => (
             <OwnedCard
               key={fictionObject.id}
+              id={fictionObject.id}
               title={fictionObject.title}
               resume={fictionObject.summary}
               image={fictionObject.picture}

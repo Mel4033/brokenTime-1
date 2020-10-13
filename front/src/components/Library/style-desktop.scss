@@ -48,33 +48,26 @@
   .cardUnit
   {
     width: 325px;
-    border: 1px solid #d3d3d3;
+    border-radius: 15px;
     margin: 1rem;
     height: 200px; 
   };
   
-  .cardUnit:hover
+  .thumbnail
   {
-    background-color: rgba(0, 0, 0, 0.500);
-  
-    &cardUnit-play
-    {
-    opacity: 1;
-    width: 60px;
-    height: 25px;
-    border-radius: 4px;
-    border: none;
-    background-color: #acab;
-    }
-  };
-  
+    border-radius: 1rem;
+    height: 198px;
+    border: 2px solid black;
+  }
+
   .fictionTitle
   {
     text-shadow: 1px 1px 1px gray;
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid black;
     font-size: 1.5rem;
+    color: white;
   };
 
   .resume
@@ -93,21 +86,11 @@
     }
     
     &-locked {
-      background-image: url("../../assets/images/padlock.png");
+      background-image: url("../../assets/images/lock3.png");
       background-position-x: 10px;
       background-position-y: 10px;
       background-repeat: no-repeat;
     }
   };
-  
-  .cardUnit-play
-  {
-    opacity: 0;
-    width: 60px;
-    height: 25px;
-    border-radius: 4px;
-    border: none;
-    background-color: #acab;
-  };
-  
+
 }
