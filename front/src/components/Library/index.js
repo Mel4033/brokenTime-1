@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Card from './Card';
-import { fetchLibrary } from '../../actions/library';
 import './style-desktop.scss';
 import './style-mobile.scss';
 

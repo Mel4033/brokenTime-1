@@ -35,7 +35,16 @@ const NotFound = ({ allMessages, counter, launchNextMessage }) => {
         </p>
         <div className="livechat__choices">
           <Link to="/" className="livechat__choices--item"><input className="livechat__choice-button" type="button" value="[Revenir sur la page d'accueil]" /></Link>
-          <div className="livechat__choices--item"><input onClick={() => { launchNextMessage() }} className="livechat__choice-button" type="button" value={`[Rester ici] x${counter}`} /></div>
+          <div className="livechat__choices--item">
+            <input
+              onClick={() => {
+                launchNextMessage();
+              }}
+              className="livechat__choice-button"
+              type="button"
+              value={`[Rester ici] x${counter}`}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const Card = ({ id, title, resume, thumbnail }) => {
 
   return (
     <div className="cardUnit">
-      <div className="card--container" style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="thumbnail">
+      <div style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="thumbnail">
         <h4 className="fictionTitle">{title}</h4>
         {isAvailable && (
           <Link to="/fiction/la-montre-du-temps">
