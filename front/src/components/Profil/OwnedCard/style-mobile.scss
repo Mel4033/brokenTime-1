@@ -5,7 +5,7 @@
     width: 100%;
   }
 
-  .fiction__card {
+  .profile-fiction__card {
     background-color: rgb(124, 124, 124);
     width: 100%;
     margin-bottom: 1rem;
@@ -14,14 +14,14 @@
     overflow: hidden;
   }
 
-  .fiction__informations {
+  .profile-fiction__informations {
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
   }
 
-  .fiction__title {
+  .profile-fiction__title {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
@@ -32,19 +32,26 @@
     border-bottom: 1px solid black;
   }
 
-  .fiction__resume {
+  .profile-fiction__resume {
     text-shadow: 1px 1px 1px gray;
     color: white;
     text-align: left;
     padding: 1rem;
     line-height: 1.2rem;
+
+    &--container
+    {
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      height: 100%;
+    }
   }
 
   .profile-fiction__card {
     background-color: rgb(124, 124, 124);
-    width: 48%;
+    width: 100%;
     margin: 1%;
-    height: 300px;
     border: 2px solid black;
     border-radius: 1rem;
     overflow: hidden;
@@ -76,6 +83,7 @@
     text-align: left;
     padding: 1rem;
     line-height: 1.2rem;
+    padding-bottom: 5rem;
 
     &-container {
       position: relative;
@@ -87,6 +95,7 @@
 
   .profile-fiction__play-button {
     border: none;
+    position: absolute;
     border-top: 2px solid black;
     color: #2effff;
     font-weight: bold;
