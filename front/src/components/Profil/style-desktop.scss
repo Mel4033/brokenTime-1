@@ -12,6 +12,7 @@
       color: white;
       font-size: 2rem;
       padding: 1rem;
+      text-align: center;
     }
 
     &__card
@@ -119,5 +120,12 @@
         transform: rotate(90deg);
       }
     }
+  }
+
+  .cardlist {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: flex-start;
   }
 }
