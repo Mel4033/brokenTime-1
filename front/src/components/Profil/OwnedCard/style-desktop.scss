@@ -1,57 +1,4 @@
 @media (min-width: 601px) {
-  .cardlist {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .fiction__card {
-    background-color: rgb(124, 124, 124);
-    width: 31%;
-    margin: 1%;
-    border: 2px solid black;
-    border-radius: 1rem;
-    overflow: hidden;
-  }
-
-  .fiction__informations {
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-  }
-
-  .fiction__title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 1px gray;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 1rem;
-    border-bottom: 1px solid black;
-  }
-
-  .fiction__resume {
-    text-shadow: 1px 1px 1px gray;
-    color: white;
-    text-align: left;
-    padding: 1rem;
-    line-height: 1.2rem;
-  }
-
-  .profile-fiction__card {
-    background-color: rgb(124, 124, 124);
-    width: 48%;
-    margin: 1%;
-    height: 300px;
-    border: 2px solid black;
-    border-radius: 1rem;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-  }
 
   .profile-fiction__informations {
     background-color: rgba(0, 0, 0, 0.5);
@@ -72,13 +19,14 @@
   }
 
   .profile-fiction__resume {
+    margin-bottom: 2.5rem;
     text-shadow: 1px 1px 1px gray;
     color: white;
     text-align: left;
     padding: 1rem;
     line-height: 1.2rem;
 
-    &-container {
+    &--container {
       position: relative;
       height: 100%;
       display: flex;
@@ -86,9 +34,19 @@
     }
   }
 
+  .profile-fiction__card {
+    background-color: rgb(124, 124, 124);
+    width: 31%;
+    margin: 1%;
+    border: 2px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
   .profile-fiction__play-button {
     border: none;
     border-top: 2px solid black;
+    position: absolute;
     color: #2effff;
     font-weight: bold;
     font-size: 0.8rem;
