@@ -40,4 +40,80 @@
     padding: 1rem;
     line-height: 1.2rem;
   }
+  .profile-fiction__card {
+    background-color: rgb(124, 124, 124);
+    width: 48%;
+    margin: 1%;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .profile-fiction__informations {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+  }
+
+  .profile-fiction__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px gray;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-bottom: 1px solid black;
+  }
+
+  .profile-fiction__resume {
+    text-shadow: 1px 1px 1px gray;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+    line-height: 1.2rem;
+
+    &-container {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .profile-fiction__play-button {
+    border: none;
+    border-top: 2px solid black;
+    color: #2effff;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.7rem;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+
+    &-logged {
+      color: #2effff;
+      background-color: rgb(14, 52, 65);
+    }
+
+    &-notlogged {
+      color: #ff7c7c;
+      background-color: rgb(83, 31, 24);
+    }
+  }
+
+  .unavailable {
+    cursor: default;
+    background-color: rgb(49, 49, 49);
+    color: rgb(150, 150, 150);
+  }
+
+  .icon__button {
+    margin-left: 1rem;
+  }
 }
