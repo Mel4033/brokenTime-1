@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import BurgerMenu from '../components/Header/BurgerMenu';
-import { inputChange } from '../actions/burgerMenu';
 
-const mapState = null;
+const mapState = (state) => ({
+  isLogged: state.user.isLogged,
+});
 
 const mapDispatch = null;
 
