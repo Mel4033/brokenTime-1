@@ -9,7 +9,7 @@ import './style-mobile.scss';
 // la recherche et mes titres ect et je dynamise le contenu de mes cards
 
 const Library = ({ fetchLibrary, list }) => {
-  console.log(fetchLibrary);
+
   useEffect(() => {
     fetchLibrary();
   }, []);
@@ -29,8 +29,8 @@ const Library = ({ fetchLibrary, list }) => {
           // A la place de fetchLibrary, faire un .map sur l'élément du State
           list.map((cardObject) => (
             <Card
-              // Manque une propriété "key"
               key={cardObject.id}
+              id={cardObject.id}
               title={cardObject.title}
               resume={cardObject.summary}
               locked={cardObject.locked}
