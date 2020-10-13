@@ -9,7 +9,7 @@ import './style-mobile.scss';
 const Card = ({id, title, resume, thumbnail }) => {
 
  const isAvailable = id === 1;
- console.log(id);
+
 
   return (
     <div className="cardUnit">
