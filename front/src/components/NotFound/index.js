@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './style-desktop.scss';
+import './style-mobile.scss';
 import SingleMessage from './SingleMessage';
 
 const NotFound = ({ allMessages, counter, launchNextMessage }) => {
