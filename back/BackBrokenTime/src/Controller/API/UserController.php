@@ -4,6 +4,7 @@ namespace App\Controller\API;
 
 use App\Entity\Fiction;
 use App\Entity\User;
+use App\Repository\FictionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,7 +40,7 @@ class UserController extends AbstractController
      * 
      * @Route("/user/new", name="user_new", methods={"POST"})
      */
-    public function new(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
+    public function new(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder, FictionRepository $fictionRepository)
     {
         // On récupère les données de l'utilisateur reçu par le formulaire en Front
         $dataJSON = $request->getContent();
@@ -76,6 +77,10 @@ class UserController extends AbstractController
             // Pas d'erreur (à priori)
             $success = true;
             $message = "L'utilisateur a bien créé";
+
+            // Juste avant d'enregistrer un nouvel utilisateur, on lui attribut la fiction " la montre du temps "
+            $fiction = $fictionRepository->findOneBy(['slug' => 'la-montre-du-temps']);
+            $user->addFiction($fiction);
 
             // ...on sauvegarde l'utilisateur en BDD
              $em = $this->getDoctrine()->getManager();

@@ -5,11 +5,8 @@ import './style-mobile.scss';
 
 // Je vais ici créer et dynamiser mes cards, que je vais par la suite appeller dans ma library j'importe mon style scss desktop et 
 // mobile, que j'ai aussi dans mon index de card
-
 const Card = ({id, title, resume, thumbnail }) => {
-
  const isAvailable = id === 1;
-
 
   return (
     <div className="cardUnit">

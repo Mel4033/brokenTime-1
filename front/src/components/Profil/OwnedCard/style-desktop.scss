@@ -1,28 +1,13 @@
 @media (min-width: 601px) {
-  .cardlist {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    justify-content: flex-start;
-  }
 
-  .fiction__card {
-    background-color: rgb(124, 124, 124);
-    width: 31%;
-    margin: 1%;
-    border: 2px solid black;
-    border-radius: 1rem;
-    overflow: hidden;
-  }
-
-  .fiction__informations {
+  .profile-fiction__informations {
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
   }
 
-  .fiction__title {
+  .profile-fiction__title {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
@@ -33,11 +18,61 @@
     border-bottom: 1px solid black;
   }
 
-  .fiction__resume {
+  .profile-fiction__resume {
+    margin-bottom: 2.5rem;
     text-shadow: 1px 1px 1px gray;
     color: white;
     text-align: left;
     padding: 1rem;
     line-height: 1.2rem;
+
+    &--container {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .profile-fiction__card {
+    background-color: rgb(124, 124, 124);
+    width: 31%;
+    margin: 1%;
+    border: 2px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .profile-fiction__play-button {
+    border: none;
+    border-top: 2px solid black;
+    position: absolute;
+    color: #2effff;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.7rem;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+
+    &-logged {
+      color: #2effff;
+      background-color: rgb(14, 52, 65);
+    }
+
+    &-notlogged {
+      color: #ff7c7c;
+      background-color: rgb(83, 31, 24);
+    }
+  }
+
+  .unavailable {
+    cursor: default;
+    background-color: rgb(49, 49, 49);
+    color: rgb(150, 150, 150);
+  }
+
+  .icon__button {
+    margin-left: 1rem;
   }
 }

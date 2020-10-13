@@ -17,6 +17,7 @@
       display: flex;
       flex-flow: column;
       overflow-y: auto;
+      overflow-x: hidden;
     }
 
     &__iswriting
