@@ -12,7 +12,7 @@ const OwnedCard = ({ id, title, resume, image }) => {
         <h4 className="fiction__title">{title}</h4>
         <p className="fiction__resume">{resume}</p>
         {isAvailable && (
-          <Link to="/fiction">
+          <Link to="/fiction/la-montre-du-temps">
             <button type="button" className="profile-fiction__play-button profile-fiction__play-button-logged">
               {launchMessage} <i className="fas fa-caret-right icon__button" />
             </button>
