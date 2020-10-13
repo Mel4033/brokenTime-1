@@ -1,7 +1,7 @@
 import React from 'react';
 import './style-mobile.scss';
 import './style-desktop.scss';
-import BurgerMenu from './BurgerMenu';
+import BurgerMenu from '../../containers/BurgerMenu';
 import DesktopMenu from '../../containers/DesktopMenu';
 import UserForm from '../../containers/UserForm';
 
