@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\FictionRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -123,6 +124,14 @@ class User implements UserInterface
     public function setRolePersistValue()
     {
         $this->roles[] = 'ROLE_USER';
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setPicturePersistValue()
+    {
+        $this->picture = 'https://media.discordapp.net/attachments/364094342953959424/765477171555860490/usericon.png';
     }
 
     public function getId(): ?int
