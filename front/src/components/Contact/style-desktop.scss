@@ -28,34 +28,40 @@
     margin-top: 5px;
   }
 
-  .intelligence {
-    border: 1px #acab solid;
-    width: 15%;
-    height: 190px;
-    background-image: url(../../assets/images/info1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    margin-left: 30px;
-  }
+    .intelligence
+    {
+        border: 1px #acab solid;
+        width: 15%;
+        height: 190px;
+        background-image: url(../../assets/images/info1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        margin-left: 30px;
+        background-position: center;
+    };
 
-  .idea {
-    border: 1px #acab solid;
-    width: 15%;
-    height: 190px;
-    background-image: url(../../assets/images/idea2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-  }
+    .idea
+    {
+        border: 1px #acab solid;
+        width: 15%;
+        height: 190px;
+        background-image: url(../../assets/images/idea2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        background-position: center;
+    };
 
-  .email {
-    border: 1px #acab solid;
-    width: 15%;
-    height: 190px;
-    background-image: url(../../assets/images/contact1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-  }
+    .email
+    {
+        border: 1px #acab solid;
+        width: 15%;
+        height: 190px;
+        background-image: url(../../assets/images/contact1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        background-position: center;
+    };
 }
