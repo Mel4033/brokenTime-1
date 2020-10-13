@@ -13,7 +13,7 @@ const OwnedCard = ({ title, resume, image, isAvailable, isLogged }) => {
         <h4 className="home-fiction__title">{title}</h4>
         <div className="home-fiction__resume-container">
           {isAvailable && (
-            <Link to="/fiction">
+            <Link to="/fiction/la-montre-du-temps">
               <button type="button" className={`home-fiction__play-button home-fiction__play-button-${launchClass}`}>
                 {launchMessage} <i className={`fas fa-${launchIcon} icon__button`} />
               </button>

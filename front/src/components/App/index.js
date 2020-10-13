@@ -49,7 +49,7 @@ const App = ({ checkAuth, isLogged }) => {
           </Route>
 
           {/* Route vers la page de fiction */}
-          <Route exact path="/fiction">
+          <Route exact path="/fiction/la-montre-du-temps">
             {!isLogged && <Redirect to="/" />}
             <Fiction />
           </Route>
