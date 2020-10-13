@@ -8,8 +8,8 @@ import './style-mobile.scss';
 // Ici j'appelle les card que j'ai crée au préalable j'y incorpore le reste de mon html pour
 // la recherche et mes titres ect et je dynamise le contenu de mes cards
 
-const Library = ({ fetchLibrary, list }) => {
-  console.log(fetchLibrary);
+const Library = ({ fetchLibrary, list, isLogged }) => {
+
   useEffect(() => {
     fetchLibrary();
   }, []);
@@ -29,7 +29,7 @@ const Library = ({ fetchLibrary, list }) => {
           // A la place de fetchLibrary, faire un .map sur l'élément du State
           list.map((cardObject) => (
             <Card
-              // Manque une propriété "key"
+              isLogged={isLogged}
               key={cardObject.id}
               title={cardObject.title}
               resume={cardObject.summary}

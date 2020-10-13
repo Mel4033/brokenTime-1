@@ -5,6 +5,7 @@ import { getLibraryCards } from '../reducers/library';
 
 const mapState = (state) => ({
     list: getLibraryCards(state.library.list),
+    isLogged: state.user.isLogged,
   });
 
 
