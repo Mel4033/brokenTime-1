@@ -3,6 +3,7 @@
   .bibliotheque
   {
     height: 100vh;
+    max-width: 100%;
   };
 
   .menuTitle
@@ -40,14 +41,11 @@
   {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    justify-content: flex-start; 
-    margin-left: 4rem;
+    justify-content: center; 
   };
   
   .cardUnit
   {
-    width: 325px;
     border-radius: 15px;
     margin: 1rem;
     height: 200px; 
