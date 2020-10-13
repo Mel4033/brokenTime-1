@@ -6,7 +6,6 @@ const initialState = {
 const libraryReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_LIBRARY_SUCCESS:
-      console.log(action.payload, 'GENRE JUSTE ICI');
       return {
         ...state,
         list: [...action.payload],

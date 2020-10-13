@@ -13,12 +13,11 @@ const libraryMiddleware = (store) => (next) => (action) => {
         url: 'http://ec2-23-20-252-110.compute-1.amazonaws.com/api/fiction',
       })
         .then((response) => {
-          console.log(response);
           const { data } = response;
           store.dispatch(fetchLibrarySuccess(data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       break;
   }
