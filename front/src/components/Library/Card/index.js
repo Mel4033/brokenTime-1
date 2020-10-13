@@ -6,17 +6,26 @@ import './style-mobile.scss';
 // Je vais ici créer et dynamiser mes cards, que je vais par la suite appeller dans ma library j'importe mon style scss desktop et 
 // mobile, que j'ai aussi dans mon index de card
 
-const Card = ({id, title, resume, isLogged,  thumbnail }) => {
+const Card = ({id, title, resume, thumbnail }) => {
 
- const loggedIcon = id === 1 ? 'resume-unlocked' : 'resume-locked';
+ const isAvailable = id === 1;
+ console.log(id);
 
-
-  return(
+  return (
     <div className="cardUnit">
       <div style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="thumbnail">
       <h4 className="fictionTitle">{title}</h4>
-        <p className={`resume ${loggedIcon}`}>
+      {isAvailable && (
+        <Link to="/fiction">
+          <p className={`library-resume library-resume-unlocked`}>
           {resume}</p>
+        </Link>
+      )}
+      {!isAvailable && (
+        <p className={`library-resume library-resume-locked`}>
+        {resume}</p>
+      )}
+
       </div>
     </div>
   )

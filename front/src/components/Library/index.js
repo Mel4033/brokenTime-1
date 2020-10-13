@@ -29,8 +29,8 @@ const Library = ({ fetchLibrary, list, isLogged }) => {
           // A la place de fetchLibrary, faire un .map sur l'élément du State
           list.map((cardObject) => (
             <Card
-              isLogged={isLogged}
               key={cardObject.id}
+              id={cardObject.id}
               title={cardObject.title}
               resume={cardObject.summary}
               locked={cardObject.locked}
