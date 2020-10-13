@@ -3,10 +3,11 @@ html {
 }
 
 .app {
+  height: 100vh;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   background-attachment: fixed;
-  height: 100vh;
   background-image: linear-gradient(to left bottom, #292929, #2d2d34, #2d323f, #2a384a, #223f55, #254258, #29455c, #2c485f, #3b485b, #454a57, #4b4b52, #4e4e4e);
 }
 
@@ -14,6 +15,7 @@ html {
   flex: 1;
   overflow-y: auto;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 // Paramètres de modification de la scrollbar

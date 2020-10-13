@@ -1,20 +1,18 @@
 @media (max-width: 600px) {
-  .profil
-  {
+  .profil {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     padding-top: 5rem;
 
-    &__title
-    {
+    &__title {
       color: white;
       font-size: 1.8rem;
       padding: 1rem;
+      text-align: center;
     }
 
-    &__card
-    {
+    &__card {
       width: 100%;
       display: flex;
       flex-flow: column nowrap;
@@ -25,38 +23,33 @@
       overflow: hidden;
     }
 
-    &__informations
-    {
+    &__informations {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
       justify-content: flex-start;
       width: 100%;
     }
-    &__picture
-    {
+    &__picture {
       text-align: center;
       width: 100%;
       height: 200px;
       border-bottom: 2px solid black;
       overflow: hidden;
 
-      &--image
-      {
+      &--image {
         width: 200px;
         height: 200px;
       }
     }
 
-    &__data
-    {
+    &__data {
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
       align-items: flex-start;
-      
-      &--item
-      {
+
+      &--item {
         padding: 1rem;
         color: white;
         display: flex;
@@ -64,48 +57,48 @@
         align-items: flex-start;
       }
 
-      &--title
-      {
+      &--title {
         margin-bottom: 0.2rem;
         font-weight: bold;
       }
 
-      &--input
-      {
+      &--input {
         color: white;
         background-color: #4d4d4d;
         border: none;
         font-size: 1.1rem;
       }
 
-      &--value
-      {
+      &--value {
         color: rgb(146, 146, 146);
         font-size: 1rem;
       }
     }
 
-    &__button
-    {
+    &__button {
       border: none;
       border-top: 2px solid black;
       color: white;
       background-color: rgba(255, 255, 255, 0.267);
       width: 100%;
-      display:flex;
+      display: flex;
       align-items: center;
       justify-content: center;
 
-      &-modify
-      {
+      &-modify {
         background-color: #2a5980;
       }
 
-      &--text
-      {
+      &--text {
         font-size: 1.1rem;
         display: block;
       }
     }
+  }
+
+  .cardlist {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
   }
 }
