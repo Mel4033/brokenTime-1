@@ -27,7 +27,7 @@ const Card = ({ id, title, resume, thumbnail }) => {
 
       </div>
     </div>
-  )
+  );
 };
 
 export default Card;
