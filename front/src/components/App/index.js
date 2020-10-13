@@ -7,7 +7,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import Home from '../../containers/Home';
 import Profil from '../../containers/Profil';
-import Fiction from '../../containers/FFction';
+import Fiction from '../../containers/Fiction';
 import Library from '../../containers/Library';
 import './style.scss';
 import Contact from '../Contact';
