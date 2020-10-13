@@ -2,7 +2,6 @@ import React from 'react';
 import './style-mobile.scss';
 import { NavLink } from 'react-router-dom';
 
-
 const BurgerMenu = ({isLogged}) => (
   <div className="dropdown">
     <button type="button" alt="button" className="dropbtn" />

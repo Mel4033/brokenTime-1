@@ -16,7 +16,6 @@ const fictionMiddleware = (store) => (next) => (action) => {
     const allChoices = transformPathToChoices(receivedPath, store.getState().user.currentUser.pseudo);
 
     allMessages.forEach((messageObject) => {
-      console.log(messageObject);
       iterate += 1;
       setTimeout(() => {
         store.dispatch(messageLoading());
@@ -51,11 +50,10 @@ const fictionMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           progressiveDispatcher(response.data);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       break;
     }

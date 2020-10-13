@@ -53,7 +53,6 @@ const fiction = (state = initialState, action = {}) => {
         choices: [...action.payload],
       };
     case RECEIVED_MESSAGE:
-      console.log(action.payload);
       return {
         ...state,
         messages: [...state.messages, action.payload],
