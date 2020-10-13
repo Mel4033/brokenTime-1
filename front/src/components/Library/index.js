@@ -9,7 +9,6 @@ import './style-mobile.scss';
 // la recherche et mes titres ect et je dynamise le contenu de mes cards
 
 const Library = ({ fetchLibrary, list }) => {
-
   useEffect(() => {
     fetchLibrary();
   }, []);

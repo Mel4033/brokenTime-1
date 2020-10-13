@@ -1,92 +1,82 @@
-@media (max-width:600px){
-
-  .bibliotheque
-  {
-    height: 100vh;
-  };
-  
-  .menuTitle
-  {
+@media (max-width: 600px) {
+  .menuTitle {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin: 80px;
     color: white;
-  };
-  
-  .searchForm
+  }
+
+  .card--container
   {
+    height: 100%;
+    padding-bottom: 5rem;
+  }
+
+  .searchForm {
     text-align: center;
     margin-bottom: 30px;
-  };
-  
-  .searchInput
-  {
-    width: 50%;
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 100%;
     border-radius: 5px;
     height: 30px;
     border: 1px #acab solid;
     background-image: url("../../../assets/images/loupe.png");
     background-position: 7px 6px;
     background-repeat: no-repeat;
-    padding-left: 30px;  
-  };
-  
-  .searchInput:focus
-  {
+    padding-left: 30px;
+  }
+
+  .searchInput:focus {
     border: 2px #acab solid;
-  };
-  
-  .card
-  {
+  }
+
+  .card {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-around; 
-  };
-  
-  .cardUnit
-  {
-    width: 325px;
-    border-radius: 15px;
-    margin: 1rem;
-    height: 200px;
-  };
-
-  .thumbnail
-  {
-    border-radius: 1rem;
-    height: 198px;
-    border: 2px solid black;
+    justify-content: flex-start;
   }
-  
-  .fictionTitle
-  {
+
+  .cardUnit {
+    border-radius: 15px;
+  }
+
+  .fictionTitle {
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid black;
     font-size: 1.5rem;
     color: white;
-  };
-    
-  .resume
-  {
-    padding-top: 60px;
+  }
+
+  .thumbnail {
+    border-radius: 1rem;
+    height: 198px;
+    border: 2px solid black;
+  }
+
+  .library-resume {
+    padding-top: 50px;
     padding-left: 15px;
     padding-right: 15px;
-    color: white;
-    
+    padding-bottom: 5rem;
+    color: rgba(255, 255, 255, 0.582);
+
     &-unlocked {
       background-image: url("../../../assets/images/play.png");
       background-position-x: 10px;
       background-position-y: 10px;
       background-repeat: no-repeat;
     }
-    
+
     &-locked {
       background-image: url("../../../assets/images/lock3.png");
       background-position-x: 10px;
       background-position-y: 10px;
       background-repeat: no-repeat;
     }
-  };
+  }
 }
