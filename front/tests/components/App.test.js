@@ -1,24 +1,24 @@
-/**
- * Import
- */
+// Import de librairies
 import React from 'react';
+import { Switch } from 'react-router-dom';
 import { shallow } from 'enzyme';
-import { should } from 'chai';
+import { expect, should } from 'chai';
 
-// Components
+// Import des composants requis pour les tests
+import Header from 'src/components/Header';
 import App from 'src/components/App';
 
-// préparation de should
+// Initialisation de should()
 should();
 
+// Description et réalisation des tests
 describe('Série de tests : App', () => {
   const comp = shallow(<App />);
-  it('should have prop className', () => {
-    comp.props().should.have.property('className');
+  it('should have a <Header /> component', () => {
+    expect(comp.find(Header)).to.have.length(1);
   });
 
-  // un test suspendu avec skip
-  it.skip('should not have prop id', () => {
-    comp.props().should.not.have.property('id');
+  it('Should have a <Switch> component', () => {
+    expect(comp.find(Switch)).to.have.length(1);
   });
 });

@@ -1,8 +1,13 @@
+// Import de librairie
 import { expect } from 'chai';
+
+// Import de fonction requise
 import classToApply from '../../src/functions/messagesFunctions';
 
+// Initialisation de expect
 expect();
 
+// Description et réalisation des tests
 describe('Serial test of classToApply function', () => {
   it('Should be a function', () => {
     expect(classToApply).to.be.a('function');

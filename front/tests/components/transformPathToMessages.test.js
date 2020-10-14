@@ -1,8 +1,13 @@
+// Import de librairie
 import { expect } from 'chai';
+
+// Import de fonction requise
 import { transformPathToMessages } from '../../src/functions/fictionFunctions';
 
+// Initialisation de expect
 expect();
 
+// Mise en place de fausses données pour les tests
 const fakeData = {
   LosePath: false,
   choice: [
@@ -52,6 +57,7 @@ const fakeData = {
   ],
 };
 
+// Description et réalisation des tests
 describe('Serial tests of transformPathToMessages function', () => {
   it('Should return an array', () => {
     expect(transformPathToMessages(fakeData)).to.be.an('array');
