@@ -67,6 +67,7 @@ describe('Serial tests of transformPathToMessages function', () => {
     expect(transformPathToMessages(fakeData)[0].number).to.deep.equal(1);
     expect(transformPathToMessages(fakeData)[1].number).to.deep.equal(2);
     expect(transformPathToMessages(fakeData)[2].number).to.deep.equal(3);
+    expect(transformPathToMessages(fakeData)[0].content).to.deep.equal('Hello undefined !');
   });
 
   it('Should replace "currentUser" by provided nickname', () => {
@@ -74,7 +75,7 @@ describe('Serial tests of transformPathToMessages function', () => {
     expect(transformPathToMessages(fakeData, myNickName)[0].content).to.deep.equal('Hello Jean-Paul !');
   });
 
-  it('Should display correct author message', () => {
+  it('Should display correct author name', () => {
     expect(transformPathToMessages(fakeData)[0].author).to.deep.equal('Meadow');
     expect(transformPathToMessages(fakeData)[1].author).to.deep.equal('Meadow');
     expect(transformPathToMessages(fakeData)[2].author).to.deep.equal('Système');
@@ -100,5 +101,9 @@ describe('Serial tests of transformPathToMessages function', () => {
       expect(dataObject.picture).to.have.not.lengthOf(0);
       expect(dataObject.number).to.be.not.equal(0);
     });
+  });
+
+  it('Should return undefined if no parameters provided', () => {
+    expect(transformPathToMessages()).to.be.deep.equal(undefined);
   });
 });
