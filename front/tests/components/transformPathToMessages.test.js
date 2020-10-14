@@ -20,7 +20,7 @@ const fakeData = {
   fiction: [],
   message: [
     {
-      text: 'Hello to you too',
+      text: 'Hello currentUser !',
       number: 1,
       lastMessage: false,
       byCharacter: {
@@ -61,5 +61,10 @@ describe('Serial tests of transformPathToMessages function', () => {
     expect(transformPathToMessages(fakeData)[0].number).to.deep.equal(1);
     expect(transformPathToMessages(fakeData)[1].number).to.deep.equal(2);
     expect(transformPathToMessages(fakeData)[2].number).to.deep.equal(3);
+  });
+
+  it('Should replace "currentUser" by provided nickname', () => {
+    const myNickName = 'Jean-Paul';
+    expect(transformPathToMessages(fakeData, myNickName)[0].content).to.deep.equal('Hello Jean-Paul !');
   });
 });
