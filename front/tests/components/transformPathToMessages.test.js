@@ -56,4 +56,10 @@ describe('Serial tests of transformPathToMessages function', () => {
   it('Should return an array', () => {
     expect(transformPathToMessages(fakeData)).to.be.an('array');
   });
+
+  it('Should return an array sorted by property "number"', () => {
+    expect(transformPathToMessages(fakeData)[0].number).to.deep.equal(1);
+    expect(transformPathToMessages(fakeData)[1].number).to.deep.equal(2);
+    expect(transformPathToMessages(fakeData)[2].number).to.deep.equal(3);
+  });
 });
