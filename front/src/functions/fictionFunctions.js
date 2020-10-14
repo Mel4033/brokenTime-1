@@ -2,7 +2,6 @@ import { uuid as uuidv4 } from 'uuidv4';
 
 export const transformPathToMessages = (receivedPath, playername) => {
   // Purification des messages reçus dans le chemin
-  console.log(receivedPath);
   const purifiedMessages = receivedPath.message.map((messageObject) => ({
     id: uuidv4(),
     author: messageObject.byCharacter.name,

@@ -52,6 +52,8 @@ const fakeData = {
   ],
 };
 
-// describe('Serial tests of transformPathToMessages function', () => {
-//   it('Should ')
-// });
+describe('Serial tests of transformPathToMessages function', () => {
+  it('Should return an array', () => {
+    expect(transformPathToMessages(fakeData)).to.be.an('array');
+  });
+});
