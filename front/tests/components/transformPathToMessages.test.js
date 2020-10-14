@@ -50,8 +50,8 @@ const fakeData = {
       lastMessage: false,
       byCharacter: {
         id: 1,
-        name: 'Meadow',
-        picture: 'protagonistPicture',
+        name: 'Système',
+        picture: 'systemPicture',
       },
     },
   ],
@@ -72,5 +72,33 @@ describe('Serial tests of transformPathToMessages function', () => {
   it('Should replace "currentUser" by provided nickname', () => {
     const myNickName = 'Jean-Paul';
     expect(transformPathToMessages(fakeData, myNickName)[0].content).to.deep.equal('Hello Jean-Paul !');
+  });
+
+  it('Should display correct author message', () => {
+    expect(transformPathToMessages(fakeData)[0].author).to.deep.equal('Meadow');
+    expect(transformPathToMessages(fakeData)[1].author).to.deep.equal('Meadow');
+    expect(transformPathToMessages(fakeData)[2].author).to.deep.equal('Système');
+  });
+
+  it('Should display correct author picture', () => {
+    expect(transformPathToMessages(fakeData)[0].picture).to.deep.equal('protagonistPicture');
+    expect(transformPathToMessages(fakeData)[1].picture).to.deep.equal('protagonistPicture');
+    expect(transformPathToMessages(fakeData)[2].picture).to.deep.equal('systemPicture');
+  });
+
+  it('All messages should have 5 strict keys', () => {
+    transformPathToMessages(fakeData).forEach((dataObject) => {
+      expect(dataObject).to.have.all.keys('id', 'author', 'content', 'picture', 'number');
+    });
+  });
+
+  it('All messages should not contain empty keys', () => {
+    transformPathToMessages(fakeData).forEach((dataObject) => {
+      expect(dataObject.id).to.have.not.lengthOf(0);
+      expect(dataObject.author).to.have.not.lengthOf(0);
+      expect(dataObject.content).to.have.not.lengthOf(0);
+      expect(dataObject.picture).to.have.not.lengthOf(0);
+      expect(dataObject.number).to.be.not.equal(0);
+    });
   });
 });
