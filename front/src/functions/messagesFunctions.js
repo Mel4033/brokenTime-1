@@ -7,7 +7,7 @@ const classToApply = (senderName) => {
     case 'Système':
       return 'system';
     default:
-      break;
+      return '';
   }
 };
 
