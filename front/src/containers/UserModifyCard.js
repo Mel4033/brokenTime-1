@@ -4,7 +4,7 @@ import UserModifyCard from '../components/Profil/UserCard/UserModifyCard';
 import { switchProfilDisplay } from '../actions/profilCard';
 import { profileInputChange, submitModifiedProfile } from '../actions/user';
 
-const defaultImage = 'https://media.discordapp.net/attachments/364094342953959424/765477171555860490/usericon.png';
+const defaultImage = 'https://discord.com/channels/776028256561397781/776028623555395634/777830947034497044';
 
 // Application d'une image de profil par défaut dans le cas
 // où l'utilisateur possède une image de profil égale à null.

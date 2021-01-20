@@ -32,7 +32,7 @@ const fiction = (state = initialState, action = {}) => {
             id: uuidv4(),
             author: 'Système',
             content: action.payload.choiceContent,
-            picture: 'https://media.discordapp.net/attachments/364094342953959424/765186494528094228/unknown.png',
+            picture: 'https://discord.com/channels/776028256561397781/776028623555395634/801409250864922644',
           }],
         };
       }
