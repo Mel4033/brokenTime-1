@@ -27,11 +27,10 @@ const registerMiddleware = (store) => (next) => (action) => {
           .then((response) => {
             store.dispatch(registerSuccess());
             store.dispatch(loginSubmit());
-            console.log(response);
           })
           .catch((error) => {
             store.dispatch(registerError());
-            console.log(error);
+            // console.log(error);
           });
       }
       break;

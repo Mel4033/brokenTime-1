@@ -2,7 +2,8 @@ import { uuid as uuidv4 } from 'uuidv4';
 import { NEXT_MESSAGE } from '../actions/notFound';
 
 const initialState = {
-  // La valeur de secretkey correspond au nombre de clicks nécessaires avant l'apparition du message.
+  // La valeur de secretkey correspond au nombre de clicks nécessaires avant
+  // l'apparition du message.
   messages: [
     {
       secretkey: 0,
@@ -40,19 +41,9 @@ const initialState = {
       string: 'Pierre : "Vous êtes le maillon faible. Au revoir."',
     },
     {
-      secretkey: 15,
-      id: uuidv4(),
-      string: 'Pierre : "BRAVO ARTHOUR !"',
-    },
-    {
       secretkey: 20,
       id: uuidv4(),
       string: 'Olivier : "Nan mais si tu parles de cardinalités en soirée mondaine, t\'es le roi de la nuit."',
-    },
-    {
-      secretkey: 25,
-      id: uuidv4(),
-      string: 'Olivier : "En PHP, les fonctions aiment vraiment manger des paramètres."',
     },
     {
       secretkey: 30,
@@ -60,22 +51,17 @@ const initialState = {
       string: 'Stéphane : "Je pense qu\'un peu de f0f irai vachement bien sur ces caméléons... Pas vous ?"',
     },
     {
-      secretkey: 35,
-      id: uuidv4(),
-      string: 'Stéphane : "La sémantique est importante. Que je ne vous vois pas à mettre du texte en gras avec une balise <strong> !"',
-    },
-    {
       secretkey: 40,
       id: uuidv4(),
       string: 'Tony : "Alright !"',
     },
     {
-      secretkey: 45,
+      secretkey: 50,
       id: uuidv4(),
-      string: 'Tony : "Oh come on !"',
+      string: 'Pierre : "BRAVO ARTHOUR !"',
     },
     {
-      secretkey: 50,
+      secretkey: 60,
       id: uuidv4(),
       string: 'Team Brokentime - Sprint 0 : "Euh... Par où on commence du coup ?"',
     },

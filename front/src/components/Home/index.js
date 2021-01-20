@@ -1,11 +1,11 @@
 import React from 'react';
 import './style-desktop.scss';
 import './style-mobile.scss';
-
-import logoBrokentime from '../../assets/images/brokentime-logo.png';
 import HomeCard from './HomeCard';
-import pocketwatch from '../../assets/images/pocketwatch.jpeg';
-import skullclock from '../../assets/images/skullclock.jpeg';
+
+const logoBrokentime = 'https://discord.com/channels/776028256561397781/776028623555395634/801409248927678464';
+const pocketwatch = 'https://discord.com/channels/776028256561397781/776028623555395634/801409241138593802';
+const skullclock = 'https://discord.com/channels/776028256561397781/776028623555395634/801409250864922644';
 
 const Home = ({ isLogged }) => (
   <div className="home">

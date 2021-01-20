@@ -1,4 +1,4 @@
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .titreContact
     {
     text-align: center;
@@ -38,35 +38,38 @@
     {
         border: 1px #acab solid;
         width: 51%;
-        height: 150px;
-        background-image: url(../../assets/images/info1.jpg);
+        height: 134px;
+        background-image: url("https://media.discordapp.net/attachments/364094342953959424/765579866086309938/info1.jpg");
         background-size: 125%;
         background-repeat: no-repeat;
         border-radius: 10px;
         margin-bottom: 25px;
+        background-position: center;
     };
 
     .idea
     {
         border: 1px #acab solid;
         width: 51%;
-        height: 150px;
-        background-image: url(../../assets/images/idea2.jpg);
+        height: 134px;
+        background-image: url("https://media.discordapp.net/attachments/364094342953959424/765579859069239296/idea2.jpg");
         background-size: 125%;
         background-repeat: no-repeat;
         border-radius: 10px;
         margin-bottom: 25px;
+        background-position: center;
     };
 
     .email
     {
         border: 1px #acab solid;
         width: 51%;
-        height: 150px;
-        background-image: url(../../assets/images/contact1.jpg);
+        height: 134px;
+        background-image: url("https://media.discordapp.net/attachments/364094342953959424/765579841608351774/contact1.jpg");
         background-size: 101%;
         background-repeat: no-repeat;
         border-radius: 10px;
         margin-bottom: 25px;
+        background-position: center;
     };
 }

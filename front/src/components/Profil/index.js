@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
 import './style-desktop.scss';
 import './style-mobile.scss';
 import OwnedCard from './OwnedCard';

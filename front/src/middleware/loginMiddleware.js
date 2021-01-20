@@ -32,7 +32,7 @@ const loginMiddleware = (store) => (next) => (action) => {
             store.dispatch(connectUser(response.data));
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           })
           .finally(() => {
             setTimeout(() => {
@@ -44,8 +44,6 @@ const loginMiddleware = (store) => (next) => (action) => {
 
     // On reçois la demande de Login et on fait une demande de vérification vers l'API
     case LOGIN_SUBMIT: {
-      console.log('login submitted (loginMiddleware)');
-      // TODO : Réaliser l'appel axios
       // Si le login réussi -> dispatch(loginSuccess());
       // Si le login échoue -> dispatch(loginError());
       // const data = {
@@ -69,7 +67,7 @@ const loginMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           store.dispatch(loginError());
-          console.log(error);
+          // console.log(error);
         });
       break;
     }
@@ -87,10 +85,12 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
+          // Success
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
+          // Failed
         });
       break;
     }
