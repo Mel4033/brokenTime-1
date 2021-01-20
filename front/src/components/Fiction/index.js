@@ -24,7 +24,7 @@ const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting,
 
   return (
     <div className="fiction">
-      <p ref={maFutureDiv} className="fiction__messages">
+      <div ref={maFutureDiv} className="fiction__messages">
         {
           messages.map((messageObject) => (
             <Message
@@ -35,7 +35,7 @@ const Fiction = ({ messages, choices, choicesDisplayed, submitChoice, isWriting,
             />
           ))
         }
-      </p>
+      </div>
       {/* Affiche si un message est en cours de réception. */}
       {isWriting && (
         <div className="fiction__loadingmessage">
