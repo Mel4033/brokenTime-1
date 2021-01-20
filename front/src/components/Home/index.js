@@ -3,9 +3,9 @@ import './style-desktop.scss';
 import './style-mobile.scss';
 import HomeCard from './HomeCard';
 
-const logoBrokentime = 'https://media.discordapp.net/attachments/364094342953959424/765579486929485844/brokentime-logo.png?width=731&height=677';
-const pocketwatch = 'https://media.discordapp.net/attachments/364094342953959424/765579202107408434/pocketwatch.jpeg';
-const skullclock = 'https://media.discordapp.net/attachments/364094342953959424/765579187477544990/skullclock.jpeg';
+const logoBrokentime = 'https://discord.com/channels/776028256561397781/776028623555395634/801409248927678464';
+const pocketwatch = 'https://discord.com/channels/776028256561397781/776028623555395634/801409241138593802';
+const skullclock = 'https://discord.com/channels/776028256561397781/776028623555395634/801409250864922644';
 
 const Home = ({ isLogged }) => (
   <div className="home">
