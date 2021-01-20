@@ -131,7 +131,7 @@ class User implements UserInterface
      */
     public function setPicturePersistValue()
     {
-        $this->picture = 'https://media.discordapp.net/attachments/364094342953959424/765477171555860490/usericon.png';
+        $this->picture = 'https://discord.com/channels/776028256561397781/776028623555395634/777830947034497044';
     }
 
     public function getId(): ?int
