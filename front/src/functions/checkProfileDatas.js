@@ -1,5 +1,7 @@
 const checkProfileDatas = (profileData) => {
   let data = {};
+
+  // Si profile.Data.email n'est pas undefined ou null on récupère dans data l'email du profileData
   if (profileData.email !== '' && profileData.email !== undefined && profileData.email !== null) {
     data = {
       ...data,

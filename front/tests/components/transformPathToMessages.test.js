@@ -59,6 +59,7 @@ const fakeData = {
 
 // Description et réalisation des tests
 describe('Serial tests of transformPathToMessages function', () => {
+
   it('Should return an array', () => {
     expect(transformPathToMessages(fakeData)).to.be.an('array');
   });
@@ -101,9 +102,5 @@ describe('Serial tests of transformPathToMessages function', () => {
       expect(dataObject.picture).to.have.not.lengthOf(0);
       expect(dataObject.number).to.be.not.equal(0);
     });
-  });
-
-  it('Should return undefined if no parameters provided', () => {
-    expect(transformPathToMessages()).to.be.deep.equal(undefined);
   });
 });
