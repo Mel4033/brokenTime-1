@@ -62,11 +62,12 @@ class AdminAuthenticator extends AbstractFormLoginAuthenticator implements Passw
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
+        // Ici on met en place la sécurité anti csrf en validant que le token transmis et bien valide.
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
         if (!$this->csrfTokenManager->isTokenValid($token)) {
             throw new InvalidCsrfTokenException();
         }
-
+        // si c'est valide on récupére notre User::class et on renvoi les infos correspondant a l'email connécté.
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
         if (!$user) {

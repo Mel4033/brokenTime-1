@@ -1,5 +1,7 @@
 <?php
 
+// Fichier qui regroupe tout les packages installés pour le site
+
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],

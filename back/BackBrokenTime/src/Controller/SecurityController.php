@@ -1,5 +1,7 @@
 <?php
 
+// route pour la connexion au dashboard
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

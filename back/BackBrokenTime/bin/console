@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+// Configuration des commandes dans le terminal pour le projet ( nous permet de lancer nos commandes depuis le terminal, faire des test, créer des classes etc... )
+
 use App\Kernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;

@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
+// Le Kernel (noyau) de symfony dispatche plusieurs évènements tout au long du traitement d'une requête
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;

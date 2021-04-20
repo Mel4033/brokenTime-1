@@ -10,12 +10,13 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class CategoryCrudController extends AbstractCrudController
 {
+    // Ici on retourne la classe Category 
     public static function getEntityFqcn(): string
     {
         return Category::class;
     }
 
-    
+    // Ici on indique ce que le dashboard dois afficher de la partie Category ( de notre bdd )
     public function configureFields(string $pageName): iterable
     {
         return [
