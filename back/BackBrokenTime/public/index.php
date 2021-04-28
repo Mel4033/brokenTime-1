@@ -28,3 +28,5 @@ $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
+
+// ? Point de sorti du projet symfo ( si en full symfo, prés codé )

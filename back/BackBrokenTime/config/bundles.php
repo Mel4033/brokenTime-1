@@ -1,6 +1,6 @@
 <?php
 
-// Fichier qui regroupe tout les packages installés pour le site
+//? Fichier qui regroupe tout les packages installés pour le site
 
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],

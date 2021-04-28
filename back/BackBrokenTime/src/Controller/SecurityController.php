@@ -1,6 +1,6 @@
 <?php
 
-// route pour la connexion au dashboard
+//? Route pour la connexion au dashboard & authentification
 
 namespace App\Controller;
 

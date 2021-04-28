@@ -1,5 +1,7 @@
 <?php
 
+//? Ecouteur d'evenement pour les slugs, non utilisé car gérer par le front.
+
 namespace App\EventListener;
 
 use App\Entity\Fiction;
